@@ -1,3 +1,29 @@
+/* === VISIBILITY HOTFIX (safe fallback) === */
+html, body { background:#fff; color:#111; }
+
+/* Wenn gradient-clip nicht unterstützt wird: Text NICHT transparent machen */
+@supports not (-webkit-background-clip: text) {
+  .gradient-text, .nav a {
+    color:#111 !important; 
+    background:none !important;
+  }
+}
+
+/* Safari-Quirk: bei gradient text füllt sonst manchmal nix */
+.nav a { -webkit-text-fill-color: transparent; }
+.gradient-text { -webkit-text-fill-color: transparent; }
+
+/* Falls Hero-Bild fehlt: dunkle Verlaufsoverlay, damit Logo/Claim sichtbar bleiben */
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.15));
+}
+
+/* Notfall: Nichts pauschal verstecken */
+[hidden]{ display:none !important; }
+/* Ende Hotfix */
+
 /* === Base Styles – clean + two-color brand gradient (turquoise -> purple) === */
 :root{
   --brand-a:#00d8ff; /* turquoise */
