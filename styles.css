@@ -167,20 +167,60 @@ header nav a:active,
 header nav a:visited{
   background-color: transparent !important; /* für alle Zustände */
 }
-/* --- NAV: Pill-Box / weißer Hintergrund vollständig deaktivieren --- */
+/* --- NAV: Pill-Box / weißer Hintergrund vollständig deaktivieren (korrigiert) --- */
 header nav a,
 header nav a:hover,
 header nav a:focus,
 header nav a:active,
 header nav a:visited,
 header nav a[aria-current="page"]{
-  background: none !important;
+  /* nur die Box-Effekte aus, den Hintergrund-Gradient NICHT löschen */
   background-color: transparent !important;
-  border: 0 !important;
   box-shadow: none !important;
-  display: inline-block;
+  border: 0 !important;
   border-radius: 0 !important;
 }
+
+/* Verlaufs-Text sicher erzwingen */
+header nav a{
+  position: relative;
+  background-image: var(--heading-gradient) !important;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Unterstreichung-Animation */
+header nav a::after{
+  content:"";
+  position:absolute; left:10px; right:10px; bottom:2px;
+  height:2px; background: var(--heading-gradient);
+  transform: scaleX(0); transform-origin:left;
+  transition: transform .2s ease;
+}
+header nav a:hover::after,
+header nav a:focus-visible::after,
+header nav a[aria-current="page"]::after{ transform: scaleX(1); }
+
+/* Barrierefreier Fokus ohne Kasten */
+header nav a:focus-visible{
+  outline: 2px dashed var(--grad-teal);
+  outline-offset: 4px;
+}
+
+/* High-contrast/Farbzwang: auf normale Textfarbe fallen zurück */
+@media (forced-colors: active){
+  header nav a{
+    background: none !important;
+    color: ButtonText !important;
+    -webkit-text-fill-color: ButtonText !important;
+  }
+  header nav a::after{ background: ButtonText !important; }
+}
+
 
 /* Unser Gradient-Text + Unterstreichung bleibt aktiv */
 header nav a{
