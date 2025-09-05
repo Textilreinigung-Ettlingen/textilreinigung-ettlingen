@@ -167,3 +167,47 @@ header nav a:active,
 header nav a:visited{
   background-color: transparent !important; /* für alle Zustände */
 }
+/* --- NAV: Pill-Box / weißer Hintergrund vollständig deaktivieren --- */
+header nav a,
+header nav a:hover,
+header nav a:focus,
+header nav a:active,
+header nav a:visited,
+header nav a[aria-current="page"]{
+  background: none !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  display: inline-block;
+  border-radius: 0 !important;
+}
+
+/* Unser Gradient-Text + Unterstreichung bleibt aktiv */
+header nav a{
+  background-image: var(--heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Unterstreichung (falls schon vorhanden, doppelt ok) */
+header nav a::after{
+  content:"";
+  position:absolute; left:10px; right:10px; bottom:2px;
+  height:2px; background: var(--heading-gradient);
+  transform: scaleX(0); transform-origin:left;
+  transition: transform .2s ease;
+}
+header nav a:hover::after,
+header nav a:focus-visible::after,
+header nav a[aria-current="page"]::after{ transform: scaleX(1); }
+
+/* Tap-Highlight auf Mobil aus */
+header nav a{ -webkit-tap-highlight-color: transparent; }
+
+/* Barrierefreier Fokus (sichtbar, aber ohne Box) */
+header nav a:focus-visible{
+  outline: 2px dashed var(--grad-teal);
+  outline-offset: 4px;
+}
