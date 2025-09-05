@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+  Options -MultiViews
+  RewriteEngine On
+
+  # In EINEM Schritt auf https + non-www kanonisieren
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\.textilreinigung-ettlingen\.de$ [NC]
+  RewriteRule ^(.*)$ https://textilreinigung-ettlingen.de/$1 [R=301,L]
+</IfModule>
