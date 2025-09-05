@@ -70,3 +70,87 @@ h1, h2, h3 {
 @media (forced-colors: active) {
   h1, h2, h3 { color: var(--fg); background: none; }
 }
+
+/* === Gradient-Theme wie im Logo (Lila → Türkis → Grün → Gelb) === */
+:root{
+  --grad-purple:#7c3aed;   /* Lila */
+  --grad-teal:#06b6d4;     /* Türkis */
+  --grad-green:#22c55e;    /* Grün */
+  --grad-yellow:#f59e0b;   /* Gelb */
+  --heading-gradient: linear-gradient(90deg,
+    var(--grad-purple) 0%,
+    var(--grad-teal) 35%,
+    var(--grad-green) 70%,
+    var(--grad-yellow) 100%);
+}
+
+/* --- Überschriften im Verlauf (falls noch nicht drin) --- */
+h1, h2, h3{
+  background: var(--heading-gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+}
+@media (forced-colors: active){
+  h1, h2, h3{ background:none; color:var(--fg); -webkit-text-fill-color:var(--fg); }
+}
+
+/* === Gradient-Border für Boxen/Karten === */
+.card, .figure{
+  border:1px solid transparent;
+  /* 2 Layer: 1) Card-Farbe als Inhalt  2) Verlauf als Rand */
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    var(--heading-gradient) border-box;
+  border-radius:14px; /* sicherstellen */
+}
+.card:hover, .figure:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* === Navigation: größer + Gradient-Text + Underline === */
+header nav{ gap:12px; }
+header nav a{
+  font-weight:700;
+  font-size:clamp(1rem, 1.1vw + .9rem, 1.15rem);
+  padding:10px 12px;
+  text-decoration:none;
+  position:relative;
+
+  background: var(--heading-gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+}
+header nav a::after{
+  content:"";
+  position:absolute; left:10px; right:10px; bottom:2px;
+  height:2px;
+  background: var(--heading-gradient);
+  transform: scaleX(0);
+  transform-origin:left;
+  transition: transform .2s ease;
+}
+header nav a:hover::after,
+header nav a:focus-visible::after,
+header nav a[aria-current="page"]::after{ transform: scaleX(1); }
+
+header nav a:focus-visible{
+  outline:2px dashed var(--grad-teal);
+  outline-offset:3px;
+}
+
+@media (forced-colors: active){
+  header nav a{
+    background:none; color:ButtonText; -webkit-text-fill-color:ButtonText;
+  }
+  header nav a::after{ background:currentColor; }
+}
+
+/* (falls noch nicht vorhanden) Logo-Styles */
+nav .brand{display:inline-flex;align-items:center;gap:10px;margin-right:8px;padding:4px 8px;border-radius:10px}
+nav .brand img.logo{height:28px;width:auto;display:block}
