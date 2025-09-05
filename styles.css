@@ -1,0 +1,38 @@
+/* Basic reset + variables + dark mode */
+:root{
+  --bg:#0b0c0f; --fg:#e7e9ee; --muted:#a7adba;
+  --brand:#1db954; /* WhatsApp/Grün-Akzent */
+  --link:#1da1f2; --card:#14161b; --border:#262a33;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: light){
+  :root{ --bg:#ffffff; --fg:#0b0c0f; --muted:#475569; --card:#f8fafc; --border:#e5e7eb; }
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+a{color:var(--link);text-decoration:underline}
+header,footer{border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(29,185,84,.08),transparent)}
+footer{border-top:1px solid var(--border);border-bottom:none}
+.container{max-width:1080px;margin:0 auto;padding:16px}
+nav a{margin-right:14px;padding:6px 10px;border-radius:8px;text-decoration:none;color:var(--fg)}
+nav a[aria-current="page"]{background:var(--card);border:1px solid var(--border)}
+.hero{padding:56px 0}
+.hero h1{font-size:clamp(28px,4vw,44px);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin:12px 0}
+.grid{display:grid;gap:16px}
+@media(min-width:800px){ .grid-2{grid-template-columns:1fr 1fr} }
+.small{color:var(--muted);font-size:.92rem}
+address{font-style:normal}
+hr{border:0;border-top:1px solid var(--border);margin:20px 0}
+
+/* Skip link */
+.skip{position:absolute;left:-9999px;top:auto}
+.skip:focus{left:12px;top:12px;background:var(--card);padding:8px 12px;border:1px solid var(--border);border-radius:8px}
+
+/* Floating WhatsApp Button */
+.fab-whatsapp{
+  position:fixed;right:18px;bottom:18px;z-index:50;
+  background:var(--brand);color:#000;padding:12px 16px;border-radius:999px;
+  font-weight:600;text-decoration:none;border:2px solid #0005;box-shadow:0 8px 24px rgba(0,0,0,.35)
+}
+.fab-whatsapp:hover{transform:translateY(-1px)}
