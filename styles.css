@@ -251,3 +251,47 @@ header nav a:focus-visible{
   outline: 2px dashed var(--grad-teal);
   outline-offset: 4px;
 }
+/* === NAV-Fix: Solider Text, nur Gradient-Unterstreichung (robust in allen Browsern) === */
+header nav a,
+header nav a:hover,
+header nav a:focus,
+header nav a:active,
+header nav a:visited,
+header nav a[aria-current="page"]{
+  /* alle Box-/Hintergrundeffekte aus */
+  background-image: none !important;
+  background-color: transparent !important;
+  -webkit-background-clip: initial !important;
+  background-clip: border-box !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  /* gut lesbare Textfarbe */
+  color: #0f172a !important;              /* dunkles Grau, passt zum Layout */
+  -webkit-text-fill-color: #0f172a !important;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.1vw + .9rem, 1.15rem);
+  position: relative;
+  padding: 10px 12px;
+}
+
+/* Verlaufs-Unterstreichung bleibt */
+header nav a::after{
+  content:"";
+  position:absolute; left:10px; right:10px; bottom:2px;
+  height:2px;
+  background: linear-gradient(90deg,#7c3aed 0%,#06b6d4 35%,#22c55e 70%,#f59e0b 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+header nav a:hover::after,
+header nav a:focus-visible::after,
+header nav a[aria-current="page"]::after{ transform: scaleX(1); }
+
+/* Barrierefreier Fokus – ohne Kasten */
+header nav a:focus-visible{
+  outline: 2px dashed #06b6d4;
+  outline-offset: 4px;
+}
