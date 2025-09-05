@@ -41,3 +41,32 @@ hr{border:0;border-top:1px solid var(--border);margin:20px 0}
 nav .brand{display:inline-flex;align-items:center;gap:10px;margin-right:14px;padding:4px 8px;border-radius:10px;text-decoration:none}
 nav .brand img.logo{height:28px;width:auto;display:block}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* === Gradient-Theme wie im Logo (Lila → Türkis → Grün → Gelb) === */
+:root{
+  --grad-purple:#7c3aed;   /* Lila */
+  --grad-teal:#06b6d4;     /* Türkis */
+  --grad-green:#22c55e;    /* Grün */
+  --grad-yellow:#f59e0b;   /* Gelb */
+  --heading-gradient: linear-gradient(90deg,
+    var(--grad-purple) 0%,
+    var(--grad-teal) 35%,
+    var(--grad-green) 70%,
+    var(--grad-yellow) 100%);
+}
+
+/* Gradient-Text für Überschriften – ohne HTML-Anpassung */
+h1, h2, h3 {
+  background: var(--heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Optionale Lesbarkeitsstütze auf Bild-Hero (feiner Glow) */
+.hero-image h1 { text-shadow: 0 1px 8px rgba(0,0,0,.35); }
+
+/* Barrierefreiheit: Wenn erzwungene Kontraste aktiv sind, wieder normale Farbe nutzen */
+@media (forced-colors: active) {
+  h1, h2, h3 { color: var(--fg); background: none; }
+}
