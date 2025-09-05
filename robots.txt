@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://textilreinigung-ettlingen.de/sitemap.xml
