@@ -4,33 +4,23 @@ html, body { background:#fff; color:#111; }
 /* Wenn gradient-clip nicht unterstützt wird: Text NICHT transparent machen */
 @supports not (-webkit-background-clip: text) {
   .gradient-text, .nav a {
-    color:#111 !important; 
+    color:#111 !important;
     background:none !important;
   }
 }
 
-/* Safari-Quirk: bei gradient text füllt sonst manchmal nix */
+/* Safari-Quirk: stellt sicher, dass der Text gefüllt bleibt */
 .nav a { -webkit-text-fill-color: transparent; }
 .gradient-text { -webkit-text-fill-color: transparent; }
-
-/* Falls Hero-Bild fehlt: dunkle Verlaufsoverlay, damit Logo/Claim sichtbar bleiben */
-.hero::before{
-  content:"";
-  position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.15));
-}
-
-/* Notfall: Nichts pauschal verstecken */
-[hidden]{ display:none !important; }
-/* Ende Hotfix */
+/* === END HOTFIX === */
 
 /* === Base Styles – clean + two-color brand gradient (turquoise -> purple) === */
 :root{
   --brand-a:#00d8ff; /* turquoise */
   --brand-b:#7b2cff; /* purple */
-  --text:#111; 
+  --text:#111;
   --bg:#fff;
-  --muted:#5b6472; 
+  --muted:#5b6472;
   --line:#e5e7eb;
   --ring:#111;
 }
@@ -47,7 +37,8 @@ html, body { background:#fff; color:#111; }
 }
 
 *{ box-sizing:border-box; }
-html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; line-height:1.55; }
+html,body{ margin:0; padding:0; background:var(--bg); color:var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; line-height:1.55; }
 
 .container{ width:100%; max-width:1200px; margin-inline:auto; padding-inline:1rem; }
 .section{ padding: clamp(2.25rem, 3vw, 3.5rem) 0; }
@@ -57,6 +48,7 @@ html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); font-fa
   background: linear-gradient(90deg,var(--brand-a),var(--brand-b));
   -webkit-background-clip:text; background-clip:text; color:transparent;
 }
+
 h1,h2,h3{ line-height:1.2; margin:0 0 .6rem 0; }
 
 /* Subtle separators (instead of boxes) */
@@ -64,7 +56,8 @@ h1,h2,h3{ line-height:1.2; margin:0 0 .6rem 0; }
 
 /* Accessible focus + skip link */
 :focus-visible{ outline:3px solid var(--ring); outline-offset:3px; border-radius:6px; }
-.skip-link{ position:absolute; left:8px; top:-100px; padding:.5rem .75rem; z-index:1000; background:#fff; color:#000; border-radius:6px; box-shadow:0 4px 16px rgba(0,0,0,.15); }
+.skip-link{ position:absolute; left:8px; top:-100px; padding:.5rem .75rem; z-index:1000;
+  background:#fff; color:#000; border-radius:6px; box-shadow:0 4px 16px rgba(0,0,0,.15); }
 .skip-link:focus{ top:8px; }
 
 /* Header / Navigation: gradient text + underline animation */
@@ -82,12 +75,12 @@ header[role="banner"]{ padding:1rem 0; }
 }
 .nav a:hover::after,.nav a:focus-visible::after,.nav a[aria-current="page"]::after{ transform: scaleX(1); }
 
-/* HERO (keine Kästen; nur Bild + Overlay für Lesbarkeit) */
+/* HERO (ohne Kästen; nur Bild + Overlay für Lesbarkeit) */
 .hero{
   position:relative; border-radius:20px; overflow:hidden; isolation:isolate;
   min-height: clamp(360px, 60vw, 560px);
   display:grid; place-items:center; text-align:center;
-  background: 
+  background:
     url('/img/hero-bg.jpg') center/cover no-repeat, var(--bg);
 }
 .hero::before{
