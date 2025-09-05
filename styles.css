@@ -154,3 +154,16 @@ header nav a:focus-visible{
 /* (falls noch nicht vorhanden) Logo-Styles */
 nav .brand{display:inline-flex;align-items:center;gap:10px;margin-right:8px;padding:4px 8px;border-radius:10px}
 nav .brand img.logo{height:28px;width:auto;display:block}
+
+/* Fix: Kein weißer Kasten in der Navigation bei Klick/Focus */
+header nav a{
+  background-color: transparent !important; /* behält den Verlaufs-Text, entfernt Box */
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent; /* iOS/Android Tap-Highlight aus */
+}
+header nav a:hover,
+header nav a:focus,
+header nav a:active,
+header nav a:visited{
+  background-color: transparent !important; /* für alle Zustände */
+}
