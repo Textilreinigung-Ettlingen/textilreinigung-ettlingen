@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://textilreinigung-ettlingen.de/</loc></url>
-  <url><loc>https://textilreinigung-ettlingen.de/preise.html</loc></url>
-  <url><loc>https://textilreinigung-ettlingen.de/brautkleid.html</loc></url>
-  <url><loc>https://textilreinigung-ettlingen.de/contact.html</loc></url>
-  <url><loc>https://textilreinigung-ettlingen.de/schaden.html</loc></url>
-  <url><loc>https://textilreinigung-ettlingen.de/impressum.html</loc></url>
-  <url><loc>https://textilreinigung-ettlingen.de/datenschutz.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://textilreinigung-ettlingen.de/</loc><changefreq>weekly</changefreq><priority>1.0</priority><lastmod>2025-09-05</lastmod></url>
+  <url><loc>https://textilreinigung-ettlingen.de/preise.html</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2025-09-05</lastmod></url>
+  <url><loc>https://textilreinigung-ettlingen.de/brautkleid.html</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2025-09-05</lastmod></url>
+  <url><loc>https://textilreinigung-ettlingen.de/schaden.html</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2025-09-05</lastmod></url>
+  <url><loc>https://textilreinigung-ettlingen.de/contact.html</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>2025-09-05</lastmod></url>
+  <url><loc>https://textilreinigung-ettlingen.de/ueber-uns.html</loc><changefreq>yearly</changefreq><priority>0.5</priority><lastmod>2025-09-05</lastmod></url>
+  <url><loc>https://textilreinigung-ettlingen.de/impressum.html</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>2025-09-05</lastmod></url>
+  <url><loc>https://textilreinigung-ettlingen.de/datenschutz.html</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>2025-09-05</lastmod></url>
+  <url><loc>https://textilreinigung-ettlingen.de/agb.html</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>2025-09-05</lastmod></url>
 </urlset>
