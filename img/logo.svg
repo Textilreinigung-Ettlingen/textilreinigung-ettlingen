@@ -1,1 +1,6 @@
-
+<!-- /img/logo.svg – Platzhalter: grünes Badge mit "TE" -->
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" role="img" aria-label="Textilreinigung Ettlingen">
+  <rect x="0" y="0" width="160" height="40" rx="8" fill="#16a34a"/>
+  <text x="20" y="26" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#ffffff">TE</text>
+  <text x="48" y="26" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" fill="#ffffff">Textilreinigung Ettlingen</text>
+</svg>
