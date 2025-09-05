@@ -43,8 +43,8 @@
         </div>
         <div class="card">
           <h2>Öffnungszeiten</h2>
-          <p class="small">Bitte vorerst telefonisch/WhatsApp erfragen – Profil wird aktualisiert.</p>
-          <p>Telefon: <a href="tel:+4972439491888">07243 94 91 888</a><br/>WhatsApp: <a href="https://wa.me/491604138492" target="_blank" rel="noopener">0160 41 38 492</a></p>
+          <p>Montag–Freitag: <strong>08:30–18:00</strong><br/>Samstag: <strong>08:30–14:00</strong><br/>Sonntag: <strong>geschlossen</strong></p>
+          <p class="small">Fragen? Telefon: <a href="tel:+4972439491888">07243 94 91 888</a> · <a href="https://wa.me/491604138492" target="_blank" rel="noopener">WhatsApp</a></p>
         </div>
       </div>
     </section>
@@ -111,7 +111,21 @@
     "sameAs":["https://wa.me/491604138492"],
     "areaServed":"Ettlingen, Karlsruhe",
     "currenciesAccepted":"EUR",
-    "priceRange":"€€"
+    "priceRange":"€€",
+    "openingHoursSpecification":[
+      {
+        "@type":"OpeningHoursSpecification",
+        "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens":"08:30",
+        "closes":"18:00"
+      },
+      {
+        "@type":"OpeningHoursSpecification",
+        "dayOfWeek":["Saturday"],
+        "opens":"08:30",
+        "closes":"14:00"
+      }
+    ]
   }
   </script>
 </body>
