@@ -335,7 +335,7 @@ header nav a[aria-current="page"]::after{ transform: scaleX(1); }
   }
   header nav a:not(.brand)::after{ background: ButtonText !important; }
 }
-/* === Home extensions – 2025-09-05 === */
+/* === Home extensions – 2025-09-05 (append only) === */
 :root{
   --c1:#7b2cff; /* purple */
   --c2:#00d8ff; /* turquoise */
@@ -401,18 +401,25 @@ header nav a[aria-current="page"]::after{ transform: scaleX(1); }
 }
 .skip-link:focus{ top:8px; }
 
-/* Header / Nav underline animation (keine Boxen) */
+/* Header / Nav – Gradient-Text + animierte Unterstreichung */
 .nav{
   display:flex; gap:1rem; flex-wrap:wrap; align-items:center;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
 }
 .nav a{
-  position:relative; text-decoration:none; color:inherit; font-weight:600;
+  position:relative; display:inline-block; text-decoration:none; font-weight:700;
   background-image: linear-gradient(90deg,var(--c1),var(--c2),var(--c3),var(--c4));
-  background-size: 0% 2px; background-repeat:no-repeat; background-position: left bottom;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
   padding-bottom:2px;
 }
-.nav a:hover,.nav a:focus-visible{ background-size: 100% 2px; }
-.nav a[aria-current="page"]{ background-size:100% 2px; }
+.nav a::after{
+  content:""; position:absolute; left:0; bottom:-2px; height:2px; width:100%;
+  background: linear-gradient(90deg,var(--c1),var(--c2),var(--c3),var(--c4));
+  transform: scaleX(0); transform-origin:left; transition: transform .25s ease;
+}
+.nav a:hover::after,.nav a:focus-visible::after,.nav a[aria-current="page"]::after{
+  transform: scaleX(1);
+}
 
 /* Hero */
 .hero{
@@ -423,10 +430,7 @@ header nav a[aria-current="page"]::after{ transform: scaleX(1); }
               radial-gradient(1200px 600px at 80% 110%, rgba(0,216,255,.25), transparent 40%),
               url('/img/hero-bg.jpg') center/cover no-repeat, var(--card);
 }
-.hero .overlay{
-  position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.15));
-}
+.hero .overlay{ position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.15)); }
 .hero-inner{ position:relative; z-index:1; padding:2rem; }
 .hero-logo{ width:min(220px,50vw); height:auto; margin-inline:auto; display:block; }
 .hero-claim{ margin-top:1rem; font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight:800; }
@@ -436,18 +440,14 @@ header nav a[aria-current="page"]::after{ transform: scaleX(1); }
   display:grid; gap:1rem;
   grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
 }
-.card{
-  background:var(--card); border-radius:16px; overflow:hidden;
-}
+.card{ background:var(--card); border-radius:16px; overflow:hidden; }
 .card.gradient-border{ background-clip:padding-box,border-box; }
 .card img{ width:100%; height:180px; object-fit:cover; display:block; }
 .card-body{ padding:1rem; display:grid; gap:.5rem; }
 .card h3{ margin:0; font-size:1.125rem; }
 .card p{ margin:0; color:var(--muted); }
 .card details{ margin-top:.25rem; }
-.card summary{
-  cursor:pointer; font-weight:600; list-style:none; position:relative; padding:.25rem 0;
-}
+.card summary{ cursor:pointer; font-weight:600; list-style:none; position:relative; padding:.25rem 0; }
 .card summary::-webkit-details-marker{ display:none; }
 .card summary::after{ content:"↗"; font-size:.9rem; margin-left:.5rem; }
 
