@@ -142,3 +142,64 @@ details summary{cursor:pointer;font-weight:700;padding:.25rem 0}
 /* Utility */
 .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
 .sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* -------- Mobile-optimierte CTAs (einfügen am Ende von styles.css) -------- */
+@media (max-width: 600px) {
+  /* größerer Abstand und größere Tap-Fläche */
+  .hero-ctas--icons {
+    gap: 0.9rem; /* mehr Abstand zwischen Buttons */
+  }
+
+  /* Buttons: größere Hit-Area, besser lesbar */
+  .hero-ctas--icons .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 12px 16px;      /* großzügiges Padding */
+    min-height: 48px;       /* Mindesthöhe für Touch */
+    font-size: 1.05rem;     /* etwas größere Schrift */
+    border-radius: 12px;
+    touch-action: manipulation; /* bessere Touch-Performance */
+    -webkit-tap-highlight-color: rgba(0,0,0,0.08); /* dezente Hervorhebung */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+  }
+
+  /* Wenn du volle Breite willst (optional, sehr touch-freundlich)
+     deaktivieren, wenn du Buttons nebeneinander behalten möchtest */
+  @media (max-width: 420px) {
+    .hero-ctas--icons .cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  /* größere Icons leicht skalieren */
+  .hero-ctas--icons .cta .cta-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* WhatsApp-Fab etwas größer, leichter zu treffen */
+  .whatsapp-fab {
+    width: 66px;
+    height: 66px;
+    font-size: 24px;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  /* Fokus-Zustand deutlicher (A11y) */
+  .hero-ctas--icons .cta:focus {
+    outline: 3px solid rgba(123,44,255,0.16);
+    outline-offset: 3px;
+  }
+}
+
+/* Small improvement for all screens: make entire CTA clickable area generous */
+.hero-ctas--icons .cta {
+  line-height: 1; /* verhindert vertikales "Zusammenziehen" */
+  -webkit-user-select: none;
+  user-select: none;
+}
