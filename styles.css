@@ -30,7 +30,7 @@ body{
 
 /* Header larger */
 .header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1rem}
-.brand img{height:100px;max-height:140px;width:auto}
+.brand img{height:110px;max-height:140px;width:auto} /* Logo größer wie gewünscht */
 .brand-link{display:inline-block}
 
 /* Nav: gradient text */
@@ -105,11 +105,11 @@ body{
 .map-wrap{border-radius:10px;overflow:hidden;margin-bottom:1rem}
 .map-wrap iframe{width:100%;height:320px;border:0}
 
-/* ===================== CONTACT STRIP (zentriert, Badge + Wegbutton) ===================== */
+/* ===================== CONTACT STRIP (zentriert, left address, right directions) ===================== */
 .contact-strip{margin:2rem 0;padding:0}
 .contact-strip-inner{
   padding:0;
-  max-width:960px;     /* angenehme Lesebreite */
+  max-width:1100px;     /* zentrierte Lesebreite */
   margin:0 auto;
 }
 .contact-strip-header{text-align:center;margin-bottom:0.6rem}
@@ -120,18 +120,21 @@ body{
 }
 .contact-strip-header .muted{margin-top:.3rem;color:var(--muted)}
 
-/* grid layout centered inside the inner box */
+/* FLEX-based grid: sorgt dafür, dass gesamte block zentriert bleibt */
 .contact-grid{
-  display:grid;
-  grid-template-columns:1fr 360px;
-  gap:1rem;
-  align-items:start;
-  max-width:880px;      /* zentriert die Grid-Box */
+  display:flex;
+  gap:2rem;
+  align-items:flex-start;
+  justify-content:center; /* <--- zentriert die beiden Spalten innerhalb container */
+  max-width:920px;
   margin:0 auto;
 }
-@media(max-width:900px){ .contact-grid{grid-template-columns:1fr;max-width:100%} }
+@media(max-width:900px){
+  .contact-grid{flex-direction:column;max-width:100%}
+}
 
-/* left contact block */
+/* LEFT COLUMN: flexible, Adresse unter CTAs */
+.contact-left{flex:1;min-width:260px;max-width:640px}
 .contact-big{display:flex;gap:0.75rem;align-items:center;margin-bottom:0.75rem}
 .contact-big svg{width:48px;height:48px;flex-shrink:0}
 .contact-big .muted{color:var(--muted);font-size:0.9rem;margin:0}
@@ -148,8 +151,13 @@ body{
 .contact-btn--whatsapp{background:linear-gradient(180deg,var(--wa-green),#16b24a);color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(37,211,102,.09)}
 .contact-btn--mail{background:transparent;color:var(--text);border-color:rgba(0,0,0,.06)}
 
-/* right column: hours + address WITHOUT outer box - times are gradient & bold */
-.hours-card{border-radius:10px;padding:0}
+/* Adresse unter Telefon */
+.address-left{margin-top:0.9rem}
+.address-line{font-weight:700;color:var(--text)}
+
+/* RIGHT COLUMN: Öffnungszeiten + directions button (directions rechts unter hours) */
+.contact-right{width:320px;min-width:240px;display:flex;flex-direction:column;align-items:flex-end}
+.hours-card{width:100%;border-radius:10px;padding:0}
 .hours-header{
   display:flex;
   align-items:center;
@@ -165,22 +173,11 @@ body{
 }
 .hours-badge svg{display:block}
 
-/* remove outer white box: use transparent container */
-.hours-body{
-  background:transparent;    /* kein äußerer Kasten mehr */
-  padding:0;
-  border-radius:0;
-  color:var(--text);
-}
-.hours-row{
-  display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px dashed rgba(0,0,0,.03)
-}
+/* times: no outer box, gradient text, bold */
+.hours-body{background:transparent;padding:0;color:var(--text);width:100%}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px dashed rgba(0,0,0,.03)}
 .hours-row:last-child{border-bottom:0}
-
-/* Tage dezent */
 .hours-row .day{color:var(--muted);font-weight:600}
-
-/* Uhrzeiten: deutlich größer, fett und mit Farbverlauf (Türkis -> Lila) */
 .hours-row .time{
   font-weight:900;
   font-size:1.18rem;
@@ -191,22 +188,15 @@ body{
   color:transparent;
   -webkit-text-fill-color:transparent;
 }
-
-/* zusätzliche Notiz (Feiertage) */
 .hours-note{margin-top:.5rem;color:var(--muted);font-size:.92rem}
 
-/* address card */
-.address-card{margin-top:0.9rem;padding:0;display:flex;flex-direction:column;gap:.5rem}
-.address-line{font-weight:700;color:var(--text)}
+/* directions button container aligned to right */
+.directions-wrap{width:100%;display:flex;justify-content:flex-end;margin-top:.6rem}
 .directions-btn{
-  display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:0.95rem;border:2px solid transparent;background:transparent;color:var(--brand-b);
+  display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:0.95rem;border:2px solid rgba(123,44,255,0.12);background:transparent;color:var(--brand-b);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
   background-image:linear-gradient(90deg,var(--brand-a),var(--brand-b));
-  background-origin:padding-box;
-  -webkit-background-clip:text; /* text gradient */
-  background-clip:text;
   -webkit-text-fill-color:transparent;
-  box-shadow: inset 0 -100px 0 rgba(255,255,255,0); /* no fill */
-  border:2px solid rgba(123,44,255,0.12);
 }
 .directions-btn .btn-icon{width:16px;height:16px}
 .directions-btn:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
@@ -221,19 +211,22 @@ body{
 .whatsapp-fab{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:999px;background:linear-gradient(180deg,var(--brand-a),var(--brand-b));display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:22px;box-shadow:0 6px 18px rgba(0,0,0,.12);z-index:999}
 .whatsapp-fab:focus{outline:3px solid rgba(123,44,255,.14);outline-offset:3px}
 
-/* Reveal */
+/* Reveal & motion */
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
 .reveal--visible{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){ .reveal{transition:none;transform:none;opacity:1} }
 
 /* Mobile tweaks */
+@media (max-width:900px){
+  .contact-grid{flex-direction:column;align-items:stretch}
+  .contact-right{align-items:flex-start;width:auto}
+  .directions-wrap{justify-content:flex-start}
+  .hours-row .time{font-size:1.12rem}
+}
 @media (max-width:600px){
-  .contact-grid{grid-template-columns:1fr}
   .contact-ctas{flex-direction:column}
   .contact-btn{width:100%;justify-content:center}
-  .contact-big svg{width:40px;height:40px}
   .hero-ctas--icons .cta{display:block;width:100%;text-align:center}
-  .hours-row .time{font-size:1.12rem}
 }
 
 /* Utility */
