@@ -10,11 +10,13 @@
 
 /* base */
 *{box-sizing:border-box}
+html{scroll-behavior:smooth} /* smooth for anchor/back-to-top unless user prefers reduced motion */
+html:focus-within{scroll-behavior:smooth}
 html,body{height:100%}
 body{
   margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:var(--text);
   background:var(--bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-  line-height:1.45;padding-bottom:5rem;
+  line-height:1.45;padding-bottom:6rem;
 }
 
 .container{max-width:var(--max-width);margin:0 auto;padding:1rem}
@@ -25,7 +27,7 @@ body{
 
 /* header */
 .header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1rem}
-.brand img{height:110px;max-height:140px;width:auto}
+.brand img{height:110px;max-height:160px;width:auto}
 .nav{display:flex;gap:1.25rem;align-items:center}
 .nav a{
   text-decoration:none;font-weight:800;font-size:1rem;
@@ -41,32 +43,31 @@ body{
 .hero{padding:1.5rem 0}
 .hero-inner{display:flex;align-items:center;gap:1.5rem;justify-content:space-between}
 @media(max-width:900px){ .hero-inner{flex-direction:column;align-items:flex-start} }
-.hero-title{margin:0 0 .4rem;font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
+.hero-title{margin:0 0 .4rem;font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
 .lead{margin:0 0 1rem;color:var(--muted)}
 
-/* CTAs in hero */
+/* CTAs in hero - unified gradient style */
 .hero-ctas{display:flex;gap:.6rem;flex-wrap:wrap}
-.cta{padding:.5rem .8rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:0.95rem;border:2px solid rgba(255,255,255,0.06);display:inline-block}
-.cta-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.18)}         /* Preisliste: weiß mit Umrandung */
-.cta-whatsapp{background:linear-gradient(180deg,var(--wa-green),#16b24a);color:#fff;border-color:transparent} /* WhatsApp: unverändert */
-.cta-call{background:linear-gradient(90deg,var(--brand-a),#19d6ff);color:#08121a;border-color:transparent} /* Anrufen: türkis-ish */
-.cta-mail{
-  background:linear-gradient(90deg,var(--brand-a),var(--brand-b)); /* blau->lila */
+.cta{padding:.6rem .95rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:0.98rem;border:2px solid rgba(255,255,255,0.06);display:inline-flex;align-items:center;justify-content:center}
+.cta-gradient{
+  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
   color:#fff;border-color:transparent;
+  box-shadow:0 8px 20px rgba(123,44,255,.06);
 }
-.cta:hover{transform:translateY(-1px)}
+.cta-gradient:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
+.cta-gradient:hover{transform:translateY(-3px); transition: transform .14s ease}
 
-/* hero watermark (sichtbarer) */
+/* hero watermark: jetzt deutlich größer + sichtbarer */
 .hero-watermark{
-  width:min(320px,30vw);
-  height:min(320px,30vw);
+  width:min(420px,40vw);
+  height:min(420px,40vw);
   background-image:url('/img/logo.svg');
   background-repeat:no-repeat;background-position:center;background-size:contain;
-  opacity:.62;                /* stärker sichtbar wie gewünscht */
+  opacity:.72;                /* stärker sichtbar */
   border-radius:8px;flex-shrink:0;
-  filter:contrast(1.02);
+  filter:contrast(1.05);
 }
-@media(max-width:420px){ .hero-watermark{width:180px;height:180px} }
+@media(max-width:420px){ .hero-watermark{width:200px;height:200px;opacity:.6} }
 
 /* USP grid */
 .usp-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:0.6rem}
@@ -114,20 +115,19 @@ body{
 .phone-link:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
 
 /* CTAs: VERTIKAL (WhatsApp oben, E-Mail darunter) */
-.contact-ctas{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem;width:220px}
+.contact-ctas{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem;width:240px}
 @media(max-width:600px){ .contact-ctas{width:100%} }
 
 .btn{padding:.55rem .9rem;border-radius:10px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;justify-content:center}
-.whatsapp{background:linear-gradient(180deg,var(--wa-green),#16b24a);color:#fff}
-.mail{background:linear-gradient(90deg,var(--brand-a),var(--brand-b));color:#fff}
+.cta-gradient{padding:.6rem .9rem;border-radius:10px;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));color:#fff;border:2px solid transparent;box-shadow:0 10px 26px rgba(123,44,255,.06)}
+.mail{ /* not used separately now but kept for future */ }
 
-/* address: gradient text (Türkis -> Lila) */
+/* address gradient text */
 .address-left{margin-top:0.9rem}
-.address-line{
+.gradient-address{
   font-weight:800;
   background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  -webkit-text-fill-color:transparent;
 }
 
 /* right col */
@@ -154,10 +154,23 @@ body{
 /* floating whatsapp */
 .whatsapp-fab{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:999px;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:22px;box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:999}
 
+/* BACK TO TOP button */
+.to-top-btn{
+  position:fixed; right:18px; bottom:86px; width:46px; height:46px; border-radius:10px;
+  background:rgba(255,255,255,0.04); color:var(--text); border:1px solid rgba(255,255,255,0.06);
+  display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:18px; cursor:pointer; z-index:998;
+  opacity:0; transform:translateY(6px); transition:opacity .18s ease, transform .18s ease;
+}
+.to-top-btn.visible{opacity:1; transform:none}
+.to-top-btn:focus{outline:3px solid rgba(123,44,255,.12); outline-offset:3px}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
 .reveal--visible{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){ .reveal{transition:none;transform:none;opacity:1} }
+@media (prefers-reduced-motion: reduce){
+  .reveal{transition:none;transform:none;opacity:1}
+  html{scroll-behavior:auto}
+}
 
 /* responsive */
 @media(max-width:600px){
