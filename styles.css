@@ -30,10 +30,10 @@ body{
 
 /* Header larger */
 .header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1rem}
-.brand img{height:100px;max-height:140px;width:auto} /* noch größer */
+.brand img{height:100px;max-height:140px;width:auto}
 .brand-link{display:inline-block}
 
-/* Nav: größer, Gradient text */
+/* Nav: gradient text */
 .nav{display:flex;gap:1.5rem;align-items:center}
 .nav a{
   text-decoration:none;font-weight:800;font-size:1.05rem;
@@ -64,21 +64,12 @@ body{
   display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:1.02rem;border:2px solid rgba(0,0,0,.06);
   background:transparent;color:inherit;
 }
-
-/* Gradient CTA text */
 .cta-gradient{
-  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent;
-  border-color:transparent;
+  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent;border-color:transparent;
 }
-
-/* WhatsApp CTA (green filled) */
 .cta-whatsapp{
-  background:linear-gradient(180deg,var(--wa-green),#16b24a);color:#fff;border-color:transparent;
-  box-shadow:0 6px 16px rgba(37,211,102,.12);
+  background:linear-gradient(180deg,var(--wa-green),#16b24a);color:#fff;border-color:transparent;box-shadow:0 6px 16px rgba(37,211,102,.12);
 }
-.cta-whatsapp .cta-icon {filter:drop-shadow(0 1px 0 rgba(0,0,0,.08));}
-
-/* CTA icon */
 .cta-icon{width:18px;height:18px;flex-shrink:0;display:inline-block}
 
 /* Hero watermark visible 100% */
@@ -89,37 +80,25 @@ body{
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
-  opacity:1; /* 100% sichtbar */
+  opacity:1;
   border-radius:6px;
   flex-shrink:0;
 }
 @media(max-width:420px){ .hero-watermark{width:220px} }
 
-/* USP cards with images + details styling */
-.usps--with-images .grid-3{display:grid;grid-template-columns:1fr;gap:1rem}
-@media(min-width:800px){ .usps--with-images .grid-3{grid-template-columns:repeat(3,1fr)} }
-.usp-card{background:transparent;padding:.5rem;border-radius:8px;text-align:center}
-.usp-card figure{margin:0;display:flex;align-items:center;justify-content:center;height:160px;overflow:hidden}
-.usp-card img{max-width:100%;height:100%;object-fit:cover;border-radius:8px}
-.usp-card h3{margin:.5rem 0 0;font-size:1.05rem;font-weight:800;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;background-clip:text;color:transparent}
-
-/* Details element styles */
-.usp-card details{margin-top:.5rem}
-.usp-card summary{
-  list-style:none;background:transparent;border:none;font-weight:700;cursor:pointer;padding:.25rem 0;
-  display:inline-flex;align-items:center;gap:.4rem;
-}
-.usp-card summary::marker{content:none}
-.usp-card details[open] summary{font-weight:900}
-.usp-card details p{margin:.5rem 0 0;color:var(--muted);text-align:left;padding:0 1rem}
-
-/* Tiles */
+/* --- TILE / SERVICES / USP unified styles --- */
+/* Use same .tiles and .tile styles for both services and the top USP section */
 .tiles{display:grid;grid-template-columns:1fr;gap:1rem;padding:1.25rem 0}
 @media(min-width:700px){ .tiles{grid-template-columns:repeat(3,1fr)} }
-.tile{display:flex;flex-direction:column;gap:.5rem}
+
+.tile{display:flex;flex-direction:column;gap:.5rem;background:transparent;border-radius:10px;padding:0}
 .tile img{width:100%;height:auto;border-radius:10px;display:block;object-fit:cover;aspect-ratio:14/9}
 .tile h3{margin:.25rem 0 0;font-size:1.05rem;font-weight:800;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;background-clip:text;color:transparent}
-details summary{cursor:pointer;font-weight:700;padding:.25rem 0}
+.tile p{margin:0;color:var(--muted);font-size:0.98rem}
+.tile details{margin-top:.4rem}
+.tile summary{cursor:pointer;font-weight:700;padding:.25rem 0;display:inline-block}
+.tile details[open] summary{font-weight:900}
+.tile details p{margin:.5rem 0 0;color:var(--muted);padding-right:0}
 
 /* Map & contact */
 .map-wrap{border-radius:10px;overflow:hidden;margin-bottom:1rem}
@@ -139,67 +118,30 @@ details summary{cursor:pointer;font-weight:700;padding:.25rem 0}
 .reveal--visible{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){ .reveal{transition:none;transform:none;opacity:1} }
 
-/* Utility */
-.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
-.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
-
-/* -------- Mobile-optimierte CTAs (einfügen am Ende von styles.css) -------- */
+/* Mobile CTA touch improvements (kleiner Breakpoint) */
 @media (max-width: 600px) {
-  /* größerer Abstand und größere Tap-Fläche */
-  .hero-ctas--icons {
-    gap: 0.9rem; /* mehr Abstand zwischen Buttons */
-  }
-
-  /* Buttons: größere Hit-Area, besser lesbar */
+  .hero-ctas--icons { gap: 0.9rem; }
   .hero-ctas--icons .cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
-    padding: 12px 16px;      /* großzügiges Padding */
-    min-height: 48px;       /* Mindesthöhe für Touch */
-    font-size: 1.05rem;     /* etwas größere Schrift */
+    padding: 12px 16px;
+    min-height: 48px;
+    font-size: 1.05rem;
     border-radius: 12px;
-    touch-action: manipulation; /* bessere Touch-Performance */
-    -webkit-tap-highlight-color: rgba(0,0,0,0.08); /* dezente Hervorhebung */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.08);
     box-shadow: 0 6px 12px rgba(0,0,0,0.06);
   }
-
-  /* Wenn du volle Breite willst (optional, sehr touch-freundlich)
-     deaktivieren, wenn du Buttons nebeneinander behalten möchtest */
   @media (max-width: 420px) {
-    .hero-ctas--icons .cta {
-      display: block;
-      width: 100%;
-      text-align: center;
-    }
+    .hero-ctas--icons .cta { display:block; width:100%; text-align:center; }
   }
-
-  /* größere Icons leicht skalieren */
-  .hero-ctas--icons .cta .cta-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  /* WhatsApp-Fab etwas größer, leichter zu treffen */
-  .whatsapp-fab {
-    width: 66px;
-    height: 66px;
-    font-size: 24px;
-    right: 14px;
-    bottom: 14px;
-  }
-
-  /* Fokus-Zustand deutlicher (A11y) */
-  .hero-ctas--icons .cta:focus {
-    outline: 3px solid rgba(123,44,255,0.16);
-    outline-offset: 3px;
-  }
+  .hero-ctas--icons .cta .cta-icon { width:20px; height:20px; }
+  .whatsapp-fab { width:66px; height:66px; font-size:24px; right:14px; bottom:14px; }
+  .hero-ctas--icons .cta:focus { outline: 3px solid rgba(123,44,255,0.16); outline-offset: 3px; }
 }
 
-/* Small improvement for all screens: make entire CTA clickable area generous */
-.hero-ctas--icons .cta {
-  line-height: 1; /* verhindert vertikales "Zusammenziehen" */
-  -webkit-user-select: none;
-  user-select: none;
-}
+/* Utility */
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
