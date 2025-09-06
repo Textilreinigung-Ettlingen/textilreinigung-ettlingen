@@ -10,8 +10,7 @@
 
 /* base */
 *{box-sizing:border-box}
-html{scroll-behavior:smooth} /* smooth for anchor/back-to-top unless user prefers reduced motion */
-html:focus-within{scroll-behavior:smooth}
+html{scroll-behavior:smooth}
 html,body{height:100%}
 body{
   margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:var(--text);
@@ -46,28 +45,29 @@ body{
 .hero-title{margin:0 0 .4rem;font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
 .lead{margin:0 0 1rem;color:var(--muted)}
 
-/* CTAs in hero - unified gradient style */
+/* CTAs in hero - gefüllte Kästen mit gradient background + weiße Schrift */
 .hero-ctas{display:flex;gap:.6rem;flex-wrap:wrap}
-.cta{padding:.6rem .95rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:0.98rem;border:2px solid rgba(255,255,255,0.06);display:inline-flex;align-items:center;justify-content:center}
-.cta-gradient{
-  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
-  color:#fff;border-color:transparent;
-  box-shadow:0 8px 20px rgba(123,44,255,.06);
+.btn{
+  padding:.6rem .95rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:0.98rem;
+  display:inline-flex;align-items:center;justify-content:center;border:0;color:#fff;cursor:pointer;
+  box-shadow:0 10px 28px rgba(0,0,0,0.28);
 }
-.cta-gradient:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
-.cta-gradient:hover{transform:translateY(-3px); transition: transform .14s ease}
+.btn-gradient{
+  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
+  color:#fff;border:0;
+}
+.btn-gradient:focus{outline:3px solid rgba(123,44,255,.14);outline-offset:3px}
+.btn-gradient:hover{transform:translateY(-2px);transition:transform .14s ease}
 
-/* hero watermark: jetzt deutlich größer + sichtbarer */
+/* hero watermark bigger & visible */
 .hero-watermark{
-  width:min(420px,40vw);
-  height:min(420px,40vw);
+  width:min(480px,44vw);
+  height:min(480px,44vw);
   background-image:url('/img/logo.svg');
   background-repeat:no-repeat;background-position:center;background-size:contain;
-  opacity:.72;                /* stärker sichtbar */
-  border-radius:8px;flex-shrink:0;
-  filter:contrast(1.05);
+  opacity:.78; border-radius:8px;flex-shrink:0; filter:contrast(1.06);
 }
-@media(max-width:420px){ .hero-watermark{width:200px;height:200px;opacity:.6} }
+@media(max-width:420px){ .hero-watermark{width:220px;height:220px;opacity:.6} }
 
 /* USP grid */
 .usp-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:0.6rem}
@@ -96,13 +96,7 @@ body{
 
 /* center the two columns */
 .contact-grid{
-  display:flex;
-  gap:2rem;
-  justify-content:center; /* centers horizontally */
-  align-items:flex-start;
-  max-width:920px;
-  margin:0 auto;
-  padding-top:0.6rem;
+  display:flex;gap:2rem;justify-content:center;align-items:flex-start;max-width:920px;margin:0 auto;padding-top:0.6rem;
 }
 @media(max-width:900px){ .contact-grid{flex-direction:column;max-width:100%;padding:0 1rem} }
 
@@ -114,21 +108,14 @@ body{
 .phone-link{font-weight:900;color:var(--text);text-decoration:none;display:inline-block;margin-top:.15rem}
 .phone-link:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
 
-/* CTAs: VERTIKAL (WhatsApp oben, E-Mail darunter) */
+/* CTAs vertical (gefüllte Farbverlauf-Kästen, weiße Schrift) */
 .contact-ctas{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem;width:240px}
 @media(max-width:600px){ .contact-ctas{width:100%} }
+.contact-ctas .btn{width:100;min-width:0}
 
-.btn{padding:.55rem .9rem;border-radius:10px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;justify-content:center}
-.cta-gradient{padding:.6rem .9rem;border-radius:10px;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));color:#fff;border:2px solid transparent;box-shadow:0 10px 26px rgba(123,44,255,.06)}
-.mail{ /* not used separately now but kept for future */ }
-
-/* address gradient text */
+/* address text gradient */
 .address-left{margin-top:0.9rem}
-.gradient-address{
-  font-weight:800;
-  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
+.gradient-address{font-weight:800;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
 
 /* right col */
 .right-col{width:320px;min-width:240px;display:flex;flex-direction:column;align-items:flex-end}
@@ -143,7 +130,7 @@ body{
 
 /* directions */
 .directions-wrap{width:100%;display:flex;justify-content:flex-end;margin-top:.7rem}
-.directions-btn{padding:.55rem .9rem;border-radius:10px;font-weight:800;text-decoration:none;border:2px solid rgba(255,255,255,0.04);background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
+.directions-btn{padding:.55rem .9rem;border-radius:10px;font-weight:800;text-decoration:none;border:2px solid rgba(255,255,255,0.04);background:linear-gradient(90deg,var(--brand-a),var(--brand-b));color:#fff}
 .directions-btn:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
 
 /* footer */
@@ -155,12 +142,10 @@ body{
 .whatsapp-fab{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:999px;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:22px;box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:999}
 
 /* BACK TO TOP button */
-.to-top-btn{
-  position:fixed; right:18px; bottom:86px; width:46px; height:46px; border-radius:10px;
+.to-top-btn{position:fixed; right:18px; bottom:86px; width:46px; height:46px; border-radius:10px;
   background:rgba(255,255,255,0.04); color:var(--text); border:1px solid rgba(255,255,255,0.06);
   display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:18px; cursor:pointer; z-index:998;
-  opacity:0; transform:translateY(6px); transition:opacity .18s ease, transform .18s ease;
-}
+  opacity:0; transform:translateY(6px); transition:opacity .18s ease, transform .18s ease;}
 .to-top-btn.visible{opacity:1; transform:none}
 .to-top-btn:focus{outline:3px solid rgba(123,44,255,.12); outline-offset:3px}
 
