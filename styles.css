@@ -27,11 +27,11 @@ body{
 /* header */
 .header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1rem}
 .brand img{height:110px;max-height:160px;width:auto}
+
+/* NAV: weiße Schrift (wie gewünscht) - Hover underline keeps gradient */
 .nav{display:flex;gap:1.25rem;align-items:center}
 .nav a{
-  text-decoration:none;font-weight:800;font-size:1rem;
-  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
-  -webkit-background-clip:text;background-clip:text;color:transparent;padding:.25rem 0;position:relative;
+  text-decoration:none;font-weight:800;font-size:1rem;color:#fff;padding:.25rem 0;position:relative;
 }
 .nav a::after{content:"";height:3px;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));position:absolute;left:0;right:0;bottom:-7px;transform:scaleX(0);transform-origin:left;transition:transform .22s}
 .nav a:hover::after,.nav a[aria-current="page"]::after{transform:scaleX(1)}
@@ -45,7 +45,7 @@ body{
 .hero-title{margin:0 0 .4rem;font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
 .lead{margin:0 0 1rem;color:var(--muted)}
 
-/* CTAs in hero */
+/* Hero CTAs */
 .hero-ctas{display:flex;gap:.6rem;flex-wrap:wrap}
 .btn{
   padding:.6rem .95rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:0.98rem;
@@ -55,14 +55,14 @@ body{
 .btn:focus{outline:3px solid rgba(123,44,255,.14);outline-offset:3px}
 .btn:hover{transform:translateY(-2px);transition:transform .14s ease}
 
-/* türkis box for Preisliste, Anrufen, E-Mail */
+/* turquoise boxes (Preisliste, Anrufen, E-Mail in hero) */
 .btn-turquoise{
   background:linear-gradient(90deg,var(--brand-a),#19d6ff);
   color:#fff;
   border:0;
 }
 
-/* whatsapp green box */
+/* whatsapp in hero (left as green if you still want it) */
 .btn-whatsapp{
   background:linear-gradient(180deg,var(--wa-green),#16b24a);
   color:#fff;
@@ -70,7 +70,7 @@ body{
   box-shadow:0 10px 28px rgba(37,211,102,0.10);
 }
 
-/* hero watermark bigger & visible */
+/* hero watermark */
 .hero-watermark{
   width:min(520px,46vw);
   height:min(520px,46vw);
@@ -105,7 +105,7 @@ body{
 .contact-strip-header h2{margin:0;font-size:1.35rem;font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
 .contact-strip-header .muted{color:var(--muted)}
 
-/* contact grid center */
+/* contact grid */
 .contact-grid{display:flex;gap:2rem;justify-content:center;align-items:flex-start;max-width:920px;margin:0 auto;padding-top:0.6rem}
 @media(max-width:900px){ .contact-grid{flex-direction:column;max-width:100%;padding:0 1rem} }
 
@@ -117,10 +117,24 @@ body{
 .phone-link{font-weight:900;color:var(--text);text-decoration:none;display:inline-block;margin-top:.15rem}
 .phone-link:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
 
-/* CTAs vertical in contact */
-.contact-ctas{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem;width:240px}
+/* CONTACT buttons (unten) — MATCHING THE SCREENSHOT: gradient boxes, white text, pill-like */
+.contact-ctas{display:flex;flex-direction:column;gap:.75rem;margin-top:.9rem;width:260px}
 @media(max-width:600px){ .contact-ctas{width:100%} }
-.contact-ctas .btn{width:100%;min-width:0}
+
+.btn-gradient{
+  padding:.9rem 1.15rem;
+  border-radius:12px;
+  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
+  color:#fff;
+  font-weight:900;
+  font-size:1rem;
+  text-align:center;
+  box-shadow: 0 14px 40px rgba(123,44,255,0.18), inset 0 -2px 10px rgba(0,0,0,0.06);
+  border:0;
+  transition:transform .14s ease, box-shadow .14s ease;
+}
+.btn-gradient:active{transform:translateY(1px);box-shadow:0 8px 20px rgba(123,44,255,0.14)}
+.btn-gradient:focus{outline:3px solid rgba(123,44,255,.16);outline-offset:3px}
 
 /* address gradient */
 .address-left{margin-top:0.9rem}
@@ -137,7 +151,7 @@ body{
 .day{color:var(--muted);font-weight:700}
 .time{font-weight:900;font-size:1.12rem;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
 
-/* directions */
+/* directions button */
 .directions-wrap{width:100%;display:flex;justify-content:flex-end;margin-top:.7rem}
 .directions-btn{padding:.55rem .9rem;border-radius:10px;font-weight:800;text-decoration:none;border:2px solid rgba(255,255,255,0.04);background:linear-gradient(90deg,var(--brand-a),var(--brand-b));color:#fff}
 .directions-btn:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
