@@ -7,16 +7,15 @@
   <meta name="description" content="Textilreinigung Ettlingen — professionelle Handreinigung, Brautkleider & Schadensabwicklung. Transparente Preise, schnelle Abholung.">
   <link rel="canonical" href="https://textilreinigung-ettlingen.de/">
   <link rel="stylesheet" href="/styles.css">
-  <meta property="og:title" content="Textilreinigung Ettlingen">
-  <meta property="og:description" content="Handreinigung, Brautkleider & Versicherungsschäden. Transparente Preise.">
-  <!-- Falls du später hero-2000.webp/jpg hinzufügst, passe die Bildpfade an -->
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <header class="header container" role="banner" aria-label="Hauptnavigation">
     <div class="brand">
-      <a href="/"><img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" /></a>
+      <a href="/" class="brand-link" aria-label="Zur Startseite">
+        <img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" />
+      </a>
     </div>
 
     <nav class="nav" role="navigation" aria-label="Hauptnavigation">
@@ -33,54 +32,62 @@
   </header>
 
   <main id="main">
-    <!-- HERO (verwendet vorhandenes kachel-bild als Fallback hero) -->
-    <section class="hero" aria-label="Start">
-      <div class="hero-left container">
-        <h1 class="hero-title">Sauber — Schnell — Premium</h1>
-        <p class="lead">Handreinigung für empfindliche Textilien, Brautkleider & professionelle Schadensabwicklung. Transparente Preise — zuverlässig und schnell.</p>
+    <!-- HERO (kein großes Foto mehr) -->
+    <section class="hero hero--compact" aria-label="Start">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <h1 class="hero-title">Sauber — Schnell — Premium</h1>
+          <p class="lead">Handreinigung für empfindliche Textilien, Brautkleider & professionelle Schadensabwicklung. Transparent, zuverlässig, lokal in Ettlingen.</p>
 
-        <p class="hero-ctas">
-          <a class="btn btn-outline" href="/preise.html">Preisliste</a>
-          <a class="btn" href="https://wa.me/491604138492" aria-label="WhatsApp Nachricht an Textilreinigung Ettlingen">WhatsApp</a>
-          <a class="btn" href="tel:+4972439491888" aria-label="Anrufen">Anrufen</a>
-        </p>
+          <p class="hero-ctas">
+            <a class="btn btn-outline" href="/preise.html">Preisliste</a>
+            <a class="btn" href="https://wa.me/491604138492" aria-label="WhatsApp Nachricht">WhatsApp</a>
+            <a class="btn" href="tel:+4972439491888" aria-label="Anrufen">Anrufen</a>
+          </p>
+        </div>
 
-        <ul class="usp-list" role="list">
-          <li><strong>Handarbeit</strong> für empfindliche Stoffe</li>
-          <li><strong>Schnelle Abholung</strong> & flexible Abgabezeiten</li>
-          <li><strong>Transparente Preise</strong> — Preisliste online</li>
-        </ul>
-      </div>
-
-      <div class="hero-right container" aria-hidden="true">
-        <!-- Verwende vorhandenes Bild als Hero-Fallback (keine neuen Bilder nötig) -->
-        <picture class="hero-picture">
-          <source type="image/webp" srcset="/img/tile-textilreinigung.jpg">
-          <img src="/img/tile-textilreinigung.jpg" alt="" decoding="async" loading="lazy" width="1400" height="900">
-        </picture>
+        <!-- quadratisches Logo-Wasserzeichen -->
+        <div class="hero-watermark" role="img" aria-hidden="true"></div>
       </div>
     </section>
 
-    <!-- USPs -->
-    <section class="container usps">
+    <!-- USP Reihe mit Bildern (drei Kacheln) -->
+    <section class="container usps usps--with-images" aria-labelledby="usp-heading">
+      <h2 id="usp-heading" class="visually-hidden">Unsere Vorteile</h2>
+
       <div class="grid-3">
-        <div class="card reveal">
+        <article class="usp-card reveal">
+          <figure>
+            <img src="/img/usp-professionell.jpg" alt="Mitarbeiter reinigt Kleidungsstück per Hand" width="800" height="800" loading="lazy">
+            <figcaption class="sr-only">Professionelle Handreinigung</figcaption>
+          </figure>
           <h3>Professionell</h3>
-          <p>Erfahrene Reinigung, Spezialbehandlungen bei Flecken & empfindlichen Materialien.</p>
-        </div>
-        <div class="card reveal">
+          <p>Handarbeit & individuell abgestimmte Pflege für empfindliche Materialien.</p>
+        </article>
+
+        <article class="usp-card reveal">
+          <figure>
+            <img src="/img/usp-transparent.jpg" alt="Preisschild mit klaren Preisen" width="800" height="800" loading="lazy">
+            <figcaption class="sr-only">Transparente Preise</figcaption>
+          </figure>
           <h3>Transparent</h3>
-          <p>Klare Preise, Abo-Optionen und Extras auf /preise.html.</p>
-        </div>
-        <div class="card reveal">
+          <p>Klare Preislisten, Abo-Optionen und faire Zusatzleistungen.</p>
+        </article>
+
+        <article class="usp-card reveal">
+          <figure>
+            <img src="/img/usp-versichert.jpg" alt="Versicherungsakte und Dokumente" width="800" height="800" loading="lazy">
+            <figcaption class="sr-only">Versicherte Schadensabwicklung</figcaption>
+          </figure>
           <h3>Versichert</h3>
-          <p>Schadensabwicklung & Dokumentation für Versicherungsfälle.</p>
-        </div>
+          <p>Wir dokumentieren Schäden und unterstützen bei der Versicherungsabwicklung.</p>
+        </article>
       </div>
     </section>
 
-    <!-- Services Tiles (nutzen die vorhandenen tile-*.jpg Dateien) -->
+    <!-- Services Tiles (wie zuvor, weiter unten) -->
     <section class="container tiles" aria-label="Leistungen">
+      <!-- (Die vorhandenen tile-*.jpg Einträge weiterverwenden) -->
       <article class="tile reveal" id="tile-textilreinigung">
         <img src="/img/tile-textilreinigung.jpg" alt="Textilreinigung - professionelle Reinigung" loading="lazy" width="1400" height="900">
         <h3>Textilreinigung</h3>
@@ -88,6 +95,7 @@
         <details><summary>Mehr</summary><p>Wir behandeln Flecken per Hand und wählen die passende Pflege für jeden Stoff.</p></details>
       </article>
 
+      <!-- weitere tiles so wie vorher -->
       <article class="tile reveal" id="tile-waescherei">
         <img src="/img/tile-waescherei.jpg" alt="Wäscherei" loading="lazy" width="1400" height="900">
         <h3>Wäscherei</h3>
@@ -124,7 +132,7 @@
       </article>
     </section>
 
-    <!-- Map + Kontakt-Quick -->
+    <!-- Map + Kontakt-Quick (wie vorher) -->
     <section class="container map-contact" aria-label="Anfahrt & Kontakt">
       <div class="map-wrap">
         <iframe loading="lazy" title="Karte Textilreinigung Ettlingen" src="https://www.google.com/maps?q=Leopoldstr.+42+76275+Ettlingen&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -162,7 +170,6 @@
   <a class="whatsapp-fab" href="https://wa.me/491604138492" aria-label="WhatsApp Nachricht"><span aria-hidden="true">💬</span></a>
 
   <div id="form-status" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
-
   <script src="/scripts/main.js" defer></script>
 </body>
 </html>
