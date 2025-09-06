@@ -63,7 +63,8 @@ body{
 /* CTAs group */
 .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
 .hero-ctas--icons .cta{
-  display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:1.02rem;border:2px solid rgba(0,0,0,.06);background:transparent;color:inherit;
+  display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:1.02rem;border:2px solid rgba(0,0,0,.06);
+  background:transparent;color:inherit;
 }
 .cta-gradient{
   background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent;border-color:transparent;
@@ -104,9 +105,13 @@ body{
 .map-wrap{border-radius:10px;overflow:hidden;margin-bottom:1rem}
 .map-wrap iframe{width:100%;height:320px;border:0}
 
-/* ===================== CONTACT STRIP (FIX: lesbare Öffnungszeiten) ===================== */
+/* ===================== CONTACT STRIP (zentriert, große Zeiten mit Farbverlauf) ===================== */
 .contact-strip{margin:2rem 0;padding:0}
-.contact-strip-inner{padding:0}
+.contact-strip-inner{
+  padding:0;
+  max-width:960px;     /* zentriertere, angenehme Lesebreite */
+  margin:0 auto;
+}
 .contact-strip-header{text-align:center;margin-bottom:0.6rem}
 .contact-strip-header h2{
   margin:0;font-size:1.45rem;font-weight:900;
@@ -115,12 +120,13 @@ body{
 }
 .contact-strip-header .muted{margin-top:.3rem;color:var(--muted)}
 
-/* grid layout */
+/* grid layout centered inside the max-width */
 .contact-grid{
   display:grid;
   grid-template-columns:1fr 360px;
   gap:1rem;
   align-items:start;
+  justify-content:center;
 }
 @media(max-width:900px){ .contact-grid{grid-template-columns:1fr} }
 
@@ -141,38 +147,42 @@ body{
 .contact-btn--whatsapp{background:linear-gradient(180deg,var(--wa-green),#16b24a);color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(37,211,102,.09)}
 .contact-btn--mail{background:transparent;color:var(--text);border-color:rgba(0,0,0,.06)}
 
-/* right column: hours + address with clear contrast */
+/* right column: hours + address WITHOUT outer white box - times are gradient & bold */
 .hours-card{border-radius:10px;padding:0}
 .hours-header{font-weight:800;margin-bottom:.4rem}
 .hours-body{
-  background:#ffffff; /* solid white for best legibility */
-  padding:.75rem;
-  border-radius:8px;
-  border:1px solid rgba(0,0,0,.04);
-  color:var(--text); /* ensure dark text on white */
-  box-shadow: 0 2px 10px rgba(11,14,20,0.03);
+  background:transparent;    /* kein äußerer Kasten mehr */
+  padding:0;
+  border-radius:0;
+  color:var(--text);
 }
 .hours-row{
   display:flex;justify-content:space-between;align-items:center;padding:.45rem 0;border-bottom:1px dashed rgba(0,0,0,.03)
 }
 .hours-row:last-child{border-bottom:0}
-.hours-row .day{color:var(--muted);font-weight:600}
-.hours-row .time{color:var(--text);font-weight:700}
-.hours-note{margin-top:.5rem;color:var(--muted);font-size:.9rem}
 
-/* address card */
-.address-card{margin-top:0.9rem;padding:.5rem;border-radius:8px}
+/* Tage bleiben dezent */
+.hours-row .day{color:var(--muted);font-weight:600}
+
+/* Uhrzeiten: größer, fett und farbverlauf wie Überschriften */
+.hours-row .time{
+  font-weight:900;
+  font-size:1.12rem;
+  line-height:1;
+  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent; /* fallback for some browsers */
+}
+
+/* zusätzliche Notiz (Feiertage) */
+.hours-note{margin-top:.5rem;color:var(--muted);font-size:.92rem}
+
+/* address card: simple readable block */
+.address-card{margin-top:0.9rem;padding:0}
 .address-line{font-weight:700;color:var(--text)}
 .directions-link{display:inline-block;margin-top:.4rem;text-decoration:none;color:var(--brand-b);font-weight:700}
-
-/* mobile adjustments */
-@media (max-width:600px){
-  .contact-grid{grid-template-columns:1fr}
-  .contact-ctas{flex-direction:column}
-  .contact-btn{width:100%;justify-content:center}
-  .contact-big svg{width:40px;height:40px}
-  .hero-ctas--icons .cta{display:block;width:100%;text-align:center}
-}
 
 /* Footer */
 .site-footer{border-top:1px solid rgba(0,0,0,.06);padding:1.25rem 0;margin-top:2rem;color:var(--muted)}
