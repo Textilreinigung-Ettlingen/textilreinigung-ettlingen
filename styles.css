@@ -5,13 +5,14 @@
   --muted:#6b7280;
   --bg:#ffffff;
   --max-width:1100px;
-  --radius:12px;
+  --radius:14px;
   --wa-green:#25D366;
+  --glass: rgba(255,255,255,0.6);
 }
 
 /* Dark fallback */
 @media (prefers-color-scheme: dark){
-  :root{ --text:#eef6ff; --bg:#040405; --muted:#9aa6b2; }
+  :root{ --text:#eef6ff; --bg:#06060a; --muted:#9aa6b2; --glass: rgba(12,12,14,0.6); }
 }
 
 *{box-sizing:border-box}
@@ -45,16 +46,19 @@ body{
 }
 .nav a:hover::after,.nav a[aria-current="page"]::after{transform:scaleX(1)}
 
-/* small button */
-.btn{display:inline-block;padding:.55rem .85rem;border-radius:10px;border:2px solid rgba(0,0,0,.06);background:transparent;font-weight:800;text-decoration:none;color:inherit}
-.btn.small{padding:.3rem .5rem;border-radius:8px;font-size:.95rem}
+/* Theme toggle (SVG icon) */
+.theme-toggle{
+  display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:.3rem .45rem;border:2px solid rgba(0,0,0,.06);background:transparent;color:inherit;
+}
+.theme-toggle:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
+.theme-icon{display:block}
+.theme-icon .rays{opacity:1; transition:opacity .25s ease}
 
 /* HERO compact */
 .hero--compact{padding:1.5rem 0}
 .hero-inner{display:flex;align-items:center;gap:1.25rem;justify-content:space-between}
 @media(max-width:900px){ .hero-inner{flex-direction:column;align-items:flex-start} }
 
-/* Hero content */
 .hero-title{margin:0 0 .5rem;font-size:clamp(1.9rem,3.2vw,2.8rem);line-height:1.02;font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{margin:0 0 1rem;color:var(--muted);font-size:1rem}
 
@@ -81,13 +85,13 @@ body{
   background-size:contain;
   background-position:center;
   opacity:1;
-  border-radius:6px;
+  border-radius:10px;
   flex-shrink:0;
+  filter:grayscale(.06) contrast(.98);
 }
 @media(max-width:420px){ .hero-watermark{width:220px} }
 
-/* --- TILE / SERVICES / USP unified styles --- */
-/* Use same .tiles and .tile styles for both services and the top USP section */
+/* --- TILE / SERVICES --- */
 .tiles{display:grid;grid-template-columns:1fr;gap:1rem;padding:1.25rem 0}
 @media(min-width:700px){ .tiles{grid-template-columns:repeat(3,1fr)} }
 
@@ -100,9 +104,71 @@ body{
 .tile details[open] summary{font-weight:900}
 .tile details p{margin:.5rem 0 0;color:var(--muted);padding-right:0}
 
-/* Map & contact */
+/* MAP */
 .map-wrap{border-radius:10px;overflow:hidden;margin-bottom:1rem}
 .map-wrap iframe{width:100%;height:320px;border:0}
+
+/* ===================== NEW: CONTACT PANEL ===================== */
+.contact-panel{
+  margin:2rem 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.5));
+  border-radius:18px;
+  padding:1rem;
+  box-shadow: 0 10px 30px rgba(17,24,39,0.08);
+  border:1px solid rgba(11,14,20,0.04);
+  backdrop-filter: blur(6px);
+}
+@media (prefers-reduced-transparency: reduce){
+  .contact-panel{backdrop-filter:none}
+}
+
+.contact-panel-header{text-align:center;padding:1rem 1.25rem 0}
+.contact-panel-header h2{
+  margin:0;font-size:1.5rem;font-weight:900;
+  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.contact-panel-sub{margin:.4rem 0 0;color:var(--muted)}
+
+/* Body layout: left = contact, right = hours/address */
+.contact-panel-body{
+  display:grid;
+  grid-template-columns:1fr 360px;
+  gap:1rem;
+  align-items:start;
+  padding:1rem;
+}
+@media(max-width:900px){
+  .contact-panel-body{grid-template-columns:1fr; padding:1rem 0 0}
+}
+
+/* left */
+.contact-big{display:flex;gap:0.75rem;align-items:center;margin-bottom:0.75rem}
+.contact-big svg{width:48px;height:48px;color:var(--brand-b);flex-shrink:0}
+.contact-big .muted{color:var(--muted);font-size:0.9rem;margin:0}
+.contact-big-link{display:inline-block;font-weight:800;font-size:1.15rem;color:var(--text);text-decoration:none}
+.contact-big-link:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
+
+/* CTAs inside panel */
+.contact-ctas{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.5rem}
+.contact-btn{
+  display:inline-flex;align-items:center;gap:.6rem;padding:.6rem 0.9rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:1rem;border:2px solid rgba(0,0,0,.06);
+}
+.contact-btn--whatsapp{background:linear-gradient(180deg,var(--wa-green),#16b24a);color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(37,211,102,.12)}
+.contact-btn--mail{background:transparent;color:var(--text);border-color:rgba(0,0,0,.06)}
+
+/* right */
+.hours-card{background:transparent;border-radius:10px;padding:.6rem}
+.hours-header{font-weight:800;margin-bottom:.4rem}
+.hours-body{background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.8));padding:.6rem;border-radius:8px;border:1px solid rgba(0,0,0,.03)}
+.hours-row{display:flex;justify-content:space-between;padding:.35rem 0;border-bottom:1px dashed rgba(0,0,0,.03)}
+.hours-row:last-child{border-bottom:0}
+.hours-note{margin-top:.5rem;color:var(--muted);font-size:.9rem}
+
+/* address card */
+.address-card{margin-top:0.9rem;padding:.6rem;border-radius:8px;background:transparent}
+.address-line{font-weight:700}
+.directions-link{display:inline-block;margin-top:.4rem;text-decoration:none;color:var(--brand-b);font-weight:700}
 
 /* Footer */
 .site-footer{border-top:1px solid rgba(0,0,0,.06);padding:1.25rem 0;margin-top:2rem;color:var(--muted)}
@@ -113,33 +179,17 @@ body{
 .whatsapp-fab{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:999px;background:linear-gradient(180deg,var(--brand-a),var(--brand-b));display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:22px;box-shadow:0 6px 18px rgba(0,0,0,.12);z-index:999}
 .whatsapp-fab:focus{outline:3px solid rgba(123,44,255,.14);outline-offset:3px}
 
-/* Reveal animations */
+/* Reveal */
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
 .reveal--visible{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){ .reveal{transition:none;transform:none;opacity:1} }
 
-/* Mobile CTA touch improvements (kleiner Breakpoint) */
-@media (max-width: 600px) {
-  .hero-ctas--icons { gap: 0.9rem; }
-  .hero-ctas--icons .cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    padding: 12px 16px;
-    min-height: 48px;
-    font-size: 1.05rem;
-    border-radius: 12px;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: rgba(0,0,0,0.08);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.06);
-  }
-  @media (max-width: 420px) {
-    .hero-ctas--icons .cta { display:block; width:100%; text-align:center; }
-  }
-  .hero-ctas--icons .cta .cta-icon { width:20px; height:20px; }
-  .whatsapp-fab { width:66px; height:66px; font-size:24px; right:14px; bottom:14px; }
-  .hero-ctas--icons .cta:focus { outline: 3px solid rgba(123,44,255,0.16); outline-offset: 3px; }
+/* Mobile tweaks: bigger CTAs / stacked contact panel */
+@media (max-width:600px){
+  .contact-panel-body{grid-template-columns:1fr}
+  .contact-ctas{flex-direction:column}
+  .contact-btn{width:100%;justify-content:center}
+  .contact-big svg{width:40px;height:40px}
 }
 
 /* Utility */
