@@ -40,11 +40,11 @@
           <p class="lead">Handreinigung für empfindliche Textilien, Brautkleider & professionelle Schadensabwicklung. Lokal in Ettlingen.</p>
 
           <div class="hero-ctas" role="group" aria-label="Schnellzugriff">
-            <!-- Gefüllte Farbverlauf-Kästen mit weißer Schrift -->
-            <a class="btn btn-gradient" href="/preise.html" aria-label="Preisliste anzeigen">Preisliste</a>
-            <a class="btn btn-gradient" href="https://wa.me/491604138492" aria-label="WhatsApp">WhatsApp</a>
-            <a class="btn btn-gradient" href="tel:+4972439491888" aria-label="Anrufen">Anrufen</a>
-            <a class="btn btn-gradient" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail">E-Mail</a>
+            <!-- Alle CTAs jetzt mit Gradient (weiß text) wie gewünscht -->
+            <a class="cta cta-gradient" href="/preise.html" aria-label="Preisliste anzeigen">Preisliste</a>
+            <a class="cta cta-gradient" href="https://wa.me/491604138492" aria-label="WhatsApp">WhatsApp</a>
+            <a class="cta cta-gradient" href="tel:+4972439491888" aria-label="Anrufen">Anrufen</a>
+            <a class="cta cta-gradient" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail">E-Mail</a>
           </div>
         </div>
 
@@ -52,7 +52,7 @@
       </div>
     </section>
 
-    <!-- USP row -->
+    <!-- USP row (verwendet vorhandene usp-*.jpg) -->
     <section class="container usp-grid" aria-label="Unsere Vorteile">
       <article class="usp tile reveal">
         <img src="/img/usp-professionell.jpg" alt="Professionell — Handreinigung" loading="lazy" width="1400" height="900">
@@ -76,7 +76,7 @@
       </article>
     </section>
 
-    <!-- Services grid -->
+    <!-- Services grid (6 tiles) -->
     <section class="container tiles" aria-label="Leistungen">
       <article class="tile reveal">
         <img src="/img/tile-textilreinigung.jpg" alt="Textilreinigung" loading="lazy" width="1400" height="900">
@@ -130,7 +130,7 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT: zentriert, E-Mail unter WhatsApp, Adresse unter Buttons, Adresse mit Gradient -->
     <section class="container contact-strip" aria-label="Kontakt und Öffnungszeiten">
       <div class="contact-inner">
         <header class="contact-strip-header">
@@ -152,13 +152,13 @@
               </div>
             </div>
 
-            <!-- CTAs vertical -->
+            <!-- CTAs: VERTIKAL (WhatsApp oben, E-Mail darunter) -->
             <div class="contact-ctas">
-              <a class="btn btn-gradient" href="https://wa.me/491604138492" aria-label="WhatsApp schreiben">WhatsApp schreiben</a>
-              <a class="btn btn-gradient" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail schreiben">E-Mail schreiben</a>
+              <a class="btn cta-gradient" href="https://wa.me/491604138492" aria-label="WhatsApp schreiben">WhatsApp schreiben</a>
+              <a class="btn cta-gradient" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail schreiben">E-Mail schreiben</a>
             </div>
 
-            <!-- Adresse -->
+            <!-- Adresse FARBVERLAUF Türkis->Lila -->
             <div class="address-left" aria-label="Adresse">
               <div class="address-line gradient-address">Leopoldstr. 42</div>
               <div class="address-line gradient-address">76275 Ettlingen</div>
@@ -218,18 +218,37 @@
   <!-- Back to top button -->
   <button class="to-top-btn" id="toTopBtn" aria-label="Zurück nach oben" title="Nach oben" type="button">↑</button>
 
+  <!-- zentraler Main-Script (falls vorhanden) -->
   <script src="/scripts/main.js" defer></script>
+
+  <!-- Kleine Fallback- & UI-Logik: Jahr + Back-to-top (respects reduced-motion) -->
   <script>
     (function(){
-      const y = document.getElementById('year'); if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
+      // Jahr-Fallback
+      const y = document.getElementById('year');
+      if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
+
+      // Back-to-top behavior + show/hide on scroll
       const btn = document.getElementById('toTopBtn');
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const showAt = 240;
-      function scrollToTop(){ if(prefersReduced) window.scrollTo(0,0); else window.scrollTo({top:0,behavior:'smooth'}); }
+      const showAt = 240; // px
+
+      function scrollToTop() {
+        if (prefersReduced) {
+          window.scrollTo(0,0);
+        } else {
+          window.scrollTo({top:0,behavior:'smooth'});
+        }
+      }
+
       btn.addEventListener('click', scrollToTop);
       btn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); scrollToTop(); } });
-      function onScroll(){ if (window.scrollY > showAt) btn.classList.add('visible'); else btn.classList.remove('visible'); }
-      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+      function onScroll() {
+        if (window.scrollY > showAt) btn.classList.add('visible'); else btn.classList.remove('visible');
+      }
+      onScroll();
+      window.addEventListener('scroll', onScroll, {passive:true});
     })();
   </script>
 
