@@ -6,6 +6,7 @@
   --bg:#ffffff;
   --max-width:1100px;
   --radius:12px;
+  --wa-green:#25D366;
 }
 
 /* Dark fallback */
@@ -27,12 +28,12 @@ body{
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#000;color:#fff;padding:.5rem 1rem;border-radius:6px;z-index:9999}
 
-/* Header: LOGO + NAV größer */
+/* Header larger */
 .header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1rem}
-.brand img{height:88px;max-height:120px;width:auto} /* größeres Logo */
+.brand img{height:100px;max-height:140px;width:auto} /* noch größer */
 .brand-link{display:inline-block}
 
-/* Nav: größer, leichter Abstand */
+/* Nav: größer, Gradient text */
 .nav{display:flex;gap:1.5rem;align-items:center}
 .nav a{
   text-decoration:none;font-weight:800;font-size:1.05rem;
@@ -48,7 +49,7 @@ body{
 .btn{display:inline-block;padding:.55rem .85rem;border-radius:10px;border:2px solid rgba(0,0,0,.06);background:transparent;font-weight:800;text-decoration:none;color:inherit}
 .btn.small{padding:.3rem .5rem;border-radius:8px;font-size:.95rem}
 
-/* HERO (compact) */
+/* HERO compact */
 .hero--compact{padding:1.5rem 0}
 .hero-inner{display:flex;align-items:center;gap:1.25rem;justify-content:space-between}
 @media(max-width:900px){ .hero-inner{flex-direction:column;align-items:flex-start} }
@@ -56,9 +57,31 @@ body{
 /* Hero content */
 .hero-title{margin:0 0 .5rem;font-size:clamp(1.9rem,3.2vw,2.8rem);line-height:1.02;font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{margin:0 0 1rem;color:var(--muted);font-size:1rem}
-.hero-ctas{display:flex;gap:.5rem;flex-wrap:wrap}
 
-/* Quadratisches Logo-Wasserzeichen (rechts im Hero) */
+/* CTAs group */
+.hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+.hero-ctas--icons .cta{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:1.02rem;border:2px solid rgba(0,0,0,.06);
+  background:transparent;color:inherit;
+}
+
+/* Gradient CTA text */
+.cta-gradient{
+  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent;
+  border-color:transparent;
+}
+
+/* WhatsApp CTA (green filled) */
+.cta-whatsapp{
+  background:linear-gradient(180deg,var(--wa-green),#16b24a);color:#fff;border-color:transparent;
+  box-shadow:0 6px 16px rgba(37,211,102,.12);
+}
+.cta-whatsapp .cta-icon {filter:drop-shadow(0 1px 0 rgba(0,0,0,.08));}
+
+/* CTA icon */
+.cta-icon{width:18px;height:18px;flex-shrink:0;display:inline-block}
+
+/* Hero watermark visible 100% */
 .hero-watermark{
   width:min(420px,28vw);
   aspect-ratio:1/1;
@@ -66,21 +89,29 @@ body{
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
-  opacity:.20;
+  opacity:1; /* 100% sichtbar */
   border-radius:6px;
   flex-shrink:0;
-  box-shadow:none;
 }
-/* mobile smaller watermark */
 @media(max-width:420px){ .hero-watermark{width:220px} }
 
-/* USP cards with images */
+/* USP cards with images + details styling */
 .usps--with-images .grid-3{display:grid;grid-template-columns:1fr;gap:1rem}
 @media(min-width:800px){ .usps--with-images .grid-3{grid-template-columns:repeat(3,1fr)} }
 .usp-card{background:transparent;padding:.5rem;border-radius:8px;text-align:center}
 .usp-card figure{margin:0;display:flex;align-items:center;justify-content:center;height:160px;overflow:hidden}
 .usp-card img{max-width:100%;height:100%;object-fit:cover;border-radius:8px}
 .usp-card h3{margin:.5rem 0 0;font-size:1.05rem;font-weight:800;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Details element styles */
+.usp-card details{margin-top:.5rem}
+.usp-card summary{
+  list-style:none;background:transparent;border:none;font-weight:700;cursor:pointer;padding:.25rem 0;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.usp-card summary::marker{content:none}
+.usp-card details[open] summary{font-weight:900}
+.usp-card details p{margin:.5rem 0 0;color:var(--muted);text-align:left;padding:0 1rem}
 
 /* Tiles */
 .tiles{display:grid;grid-template-columns:1fr;gap:1rem;padding:1.25rem 0}
