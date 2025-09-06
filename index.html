@@ -40,16 +40,9 @@
           <p class="lead">Handreinigung für empfindliche Textilien, Brautkleider & professionelle Schadensabwicklung. Lokal in Ettlingen.</p>
 
           <div class="hero-ctas" role="group" aria-label="Schnellzugriff">
-            <!-- Preisliste: türkis -->
             <a class="btn btn-turquoise" href="/preise.html" aria-label="Preisliste anzeigen">Preisliste</a>
-
-            <!-- WhatsApp: grün -->
             <a class="btn btn-whatsapp" href="https://wa.me/491604138492" aria-label="WhatsApp schreiben">WhatsApp</a>
-
-            <!-- Anrufen: türkis -->
             <a class="btn btn-turquoise" href="tel:+4972439491888" aria-label="Anrufen">Anrufen</a>
-
-            <!-- E-Mail: türkis -->
             <a class="btn btn-turquoise" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail schreiben">E-Mail</a>
           </div>
         </div>
@@ -158,11 +151,10 @@
               </div>
             </div>
 
-            <!-- CTAs vertical: WhatsApp (grün), Anrufen (türkis), E-Mail (türkis) -->
+            <!-- CTAs vertical: now gradient boxes like screenshot -->
             <div class="contact-ctas">
-              <a class="btn btn-whatsapp" href="https://wa.me/491604138492" aria-label="WhatsApp schreiben">WhatsApp schreiben</a>
-              <a class="btn btn-turquoise" href="tel:+4972439491888" aria-label="Anrufen">Anrufen</a>
-              <a class="btn btn-turquoise" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail schreiben">E-Mail schreiben</a>
+              <a class="btn btn-gradient" href="https://wa.me/491604138492" aria-label="WhatsApp schreiben">WhatsApp schreiben</a>
+              <a class="btn btn-gradient" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail schreiben">E-Mail schreiben</a>
             </div>
 
             <!-- Adresse -->
@@ -228,23 +220,15 @@
   <script src="/scripts/main.js" defer></script>
   <script>
     (function(){
-      // Jahr-Fallback
-      const y = document.getElementById('year');
-      if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
-
-      // Back-to-top logic (respects reduced-motion)
+      const y = document.getElementById('year'); if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
       const btn = document.getElementById('toTopBtn');
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const showAt = 240;
-      function scrollToTop() {
-        if (prefersReduced) window.scrollTo(0,0);
-        else window.scrollTo({top:0,behavior:'smooth'});
-      }
+      function scrollToTop(){ if(prefersReduced) window.scrollTo(0,0); else window.scrollTo({top:0,behavior:'smooth'}); }
       btn.addEventListener('click', scrollToTop);
       btn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); scrollToTop(); } });
-      function onScroll() { if (window.scrollY > showAt) btn.classList.add('visible'); else btn.classList.remove('visible'); }
-      onScroll();
-      window.addEventListener('scroll', onScroll, {passive:true});
+      function onScroll(){ if (window.scrollY > showAt) btn.classList.add('visible'); else btn.classList.remove('visible'); }
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
     })();
   </script>
 
