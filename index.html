@@ -1,179 +1,168 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <title>Textilreinigung Ettlingen – Sauber · Schnell · Premium</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Textilreinigung Ettlingen – professionelle Reinigung, Wäscherei, Brautkleid- & Teppichpflege per Hand. Hol- & Bringservice. Leopoldstr. 42, Ettlingen.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Textilreinigung Ettlingen — Sauber · Schnell · Premium</title>
+  <meta name="description" content="Textilreinigung Ettlingen — professionelle Handreinigung, Brautkleider & Schadensabwicklung. Transparente Preise, schnelle Abholung.">
   <link rel="canonical" href="https://textilreinigung-ettlingen.de/">
-  <meta name="theme-color" content="#0b0b0f">
   <link rel="stylesheet" href="/styles.css">
-  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
   <meta property="og:title" content="Textilreinigung Ettlingen">
-  <meta property="og:description" content="Sauber · Schnell · Premium – Reinigung, Wäscherei, Brautkleid & Teppich per Hand.">
-  <meta property="og:url" content="https://textilreinigung-ettlingen.de/">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://textilreinigung-ettlingen.de/img/hero-bg.jpg">
+  <meta property="og:description" content="Handreinigung, Brautkleider & Versicherungsschäden. Transparente Preise.">
+  <!-- Falls du später hero-2000.webp/jpg hinzufügst, passe die Bildpfade an -->
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-  <!-- Header -->
-  <header class="section" role="banner">
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:1rem;">
-      <a href="/" aria-label="Startseite"><img src="/img/logo.svg" alt="Textilreinigung Ettlingen Logo" style="height:48px; width:auto;"></a>
-      <nav class="nav" aria-label="Hauptnavigation">
-        <a href="/preise.html">Preise</a>
-        <a href="/brautkleid.html">Brautkleid</a>
-        <a href="/schaden.html">Versicherungsschäden</a>
-        <a href="/contact.html">Kontakt</a>
-        <a href="/ueber-uns.html">Über uns</a>
-      </nav>
+  <header class="header container" role="banner" aria-label="Hauptnavigation">
+    <div class="brand">
+      <a href="/"><img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" /></a>
+    </div>
+
+    <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+      <a href="/index.html" aria-current="page">Home</a>
+      <a href="/preise.html">Preise</a>
+      <a href="/brautkleid.html">Brautkleid</a>
+      <a href="/schaden.html">Schäden</a>
+      <a href="/contact.html">Kontakt</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="js-theme-toggle" class="btn small" aria-pressed="false" title="Design wechseln">🌓</button>
     </div>
   </header>
 
   <main id="main">
-    <!-- HERO -->
-    <section class="section" aria-labelledby="hero-title">
-      <div class="container">
-        <div class="hero" role="region" aria-label="Hero Bereich">
-          <div class="hero-inner">
-            <h1 id="hero-title" class="visually-hidden">Textilreinigung Ettlingen</h1>
-            <img class="hero-logo" src="/img/logo.svg" alt="Textilreinigung Ettlingen">
-            <p class="hero-claim gradient-text" aria-label="Claim">Sauber · Schnell · Premium</p>
-            <div class="badges">
-              <span class="badge">Mehrere Jahre Erfahrung</span>
-              <span class="badge">Reiniger in 2. Generation</span>
-              <span class="badge">Neue Maschinen (Stand Juli 2025)</span>
-              <span class="badge">Umweltfreundlich</span>
-            </div>
-            <p style="margin-top:1rem; color:var(--muted); max-width:60ch; margin-inline:auto;">
-              Wichtiger als die Reinigung sind <strong>Vor- und Nacharbeit</strong> – gründliche Fleckenbehandlung und perfektes Finish.
-            </p>
-            <div style="display:flex; gap:.75rem; justify-content:center; margin-top:1rem; flex-wrap:wrap;">
-              <a class="btn" href="/preise.html" aria-label="Angebote und Preise">Angebote &amp; Preise</a>
-              <a class="btn" href="https://wa.me/491604138492" target="_blank" rel="noopener" aria-label="WhatsApp Chat starten">WhatsApp</a>
-              <a class="btn" href="tel:+4972439491888" aria-label="Anrufen">07243&nbsp;9491888</a>
-            </div>
-          </div>
+    <!-- HERO (verwendet vorhandenes kachel-bild als Fallback hero) -->
+    <section class="hero" aria-label="Start">
+      <div class="hero-left container">
+        <h1 class="hero-title">Sauber — Schnell — Premium</h1>
+        <p class="lead">Handreinigung für empfindliche Textilien, Brautkleider & professionelle Schadensabwicklung. Transparente Preise — zuverlässig und schnell.</p>
+
+        <p class="hero-ctas">
+          <a class="btn btn-outline" href="/preise.html">Preisliste</a>
+          <a class="btn" href="https://wa.me/491604138492" aria-label="WhatsApp Nachricht an Textilreinigung Ettlingen">WhatsApp</a>
+          <a class="btn" href="tel:+4972439491888" aria-label="Anrufen">Anrufen</a>
+        </p>
+
+        <ul class="usp-list" role="list">
+          <li><strong>Handarbeit</strong> für empfindliche Stoffe</li>
+          <li><strong>Schnelle Abholung</strong> & flexible Abgabezeiten</li>
+          <li><strong>Transparente Preise</strong> — Preisliste online</li>
+        </ul>
+      </div>
+
+      <div class="hero-right container" aria-hidden="true">
+        <!-- Verwende vorhandenes Bild als Hero-Fallback (keine neuen Bilder nötig) -->
+        <picture class="hero-picture">
+          <source type="image/webp" srcset="/img/tile-textilreinigung.jpg">
+          <img src="/img/tile-textilreinigung.jpg" alt="" decoding="async" loading="lazy" width="1400" height="900">
+        </picture>
+      </div>
+    </section>
+
+    <!-- USPs -->
+    <section class="container usps">
+      <div class="grid-3">
+        <div class="card reveal">
+          <h3>Professionell</h3>
+          <p>Erfahrene Reinigung, Spezialbehandlungen bei Flecken & empfindlichen Materialien.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Transparent</h3>
+          <p>Klare Preise, Abo-Optionen und Extras auf /preise.html.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Versichert</h3>
+          <p>Schadensabwicklung & Dokumentation für Versicherungsfälle.</p>
         </div>
       </div>
     </section>
 
-    <!-- Leistungen -->
-    <section class="section" aria-labelledby="leistungen-title">
-      <div class="container">
-        <h2 id="leistungen-title" class="gradient-text">Unsere Leistungen</h2>
+    <!-- Services Tiles (nutzen die vorhandenen tile-*.jpg Dateien) -->
+    <section class="container tiles" aria-label="Leistungen">
+      <article class="tile reveal" id="tile-textilreinigung">
+        <img src="/img/tile-textilreinigung.jpg" alt="Textilreinigung - professionelle Reinigung" loading="lazy" width="1400" height="900">
+        <h3>Textilreinigung</h3>
+        <p>Schonende Reinigung für Anzüge, Hemden & feine Stoffe.</p>
+        <details><summary>Mehr</summary><p>Wir behandeln Flecken per Hand und wählen die passende Pflege für jeden Stoff.</p></details>
+      </article>
 
-        <div class="tiles" style="margin-top:1rem;">
-          <article class="tile">
-            <img src="/img/tile-textilreinigung.jpg" alt="Frisch gereinigtes Sakko auf Bügel">
-            <h3 class="gradient-text">Textilreinigung</h3>
-            <p>Schonende Pflege für Anzug, Kostüm, Mantel, Bluse &amp; mehr. Vorbehandlung, gründliche Reinigung und Premium-Finish.</p>
-            <details><summary>Mehr erfahren</summary>
-              <p>Materialgerecht (Wolle, Seide, Viskose). Kombination aus Vorbehandlung, Hauptreinigung und Dampf-Finish. Optional: Imprägnierung &amp; Duft.</p>
-            </details>
-          </article>
+      <article class="tile reveal" id="tile-waescherei">
+        <img src="/img/tile-waescherei.jpg" alt="Wäscherei" loading="lazy" width="1400" height="900">
+        <h3>Wäscherei</h3>
+        <p>Groß- und Kleinwäsche mit professioneller Trocknung.</p>
+        <details><summary>Mehr</summary><p>Express-Option auf Anfrage.</p></details>
+      </article>
 
-          <article class="tile">
-            <img src="/img/tile-waescherei.jpg" alt="Gefaltete Bettwäsche und Handtücher">
-            <h3 class="gradient-text">Wäscherei</h3>
-            <p>Haushaltswäsche wie Bettwäsche, Handtücher und Hemden – gewaschen, getrocknet und sorgfältig gelegt.</p>
-            <details><summary>Mehr erfahren</summary>
-              <p>Ressourcenschonende Programme. Hemdenservice mit Bügel- oder Legen-Option. Regelmäßige Abgabe spart Zeit.</p>
-            </details>
-          </article>
+      <article class="tile reveal" id="tile-brautkleid">
+        <img src="/img/tile-brautkleid.jpg" alt="Brautkleid Reinigung" loading="lazy" width="1400" height="900">
+        <h3>Brautkleid</h3>
+        <p>Sanfte Handreinigung & Aufbewahrung — individuell.</p>
+        <details><summary>Mehr</summary><p>Eigene Sektion mit Prozess & Preisen: /brautkleid.html</p></details>
+      </article>
 
-          <article class="tile">
-            <img src="/img/tile-brautkleid.jpg" alt="Brautkleid auf Schneiderpuppe">
-            <h3 class="gradient-text">Brautkleid (per Hand)</h3>
-            <p>Reinigung komplett in Handarbeit – vom Testen bis zur gründlichen Fleckenentfernung. Abschließend Premium-Finish.</p>
-            <details><summary>Mehr erfahren</summary>
-              <p>Sanfte Handwäsche, Netzschutz für Applikationen, Farbtests, Formtrocknung &amp; schonendes Bügeln. Lagerempfehlung inklusive.</p>
-            </details>
-          </article>
+      <article class="tile reveal" id="tile-teppich">
+        <img src="/img/tile-teppich.jpg" alt="Teppichreinigung" loading="lazy" width="1400" height="900">
+        <h3>Teppichreinigung</h3>
+        <p>Sanfte Reinigung für Orient- & Wollteppiche.</p>
+        <details><summary>Mehr</summary><p>Abholung & Lieferung möglich.</p></details>
+      </article>
 
-          <article class="tile">
-            <img src="/img/tile-teppich.jpg" alt="Handgeknüpfter Teppich bei der Reinigung">
-            <h3 class="gradient-text">Teppichreinigung (per Hand)</h3>
-            <p>Manuelles Entstauben, Waschen und sorgfältiges Trocknen. Farben bleiben frisch, Flor elastisch.</p>
-            <details><summary>Mehr erfahren</summary>
-              <p>Prüfung auf Farbechtheit, geeignete Waschmittel, schonendes Ausspülen, liegende Trocknung. Optional: Imprägnierung.</p>
-            </details>
-          </article>
+      <article class="tile reveal" id="tile-schaden">
+        <img src="/img/tile-schaden.jpg" alt="Versicherungsschäden" loading="lazy" width="1400" height="900">
+        <h3>Versicherungsschäden</h3>
+        <p>Wasser- & Brandschaden-Dokumentation & Beratung.</p>
+        <details><summary>Mehr</summary><p>Prozess & benötigte Unterlagen: /schaden.html</p></details>
+      </article>
 
-          <article class="tile">
-            <img src="/img/tile-schaden.jpg" alt="Textilien mit Wasserschaden">
-            <h3 class="gradient-text">Versicherungsschäden</h3>
-            <p>Hilfe bei Wasser- und Brandschäden: Dokumentation, Reinigung/Neutralisierung und Wiederherstellung, soweit möglich.</p>
-            <details><summary>Mehr erfahren</summary>
-              <p>Bestandsliste, Fotos, Pflegeberichte und Beratung zu Zeitwert/Ersatz. <em>Keine Rechtsberatung.</em></p>
-            </details>
-          </article>
-
-          <article class="tile">
-            <img src="/img/tile-service.jpg" alt="Hol- & Bringservice Fahrzeug">
-            <h3 class="gradient-text">Service</h3>
-            <p>Hol- &amp; Bringservice, Imprägnierung sowie Tierhaar- &amp; Fusselentfernung (Aufpreis). Flexibel nach Absprache.</p>
-            <details><summary>Mehr erfahren</summary>
-              <p>Praktisch für größere Mengen oder wenn es schnell gehen muss. Buchung telefonisch oder per WhatsApp.</p>
-            </details>
-          </article>
-        </div>
-      </div>
+      <article class="tile reveal" id="tile-service">
+        <img src="/img/tile-service.jpg" alt="Service & Extras" loading="lazy" width="1400" height="900">
+        <h3>Service</h3>
+        <p>Folie, FashionGuard, Premium Finish & mehr.</p>
+        <details><summary>Mehr</summary><p>Folienpreis: 0,20 € pro Artikel.</p></details>
+      </article>
     </section>
 
-    <!-- Karte -->
-    <section class="section" aria-labelledby="map-title">
-      <div class="container">
-        <h2 id="map-title" class="gradient-text">So finden Sie uns</h2>
-        <p class="footer-small" style="margin:.5rem 0 1rem 0;">Leopoldstr. 42, 76275 Ettlingen · Mo–Fr 08:30–18:00, Sa 08:30–14:00</p>
-        <iframe class="map-embed" src="https://www.google.com/maps?q=Leopoldstr.+42,+76275+Ettlingen&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Karte: Leopoldstraße 42, 76275 Ettlingen" allowfullscreen></iframe>
+    <!-- Map + Kontakt-Quick -->
+    <section class="container map-contact" aria-label="Anfahrt & Kontakt">
+      <div class="map-wrap">
+        <iframe loading="lazy" title="Karte Textilreinigung Ettlingen" src="https://www.google.com/maps?q=Leopoldstr.+42+76275+Ettlingen&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="contact-quick">
+        <h3>Kontakt & Öffnungszeiten</h3>
+        <p>Leopoldstr. 42, 76275 Ettlingen<br>
+        Tel: <a href="tel:+4972439491888">+49 7243 9491888</a><br>
+        WhatsApp: <a href="https://wa.me/491604138492">0160 41 38 492</a></p>
+        <p><strong>Öffnungszeiten:</strong><br>Mo–Fr 08:30–18:00 • Sa 08:30–14:00</p>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer role="contentinfo">
+  <footer role="contentinfo" class="site-footer">
     <div class="container footer-grid">
       <div>
-        <a href="/" aria-label="Startseite"><img src="/img/logo.svg" alt="Textilreinigung Ettlingen" style="height:36px; width:auto;"></a>
-        <p class="footer-small" style="margin-top:.5rem;">Leopoldstr. 42, 76275 Ettlingen · Tel. <a href="tel:+4972439491888">07243 9491888</a> · <a href="https://wa.me/491604138492" target="_blank" rel="noopener">WhatsApp</a></p>
+        <img src="/img/logo.svg" alt="Logo Textilreinigung Ettlingen" style="height:34px">
+        <p>Leopoldstr. 42, 76275 Ettlingen</p>
       </div>
-      <nav aria-label="Footer Links" class="footer-links">
-        <a href="/ueber-uns.html">Über uns</a><a href="/agb.html">AGB</a><a href="/contact.html">Kontakt</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a>
-      </nav>
-      <p class="footer-small">© <span id="y"></span> Textilreinigung Ettlingen · Alle Rechte vorbehalten.</p>
+      <div>
+        <nav aria-label="Footer Navigation">
+          <a href="/impressum.html">Impressum</a> ·
+          <a href="/datenschutz.html">Datenschutz</a> ·
+          <a href="/agb.html">AGB</a>
+        </nav>
+      </div>
+      <div>
+        <p>&copy; <span id="js-year"></span> Textilreinigung Ettlingen</p>
+      </div>
     </div>
-    <script>(function(){ var y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear(); })();</script>
   </footer>
 
-  <!-- Dein JSON-LD (aus deiner Nachricht) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"DryCleaningOrLaundry",
-    "name":"Textilreinigung Ettlingen",
-    "legalName":"Textilreinigung Ettlingen",
-    "founder": { "@type":"Person", "name":"Elyesa Özdemir" },
-    "image":"https://textilreinigung-ettlingen.de/img/hero-bg.jpg",
-    "url":"https://textilreinigung-ettlingen.de/",
-    "telephone":"+49 7243 9491888",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"Leopoldstr. 42",
-      "postalCode":"76275",
-      "addressLocality":"Ettlingen",
-      "addressCountry":"DE"
-    },
-    "openingHoursSpecification":[
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:30","closes":"18:00"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"08:30","closes":"14:00"}
-    ],
-    "hasMap":"https://www.google.com/maps?q=Leopoldstr.+42,+76275+Ettlingen",
-    "sameAs":["https://wa.me/491604138492"]
-  }
-  </script>
+  <a class="whatsapp-fab" href="https://wa.me/491604138492" aria-label="WhatsApp Nachricht"><span aria-hidden="true">💬</span></a>
+
+  <div id="form-status" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="/scripts/main.js" defer></script>
 </body>
 </html>
