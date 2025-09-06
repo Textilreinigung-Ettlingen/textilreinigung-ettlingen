@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Textilreinigung Ettlingen — Sauber · Schnell · Premium</title>
-  <meta name="description" content="Textilreinigung Ettlingen — Handreinigung für empfindliche Textilien, Brautkleider & Schadensabwicklung. Transparente Preise, schnelle Abgabe & Abholung in Ettlingen.">
+  <meta name="description" content="Textilreinigung Ettlingen — Handreinigung für empfindliche Textilien, Brautkleider & Schadensabwicklung. Transparent, lokal in Ettlingen.">
   <link rel="canonical" href="https://textilreinigung-ettlingen.de/">
   <link rel="stylesheet" href="/styles.css">
 </head>
@@ -40,10 +40,25 @@
           <p class="lead">Handreinigung für empfindliche Textilien, Brautkleider & professionelle Schadensabwicklung. Lokal in Ettlingen.</p>
 
           <div class="hero-ctas" role="group" aria-label="Schnellzugriff">
-            <a class="cta cta-gradient" href="/preise.html" aria-label="Preisliste anzeigen">Preisliste</a>
-            <a class="cta cta-whatsapp" href="https://wa.me/491604138492" aria-label="WhatsApp">WhatsApp</a>
-            <a class="cta cta-call" href="tel:+4972439491888" aria-label="Anrufen">Anrufen</a>
-            <a class="cta cta-mail" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail">E-Mail</a>
+            <!-- Preisliste: jetzt weiße Schrift + Umrandung wie die Buttons -->
+            <a class="cta cta-white" href="/preise.html" aria-label="Preisliste anzeigen">
+              Preisliste
+            </a>
+
+            <!-- WhatsApp bleibt grün -->
+            <a class="cta cta-whatsapp" href="https://wa.me/491604138492" aria-label="WhatsApp">
+              WhatsApp
+            </a>
+
+            <!-- Anrufen: türkiser Button -->
+            <a class="cta cta-call" href="tel:+4972439491888" aria-label="Anrufen">
+              Anrufen
+            </a>
+
+            <!-- E-Mail: blau->lila Verlauf -->
+            <a class="cta cta-mail" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail">
+              E-Mail
+            </a>
           </div>
         </div>
 
@@ -64,7 +79,7 @@
         <img src="/img/usp-transparent.jpg" alt="Transparent — Klare Preise" loading="lazy" width="1400" height="900">
         <h3>Transparent</h3>
         <p>Klare Preisliste, Abo-Karten & nachvollziehbare Extras.</p>
-        <details><summary>Mehr</summary><p>Abo-Vorteile, Zusatzleistungen (Folie, Premium Finish) transparent dargestellt.</p></details>
+        <details><summary>Mehr</summary><p>Abo-Vorteile, Zusatzleistungen transparent dargestellt.</p></details>
       </article>
 
       <article class="usp tile reveal">
@@ -129,7 +144,7 @@
       </div>
     </section>
 
-    <!-- CONTACT: zentriert, address left, directions right -->
+    <!-- CONTACT: zentriert, E-Mail unter WhatsApp, Adresse unter Buttons, Adresse mit Gradient -->
     <section class="container contact-strip" aria-label="Kontakt und Öffnungszeiten">
       <div class="contact-inner">
         <header class="contact-strip-header">
@@ -151,14 +166,16 @@
               </div>
             </div>
 
+            <!-- CTAs: WhatsApp oben, E-Mail direkt darunter (vertical) -->
             <div class="contact-ctas">
               <a class="btn whatsapp" href="https://wa.me/491604138492" aria-label="WhatsApp schreiben">WhatsApp schreiben</a>
               <a class="btn mail" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail schreiben">E-Mail schreiben</a>
             </div>
 
+            <!-- Adresse FARBVERLAUF Türkis->Lila -->
             <div class="address-left" aria-label="Adresse">
-              <div class="address-line">Leopoldstr. 42</div>
-              <div class="address-line">76275 Ettlingen</div>
+              <div class="address-line gradient-address">Leopoldstr. 42</div>
+              <div class="address-line gradient-address">76275 Ettlingen</div>
             </div>
           </div>
 
@@ -211,12 +228,7 @@
 
   <a class="whatsapp-fab" href="https://wa.me/491604138492" aria-label="WhatsApp Nachricht">💬</a>
 
-  <!-- Verweis auf zentralen JS: /scripts/main.js (defer) -->
   <script src="/scripts/main.js" defer></script>
-
-  <!-- Fallback: nur Jahreszahl (falls main.js keine Jahreszahl setzt) -->
-  <script>
-    (function(){ const y = document.getElementById('year'); if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear(); })();
-  </script>
+  <script> (function(){ const y = document.getElementById('year'); if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear(); })(); </script>
 </body>
 </html>
