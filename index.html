@@ -143,14 +143,14 @@
       </article>
     </section>
 
-    <!-- MAP (nur Karte) -->
+    <!-- MAP -->
     <section class="container map-contact" aria-label="Anfahrt">
       <div class="map-wrap">
         <iframe loading="lazy" title="Karte Textilreinigung Ettlingen" src="https://www.google.com/maps?q=Leopoldstr.+42+76275+Ettlingen&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
 
-    <!-- Kontakt & Öffnungszeiten (zentriert, keine Hintergrundbox für Zeiten) -->
+    <!-- Kontakt & Öffnungszeiten (zentriert, Badge + Wegbutton) -->
     <section class="container contact-strip" aria-label="Kontakt und Öffnungszeiten">
       <div class="contact-strip-inner">
         <header class="contact-strip-header">
@@ -158,17 +158,17 @@
           <p class="muted">Schnell erreichbar per Telefon, WhatsApp oder E-Mail — wir helfen bei Abgabe, Abholung und Versicherungsschäden.</p>
         </header>
 
-        <div class="contact-grid">
+        <div class="contact-grid" role="region" aria-label="Kontaktinformationen">
           <div class="contact-left">
             <div class="contact-big">
               <svg class="icon-phone" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true">
                 <defs>
-                  <linearGradient id="gPhone2" x1="0" x2="1" y1="0" y2="1">
+                  <linearGradient id="gPhone3" x1="0" x2="1" y1="0" y2="1">
                     <stop offset="0" stop-color="#00d8ff"></stop>
                     <stop offset="1" stop-color="#7b2cff"></stop>
                   </linearGradient>
                 </defs>
-                <path fill="url(#gPhone2)" d="M6.6 10.8a15.05 15.05 0 0 0 7.6 7.6l2.1-2.1a1 1 0 0 1 1.1-.2c1.2.5 2.5.8 3.9.8a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C9.5 22 2 14.5 2 5a1 1 0 0 1 1-1h2.7a1 1 0 0 1 1 1c0 1.4.3 2.7.8 3.9a1 1 0 0 1-.2 1.1L6.6 10.8z"/>
+                <path fill="url(#gPhone3)" d="M6.6 10.8a15.05 15.05 0 0 0 7.6 7.6l2.1-2.1a1 1 0 0 1 1.1-.2c1.2.5 2.5.8 3.9.8a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C9.5 22 2 14.5 2 5a1 1 0 0 1 1-1h2.7a1 1 0 0 1 1 1c0 1.4.3 2.7.8 3.9a1 1 0 0 1-.2 1.1L6.6 10.8z"/>
               </svg>
 
               <div>
@@ -192,7 +192,15 @@
 
           <div class="contact-right">
             <div class="hours-card" role="table" aria-label="Öffnungszeiten">
-              <div class="hours-header"><strong>Öffnungszeiten</strong></div>
+              <div class="hours-header">
+                <span class="hours-badge" aria-hidden="true" title="Öffnungszeiten">
+                  <!-- kleines Uhr-Icon im Badge -->
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path fill="#fff" d="M12 1.5A10.5 10.5 0 1 0 22.5 12 10.512 10.512 0 0 0 12 1.5zm0 19A8.5 8.5 0 1 1 20.5 12 8.51 8.51 0 0 1 12 20.5z"/><path fill="#fff" d="M12.75 7h-1.5v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                  </svg>
+                </span>
+                <strong>Öffnungszeiten</strong>
+              </div>
 
               <div class="hours-body">
                 <div class="hours-row"><span class="day">Mo–Fr</span><time class="time" datetime="08:30">08:30 – 18:00</time></div>
@@ -204,7 +212,12 @@
             <div class="address-card" aria-label="Adresse">
               <div class="address-line">Leopoldstr. 42</div>
               <div class="address-line">76275 Ettlingen</div>
-              <a class="directions-link" href="https://www.google.com/maps/dir/?api=1&destination=Leopoldstr.+42+76275+Ettlingen" target="_blank" rel="noopener">Wegbeschreibung</a>
+
+              <!-- Wegbeschreibung als prominenter Outline-Button -->
+              <a class="directions-btn" href="https://www.google.com/maps/dir/?api=1&destination=Leopoldstr.+42+76275+Ettlingen" target="_blank" rel="noopener" aria-label="Wegbeschreibung öffnen">
+                <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
+                Wegbeschreibung
+              </a>
             </div>
           </div>
         </div>
