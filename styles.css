@@ -29,7 +29,7 @@ body{
 
 /* header */
 .header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1rem}
-.brand img{height:96px;max-height:140px;width:auto}
+.brand img{height:110px;max-height:160px;width:auto}
 .nav{display:flex;gap:1.25rem;align-items:center}
 .nav a{
   text-decoration:none;font-weight:800;font-size:1rem;color:#fff;padding:.25rem 0;position:relative;
@@ -40,45 +40,128 @@ body{
 .theme-toggle:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
 
 /* HERO */
-.hero{padding:1.25rem 0 0}
+.hero{padding:1.5rem 0}
 .hero-inner{display:flex;align-items:center;gap:1.5rem;justify-content:space-between}
 @media(max-width:900px){ .hero-inner{flex-direction:column;align-items:flex-start} }
-.hero-title{margin:0 0 .4rem;font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
-.lead{margin:0 0 1rem;color:var(--muted);max-width:80%}
-@media(max-width:700px){ .lead{max-width:100%} }
+.hero-title{margin:0 0 .4rem;font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
+.lead{margin:0 0 1rem;color:var(--muted)}
 
-.hero-quick-ctas{display:flex;gap:.6rem;align-items:center;margin-top:.6rem}
-.btn{padding:.55rem .85rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:0.95rem;display:inline-flex;align-items:center;justify-content:center;border:0;color:#fff;cursor:pointer;box-shadow:0 8px 26px rgba(0,0,0,0.28)}
+/* CTAs in hero */
+.hero-ctas{display:flex;gap:.6rem;flex-wrap:wrap}
+.btn{
+  padding:.6rem .95rem;border-radius:10px;font-weight:800;text-decoration:none;font-size:0.98rem;
+  display:inline-flex;align-items:center;justify-content:center;border:0;color:#fff;cursor:pointer;
+  box-shadow:0 10px 26px rgba(0,0,0,0.28);
+}
 .btn:focus{outline:3px solid rgba(123,44,255,.14);outline-offset:3px}
-.btn-turquoise{background:linear-gradient(90deg,var(--brand-a),#19d6ff)}
-.btn-whatsapp{background:linear-gradient(180deg,var(--wa-green),#16b24a);box-shadow:0 10px 28px rgba(37,211,102,0.10)}
+.btn:hover{transform:translateY(-2px);transition:transform .14s ease}
 
-/* USP / Tiles */
-.usp-grid, .tiles{display:grid;gap:1rem}
-.tile img{width:100%;height:auto;border-radius:8px;display:block;object-fit:cover}
-.tile h3{margin:.5rem 0 0;font-size:1rem;font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
-.tile p{margin:0;color:var(--muted);font-size:0.95rem}
+/* türkis box for Preisliste, Anrufen, E-Mail */
+.btn-turquoise{
+  background:linear-gradient(90deg,var(--brand-a),#19d6ff);
+  color:#fff;
+  border:0;
+}
 
-/* MAP */
+/* whatsapp green box */
+.btn-whatsapp{
+  background:linear-gradient(180deg,var(--wa-green),#16b24a);
+  color:#fff;
+  border:0;
+  box-shadow:0 10px 28px rgba(37,211,102,0.10);
+}
+
+/* hero watermark bigger & more visible */
+.hero-watermark{
+  width:min(640px,48vw);
+  height:min(640px,48vw);
+  background-image:url('/img/logo.svg');
+  background-repeat:no-repeat;background-position:center;background-size:contain;
+  opacity:.95; border-radius:8px;flex-shrink:0; filter:contrast(1.05);
+}
+@media(max-width:420px){ .hero-watermark{width:240px;height:240px;opacity:.8} }
+
+/* USP grid: 3 per row on desktop */
+.usp-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:0.6rem}
+@media(min-width:700px){ .usp-grid{grid-template-columns:repeat(3,1fr)} }
+.tile{background:transparent;padding:0;border-radius:8px;overflow:hidden}
+.tile img{width:100%;height:auto;display:block;border-radius:8px;object-fit:cover}
+.tile h3{margin:.5rem 0 0;font-size:1rem;font-weight:800;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
+.tile p{margin:0;color:var(--muted);font-size:.95rem}
+.tile details{margin-top:.35rem}
+.tile summary{cursor:pointer}
+
+/* services grid: 3 per row on desktop (reinstated) */
+.tiles{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1rem}
+@media(min-width:900px){ .tiles{grid-template-columns:repeat(3,1fr)} }
+
+/* map */
 .map-wrap{border-radius:10px;overflow:hidden;margin:1.25rem 0}
 .map-wrap iframe{width:100%;height:320px;border:0}
 
-/* CONTACT & Info section */
+/* CONTACT */
 .contact-strip{padding:1.25rem 0}
+.contact-inner{max-width:1100px;margin:0 auto;padding:0}
 .contact-strip-header{text-align:center;margin-bottom:0.6rem}
 .contact-strip-header h2{margin:0;font-size:1.35rem;font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
 .contact-strip-header .muted{color:var(--muted)}
+
+/* contact grid centered and two-column layout */
+.contact-grid{display:flex;gap:2rem;justify-content:center;align-items:flex-start;max-width:920px;margin:0 auto;padding-top:0.6rem}
+@media(max-width:900px){ .contact-grid{flex-direction:column;max-width:100%;padding:0 1rem} }
+
+/* left col */
+.left-col{flex:1;min-width:260px;max-width:640px}
+.contact-big{display:flex;gap:.9rem;align-items:center}
+.contact-big svg{flex-shrink:0}
+.muted{color:var(--muted)}
+.phone-link{font-weight:900;color:var(--text);text-decoration:none;display:inline-block;margin-top:.15rem}
+.phone-link:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
+
+/* CTAs vertical in contact (centered container) */
+.contact-ctas{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem;width:260px}
+@media(max-width:600px){ .contact-ctas{width:100%} }
+.contact-ctas .btn{width:100%;min-width:0}
+
+/* address gradient */
+.address-left{margin-top:0.9rem}
+.gradient-address{font-weight:800;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
+
+/* right col */
+.right-col{width:320px;min-width:240px;display:flex;flex-direction:column;align-items:flex-end}
+@media(max-width:900px){ .right-col{align-items:flex-start;width:100%} }
+.hours{width:100%}
+.hours-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.35rem;font-weight:800}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));color:#fff}
+.hours-list{width:100%}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:.45rem 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+.hours-row:last-child{border-bottom:0}
+.day{color:var(--muted);font-weight:700}
+.time{font-weight:900;font-size:1.12rem;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
+
+/* directions */
+.directions-wrap{width:100%;display:flex;justify-content:flex-end;margin-top:.7rem}
+@media(max-width:900px){ .directions-wrap{justify-content:flex-start} }
+.directions-btn{padding:.55rem .9rem;border-radius:10px;font-weight:800;text-decoration:none;border:2px solid rgba(255,255,255,0.04);background:linear-gradient(90deg,var(--brand-a),var(--brand-b));color:#fff}
+.directions-btn:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
 
 /* footer */
 .site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:1.25rem 0;margin-top:2rem;color:var(--muted)}
 .footer-grid{display:flex;gap:1rem;flex-direction:column;align-items:center}
 @media(min-width:700px){ .footer-grid{flex-direction:row;justify-content:space-between;align-items:center} }
 
-/* tiny buttons (expand controls) */
-.btn-small{padding:.45rem .7rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff;font-weight:800;margin-right:.5rem;cursor:pointer}
-.btn-small:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
+/* floating whatsapp */
+.whatsapp-fab{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:999px;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:22px;box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:999}
 
-/* reveal animation baseline */
+/* BACK TO TOP button */
+.to-top-btn{position:fixed; right:18px; bottom:86px; width:46px; height:46px; border-radius:10px;
+  background:rgba(255,255,255,0.04); color:var(--text); border:1px solid rgba(255,255,255,0.06);
+  display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:18px; cursor:pointer; z-index:998;
+  opacity:0; transform:translateY(6px); transition:opacity .18s ease, transform .18s ease;}
+.to-top-btn.visible{opacity:1; transform:none}
+.to-top-btn:focus{outline:3px solid rgba(123,44,255,.12); outline-offset:3px}
+
+/* reveal */
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
 .reveal--visible{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){
@@ -86,89 +169,11 @@ body{
   html{scroll-behavior:auto}
 }
 
-/* =========================
-   PRICE / ACCORDION STYLES
-   ========================= */
-.price-section{margin-top:1.2rem;padding-bottom:2rem}
-.price-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.6rem}
-.section-title{margin:0 0 .25rem;font-size:1.15rem;font-weight:900;color:#fff}
-
-/* <<< IMPORTANT: single column so categories list vertically >>> */
-.price-grid{display:grid;grid-template-columns:1fr;gap:1rem}
-.price-card{background:transparent}
-
-/* details baseline: card look */
-.price-details{
-  background:var(--card-bg);
-  border-radius:12px;
-  padding:0;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.03);
-  transition:box-shadow .18s ease, transform .12s ease;
+/* small tweaks for mobile */
+@media(max-width:600px){
+  .contact-ctas{flex-direction:column}
+  .btn{width:100%;justify-content:center}
+  .right-col{align-items:flex-start;width:100%}
+  .directions-wrap{justify-content:flex-start}
+  .time{font-size:1.06rem}
 }
-.price-details:hover{ transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.55); }
-.price-details[open]{box-shadow:0 30px 80px rgba(0,0,0,0.55)}
-
-/* summary row: emoji (no box) + title + note + chevron */
-/* NOTE: emoji sits free (no colored box / gradient behind it) as requested */
-.price-summary{
-  display:flex;align-items:center;gap:0.9rem;padding:1rem 1.05rem;cursor:pointer;user-select:none;background:transparent;border:0;
-}
-.price-summary:focus{outline:3px solid rgba(123,44,255,0.12);outline-offset:4px}
-
-/* emoji - free (no background box), larger for visibility */
-.summary-icon{
-  flex:0 0 auto;font-size:28px;line-height:1;padding:0;margin:0;
-  background:transparent;border-radius:0;box-shadow:none;
-}
-
-/* gradient title text */
-.summary-title{
-  font-weight:900;font-size:1rem;
-  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.summary-note{margin-left:auto;color:var(--muted);font-size:.95rem}
-.chev{margin-left:.6rem;color:var(--muted);font-weight:900;transition:transform .18s ease}
-.price-details[open] .chev{transform:rotate(180deg)}
-
-/* price content -> larger & very readable */
-.price-content{padding:0.8rem 1rem 1rem 1rem;background:transparent}
-.price-list{margin:0;padding:0;display:block}
-.price-row{
-  display:flex;justify-content:space-between;align-items:flex-start;padding:.75rem 0;border-bottom:1px dashed rgba(255,255,255,0.04)
-}
-.price-row dt{
-  font-weight:800;color:#eaf8ff;margin:0;font-size:var(--price-font-size);
-  /* left alignment */
-  text-align:left;
-}
-.price-row dd{
-  margin:0;color:#fff;font-weight:900;min-width:6.5rem;text-align:right;
-  font-size:var(--price-font-size-large);
-}
-
-/* mobile stacking: keep price to right on wider screens, stack on small screens */
-@media(max-width:520px){
-  .price-row{flex-direction:column;gap:.25rem;align-items:stretch}
-  .price-row dd{text-align:left}
-  .summary-note{display:block;margin-left:0;margin-top:.35rem}
-  .lead{font-size:0.98rem}
-}
-
-/* small helper text */
-.small-note{color:var(--muted);font-size:.95rem;margin-top:1rem}
-
-/* accessibility: remove native marker */
-summary::-webkit-details-marker{display:none}
-
-/* floating whatsapp quick action */
-.whatsapp-fab{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:999px;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:22px;box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:999}
-
-/* Back to top (if present) */
-.to-top-btn{position:fixed; right:18px; bottom:86px; width:46px; height:46px; border-radius:10px;
-  background:rgba(255,255,255,0.04); color:var(--text); border:1px solid rgba(255,255,255,0.06);
-  display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:18px; cursor:pointer; z-index:998;
-  opacity:0; transform:translateY(6px); transition:opacity .18s ease, transform .18s ease;}
-.to-top-btn.visible{opacity:1; transform:none}
-.to-top-btn:focus{outline:3px solid rgba(123,44,255,.12); outline-offset:3px}
