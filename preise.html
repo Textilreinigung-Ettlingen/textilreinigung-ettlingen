@@ -11,7 +11,7 @@
 <body>
   <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
-  <!-- Header (gleich wie auf Start) -->
+  <!-- Header -->
   <header class="header container" role="banner" aria-label="Hauptnavigation">
     <div class="brand">
       <a href="/" class="brand-link" aria-label="Zur Startseite">
@@ -35,21 +35,35 @@
   <main id="content" class="container" role="main">
     <section class="page-hero" aria-label="Preise">
       <h1 class="hero-title">Preisliste</h1>
-      <p class="lead">Klare & transparente Preise — Abo-Optionen und Extras findest du hier. Bei Fragen: WhatsApp oder Anruf.</p>
+      <p class="lead">Klare &amp; transparente Preise — Abo-Optionen und Extras. Bei Fragen: WhatsApp oder Anruf.</p>
+
+      <div class="hero-quick-ctas">
+        <a class="btn btn-turquoise" href="/index.html#kontakt" aria-label="Kontakt (Seite)">Kontakt</a>
+        <a class="btn btn-whatsapp" href="https://wa.me/491604138492" aria-label="WhatsApp">WhatsApp</a>
+      </div>
     </section>
 
     <section class="price-section" aria-labelledby="price-overview">
-      <h2 id="price-overview" class="section-title">Unsere Kategorien</h2>
+      <div class="price-header">
+        <h2 id="price-overview" class="section-title">Unsere Kategorien</h2>
+
+        <div class="expand-controls" role="toolbar" aria-label="Akkordeon-Steuerung">
+          <button id="expandAll" class="btn-small" type="button">Alle öffnen</button>
+          <button id="collapseAll" class="btn-small" type="button">Alle schließen</button>
+        </div>
+      </div>
 
       <div class="price-grid">
-        <!-- Category: Hemden & Abo-Karten (name updated) -->
+        <!-- Hemden & Abo-Karten -->
         <article class="price-card reveal">
-          <details class="price-details" id="cat-hemd" >
-            <summary class="price-summary">
-              <!-- Icon: box with shirt -->
-              <svg class="summary-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="#fff" d="M4 3h5l1 2h4l1-2h5v18H4z"></path>
-              </svg>
+          <details class="price-details" id="cat-hemd">
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">
+                <!-- Shirt icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="#fff" d="M4 3h4l1 2h6l1-2h4v18H4z"/>
+                </svg>
+              </span>
 
               <span class="summary-title">Hemden &amp; Abo-Karten</span>
               <span class="summary-note">Günstiger bei größeren Mengen</span>
@@ -58,12 +72,12 @@
 
             <div class="price-content">
               <dl class="price-list">
-                <div class="price-row"><dt>Hemd (auf Bügel)</dt><dd>5,90 €</dd></div>
-                <div class="price-row"><dt>20er auf Bügel</dt><dd>98,00 € (4,90 €/Stk.)</dd></div>
-                <div class="price-row"><dt>40er auf Bügel</dt><dd>170,00 € (4,25 €/Stk.)</dd></div>
-                <div class="price-row"><dt>Hemd (gelegt)</dt><dd>6,90 €</dd></div>
-                <div class="price-row"><dt>20er gelegt</dt><dd>118,00 € (5,90 €/Stk.)</dd></div>
-                <div class="price-row"><dt>40er gelegt</dt><dd>210,00 € (5,25 €/Stk.)</dd></div>
+                <div class="price-row"><dt>Hemd (auf Bügel)</dt><dd>5,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>20er auf Bügel</dt><dd>98,00&nbsp;€ (4,90&nbsp;/Stk.)</dd></div>
+                <div class="price-row"><dt>40er auf Bügel</dt><dd>170,00&nbsp;€ (4,25&nbsp;/Stk.)</dd></div>
+                <div class="price-row"><dt>Hemd (gelegt)</dt><dd>6,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>20er gelegt</dt><dd>118,00&nbsp;€ (5,90&nbsp;/Stk.)</dd></div>
+                <div class="price-row"><dt>40er gelegt</dt><dd>210,00&nbsp;€ (5,25&nbsp;/Stk.)</dd></div>
               </dl>
             </div>
           </details>
@@ -72,25 +86,26 @@
         <!-- Anzüge & Festmode -->
         <article class="price-card reveal">
           <details class="price-details" id="cat-anzug">
-            <summary class="price-summary">
-              <svg class="summary-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="#fff" d="M4 4h16v2H4zM6 8h12v12H6z"></path>
-              </svg>
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">
+                <!-- Suit icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M6 3h12v2H6zM8 7h8v12H8z"/></svg>
+              </span>
 
               <span class="summary-title">Anzüge &amp; Festmode</span>
-              <span class="summary-note">Sorgfältige Reinigung & Presse</span>
+              <span class="summary-note">Sorgfältige Reinigung &amp; Presse</span>
               <span class="chev" aria-hidden="true">▾</span>
             </summary>
 
             <div class="price-content">
               <dl class="price-list">
-                <div class="price-row"><dt>Anzug 2-tlg. / Kostüm</dt><dd>34,80 €</dd></div>
-                <div class="price-row"><dt>Anzug 3-tlg.</dt><dd>46,70 €</dd></div>
-                <div class="price-row"><dt>Sakko</dt><dd>19,90 €</dd></div>
-                <div class="price-row"><dt>Anzugweste</dt><dd>11,90 €</dd></div>
-                <div class="price-row"><dt>Krawatte</dt><dd>8,90 €</dd></div>
-                <div class="price-row"><dt>Dirndl (inkl. Schürze &amp; Bluse)</dt><dd>49,90 €</dd></div>
-                <div class="price-row"><dt>Brautkleid</dt><dd>ab 195,00 €</dd></div>
+                <div class="price-row"><dt>Anzug 2-tlg. / Kostüm</dt><dd>34,80&nbsp;€</dd></div>
+                <div class="price-row"><dt>Anzug 3-tlg.</dt><dd>46,70&nbsp;€</dd></div>
+                <div class="price-row"><dt>Sakko</dt><dd>19,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Anzugweste</dt><dd>11,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Krawatte</dt><dd>8,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Dirndl (inkl. Schürze &amp; Bluse)</dt><dd>49,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Brautkleid</dt><dd>ab 195,00&nbsp;€</dd></div>
               </dl>
             </div>
           </details>
@@ -99,21 +114,22 @@
         <!-- Hosen & Röcke -->
         <article class="price-card reveal">
           <details class="price-details" id="cat-hosen">
-            <summary class="price-summary">
-              <svg class="summary-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="#fff" d="M4 3h16v4H4zM4 9h6v12H4zM14 9h6v12h-6z"></path>
-              </svg>
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">
+                <!-- Pants icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M4 3h16v4H4zM4 9h6v12H4zM14 9h6v12h-6z"/></svg>
+              </span>
 
               <span class="summary-title">Hosen &amp; Röcke</span>
-              <span class="summary-note">Sorgfältige Bügel- &amp; Faltenpflege</span>
+              <span class="summary-note">Bügel- &amp; Faltenpflege</span>
               <span class="chev" aria-hidden="true">▾</span>
             </summary>
 
             <div class="price-content">
               <dl class="price-list">
-                <div class="price-row"><dt>Hose</dt><dd>14,90 €</dd></div>
-                <div class="price-row"><dt>Rock, lang</dt><dd>16,90 €</dd></div>
-                <div class="price-row"><dt>Rock mit Falten</dt><dd>19,90 €</dd></div>
+                <div class="price-row"><dt>Hose</dt><dd>14,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Rock, lang</dt><dd>16,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Rock mit Falten</dt><dd>19,90&nbsp;€</dd></div>
               </dl>
             </div>
           </details>
@@ -122,10 +138,11 @@
         <!-- Ober- & Freizeitbekleidung -->
         <article class="price-card reveal">
           <details class="price-details" id="cat-ober">
-            <summary class="price-summary">
-              <svg class="summary-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="#fff" d="M3 3h18v4H3zM3 9h18v12H3z"></path>
-              </svg>
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">
+                <!-- Shirt/tops icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M3 3h18v4H3zM3 9h18v12H3z"/></svg>
+              </span>
 
               <span class="summary-title">Ober- &amp; Freizeitbekleidung</span>
               <span class="summary-note">T-Shirts, Pullover, Hoodies</span>
@@ -134,35 +151,36 @@
 
             <div class="price-content">
               <dl class="price-list">
-                <div class="price-row"><dt>T-Shirt</dt><dd>6,50 €</dd></div>
-                <div class="price-row"><dt>Polo</dt><dd>6,90 €</dd></div>
-                <div class="price-row"><dt>Langarm-Shirt</dt><dd>9,50 €</dd></div>
-                <div class="price-row"><dt>Pullover</dt><dd>12,50 €</dd></div>
-                <div class="price-row"><dt>Hoodie</dt><dd>17,90 €</dd></div>
+                <div class="price-row"><dt>T-Shirt</dt><dd>6,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Polo</dt><dd>6,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Langarm-Shirt</dt><dd>9,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Pullover</dt><dd>12,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Hoodie</dt><dd>17,90&nbsp;€</dd></div>
               </dl>
             </div>
           </details>
         </article>
 
-        <!-- Heimtextilien -->
+        <!-- Bettdecken, Kissen & Heimtextilien -->
         <article class="price-card reveal">
           <details class="price-details" id="cat-bett">
-            <summary class="price-summary">
-              <svg class="summary-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="#fff" d="M3 6h18v12H3z"></path>
-              </svg>
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">
+                <!-- Bed icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M3 6h18v12H3z"/></svg>
+              </span>
 
               <span class="summary-title">Bettdecken, Kissen &amp; Heimtextilien</span>
-              <span class="summary-note">Schonende Behandlung, Größenangaben beachten</span>
+              <span class="summary-note">Schonende Behandlung</span>
               <span class="chev" aria-hidden="true">▾</span>
             </summary>
 
             <div class="price-content">
               <dl class="price-list">
-                <div class="price-row"><dt>Daunendecke (1,35 × 2,00 m)</dt><dd>44,90 €</dd></div>
-                <div class="price-row"><dt>Steppdecke (1,35 × 2,00 m)</dt><dd>39,90 €</dd></div>
-                <div class="price-row"><dt>Daunenkissen (0,80 × 0,80 m)</dt><dd>19,90 €</dd></div>
-                <div class="price-row"><dt>Topper</dt><dd>65,00 €</dd></div>
+                <div class="price-row"><dt>Daunendecke (1,35×2,00 m)</dt><dd>44,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Steppdecke (1,35×2,00 m)</dt><dd>39,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Daunenkissen (0,80×0,80 m)</dt><dd>19,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Topper</dt><dd>65,00&nbsp;€</dd></div>
               </dl>
             </div>
           </details>
@@ -171,22 +189,23 @@
         <!-- Extras & Services -->
         <article class="price-card reveal">
           <details class="price-details" id="cat-extras">
-            <summary class="price-summary">
-              <svg class="summary-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="#fff" d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"></path>
-              </svg>
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">
+                <!-- Star / extras icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+              </span>
 
               <span class="summary-title">Extras &amp; Services</span>
-              <span class="summary-note">Folie, Handbügeln, Premium Finish</span>
+              <span class="summary-note">Folie, Premium Finish, Sonderbehandlung</span>
               <span class="chev" aria-hidden="true">▾</span>
             </summary>
 
             <div class="price-content">
               <dl class="price-list">
-                <div class="price-row"><dt>Premium Finish (Pflegepaket)</dt><dd>8,50 €</dd></div>
-                <div class="price-row"><dt>Handgebügelt</dt><dd>5,00 €</dd></div>
-                <div class="price-row"><dt>Folie (Schutz)</dt><dd>0,20 €</dd></div>
-                <div class="price-row"><dt>Seide/Leinen Zuschlag</dt><dd>3,00 €</dd></div>
+                <div class="price-row"><dt>Premium Finish (Pflegepaket)</dt><dd>8,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Handgebügelt</dt><dd>5,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>Folie (Schutz)</dt><dd>0,20&nbsp;€</dd></div>
+                <div class="price-row"><dt>Seide/Leinen Zuschlag</dt><dd>3,00&nbsp;€</dd></div>
               </dl>
             </div>
           </details>
@@ -194,12 +213,11 @@
 
       </div> <!-- /price-grid -->
 
-      <p class="muted small-note">Alle Preise inkl. MwSt. und vorbehaltlich besonderer Materialanforderungen. Bei unsicherer Preiskalkulation ruf kurz an oder schick ein Foto per WhatsApp.</p>
+      <p class="muted small-note">Alle Preise inkl. MwSt. und vorbehaltlich Materialzuschlägen. Bei Fragen: WhatsApp oder Anruf.</p>
     </section>
-
   </main>
 
-  <!-- Footer (wie auf Start) -->
+  <!-- Footer -->
   <footer role="contentinfo" class="site-footer">
     <div class="container footer-grid">
       <div class="footer-left">
@@ -221,25 +239,23 @@
     </div>
   </footer>
 
-  <!-- kleines Script: aria-expanded sync + details keyboard UX + reveal (optional) -->
+  <!-- Small helper script: year, aria sync, keyboard, expand/collapse all, reveal -->
   <script>
     (function(){
-      // Jahr fallback
+      // Jahr-Fallback
       const y = document.getElementById('year'); if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
 
-      // Sync aria-expanded on summaries
+      // details aria sync + keyboard
       document.querySelectorAll('.price-details').forEach(details => {
         const summary = details.querySelector('summary');
-        // set initial aria-expanded
         summary.setAttribute('role','button');
+        summary.setAttribute('tabindex','0');
         summary.setAttribute('aria-expanded', details.hasAttribute('open') ? 'true' : 'false');
 
-        // toggle handler
         details.addEventListener('toggle', () => {
           summary.setAttribute('aria-expanded', details.open ? 'true' : 'false');
         });
 
-        // keyboard: Space/Enter already toggles <details>, this keeps aria in sync
         summary.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -249,7 +265,14 @@
         });
       });
 
-      // Optional: reveal animations (progressive enhancement)
+      // expand / collapse all
+      const expandAll = document.getElementById('expandAll');
+      const collapseAll = document.getElementById('collapseAll');
+      const allDetails = Array.from(document.querySelectorAll('.price-details'));
+      expandAll?.addEventListener('click', () => allDetails.forEach(d => d.open = true));
+      collapseAll?.addEventListener('click', () => allDetails.forEach(d => d.open = false));
+
+      // reveal on scroll
       if ('IntersectionObserver' in window) {
         const obs = new IntersectionObserver((entries, o) => {
           entries.forEach(en => {
@@ -258,14 +281,12 @@
               o.unobserve(en.target);
             }
           });
-        }, {root:null,threshold:0.12});
+        }, {threshold: 0.12});
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
       } else {
-        // no observer -> show all
         document.querySelectorAll('.reveal').forEach(el => el.classList.add('reveal--visible'));
       }
     })();
   </script>
-
 </body>
 </html>
