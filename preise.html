@@ -4,107 +4,75 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Preise — Textilreinigung Ettlingen</title>
-  <meta name="description" content="Preisliste Textilreinigung Ettlingen — Hemden, Anzüge, Brautkleider, Heimtextilien & Extras. Klare Preise, Abo-Optionen und transparente Zusatzleistungen.">
+  <meta name="description" content="Preisliste Textilreinigung Ettlingen — Hemden, Anzüge, Jacken, Heimtextilien, Abo-Karten & Extras. Klare Preise und transparente Zusatzleistungen.">
   <link rel="canonical" href="https://textilreinigung-ettlingen.de/preise.html">
   <link rel="stylesheet" href="/styles.css">
 
-  <!-- Page-spezifische Overrides: nur für /preise.html -->
+  <!-- Seite-spezifische Styles NUR für /preise.html (Startseite bleibt unberührt) -->
   <style>
-    /* Scoped to price section to avoid changing other pages */
-    .price-section { --card-radius: 12px; }
+    /* Layout: Kategorien untereinander */
+    .price-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:.6rem}
 
-    /* Force single-column layout (categories stacked) */
-    .price-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 0.6rem; }
-
-    /* Card visual */
-    .price-details {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius: var(--card-radius);
-      border: 1px solid rgba(255,255,255,0.04);
-      overflow: hidden;
-      transition: transform .14s ease, box-shadow .16s ease;
+    /* Karte / Details */
+    .price-details{
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      border-radius:12px; overflow:hidden;
+      transition:transform .14s ease, box-shadow .16s ease;
     }
-    .price-details:hover { transform: translateY(-4px); box-shadow: 0 22px 48px rgba(0,0,0,0.55); }
-    .price-details[open] { box-shadow: 0 28px 72px rgba(0,0,0,0.55); }
+    .price-details:hover{transform:translateY(-4px); box-shadow:0 22px 48px rgba(0,0,0,.55)}
+    .price-details[open]{box-shadow:0 28px 72px rgba(0,0,0,.55)}
 
-    /* Summary: left emoji-box, title (gradient), note, chevron */
-    .price-summary {
-      display:flex; align-items:center; gap:0.9rem;
-      padding:1rem 1.05rem; cursor:pointer; user-select:none; background:transparent; border:0;
+    /* Summary-Zeile */
+    .price-summary{
+      display:flex;align-items:center;gap:.9rem;padding:1rem 1.05rem;
+      cursor:pointer;user-select:none;background:transparent;border:0;
     }
-    .price-summary:focus { outline: 3px solid rgba(123,44,255,0.12); outline-offset:4px; }
+    .price-summary:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:4px}
 
-    /* Emoji box (gradient background) - visible and consistent */
-    .summary-icon {
-      width:46px; height:46px; border-radius:10px;
-      display:inline-flex; align-items:center; justify-content:center;
-      background: linear-gradient(90deg, var(--brand-a), var(--brand-b));
-      box-shadow: 0 10px 26px rgba(123,44,255,0.12);
-      font-size:22px; line-height:1;
-      flex: 0 0 46px;
+    /* Emoji frei (ohne Hintergrund) */
+    .summary-icon{font-size:28px;line-height:1;margin-right:.1rem}
+
+    /* Titel mit Markenverlauf */
+    .summary-title{
+      font-weight:900;font-size:1.05rem;
+      background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
     }
-    .summary-icon[aria-hidden="true"] { /* decorative */ }
+    .summary-note{margin-left:auto;color:var(--muted);font-size:.95rem}
+    .chev{margin-left:.6rem;color:var(--muted);font-weight:900;transition:transform .18s ease}
+    .price-details[open] .chev{transform:rotate(180deg)}
 
-    /* Title uses your gradient as visual accent — still readable because it's large/bold */
-    .summary-title {
-      font-weight:900; font-size:1.05rem;
-      background: linear-gradient(90deg, var(--brand-a), var(--brand-b));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+    /* Preisliste: groß & zweispaltig (dt links, dd rechts) */
+    .price-content{padding:.85rem 1rem 1rem}
+    .price-list{margin:0;padding:0;display:block}
+    .price-row{
+      display:flex;justify-content:space-between;align-items:flex-start;
+      padding:.75rem 0;border-bottom:1px dashed rgba(255,255,255,.04)
     }
-
-    .summary-note { margin-left:auto; color: var(--muted); font-size:0.95rem; }
-
-    .chev { margin-left:.6rem; color:var(--muted); font-weight:900; transition: transform .18s ease; }
-    .price-details[open] .chev { transform: rotate(180deg); }
-
-    /* Price content - larger, two-column visual with dt left / dd right */
-    .price-content { padding:0.85rem 1rem 1rem 1rem; background: transparent; }
-    .price-list { margin:0; padding:0; display:block; }
-    .price-row {
-      display:flex; justify-content:space-between; align-items:flex-start;
-      padding: .75rem 0; border-bottom: 1px dashed rgba(255,255,255,0.04);
+    .price-row dt{font-weight:800;color:#eaf8ff;margin:0;font-size:1.02rem;text-align:left;flex:1 1 auto;min-width:0}
+    .price-row dd{margin:0;color:#fff;font-weight:900;text-align:right;font-size:1.12rem;min-width:6.5rem;margin-left:1rem;white-space:nowrap;flex:0 0 auto}
+    @media(max-width:520px){
+      .price-row{flex-direction:column;gap:.25rem;align-items:stretch}
+      .price-row dd{text-align:left}
+      .summary-note{display:block;margin-left:0;margin-top:.35rem}
+      .summary-title{font-size:1rem}
+      .summary-icon{font-size:24px}
     }
 
-    /* Article (left) */
-    .price-row dt {
-      font-weight:800; color:#eaf8ff; margin:0; font-size:1.02rem; text-align:left;
-      flex: 1 1 auto; min-width: 0;
-    }
+    /* Buttons oben */
+    .price-header{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .btn-small{padding:.45rem .7rem;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:transparent;color:#fff;font-weight:800;cursor:pointer}
+    .btn-small:focus{outline:3px solid rgba(123,44,255,.12);outline-offset:3px}
 
-    /* Price (right) */
-    .price-row dd {
-      margin:0; color:#fff; font-weight:900; text-align:right;
-      font-size:1.12rem; min-width:6.5rem; margin-left:1rem;
-      white-space:nowrap;
-      flex: 0 0 auto;
-    }
-
-    /* Responsive: stack on small screens */
-    @media (max-width:520px) {
-      .price-row { flex-direction: column; align-items: stretch; gap: .25rem; }
-      .price-row dd { text-align:left; }
-      .summary-note { display:block; margin-left:0; margin-top:.35rem; }
-      .summary-title { font-size:1rem; }
-      .summary-icon { width:40px; height:40px; font-size:20px; }
-    }
-
-    /* Buttons */
-    .price-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-    .btn-small { padding:.45rem .7rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06);
-                 background: transparent; color: #fff; font-weight:800; cursor:pointer; }
-    .btn-small:focus { outline:3px solid rgba(123,44,255,0.12); outline-offset:3px; }
-
-    /* Small note spacing */
-    .small-note { color: var(--muted); font-size: .97rem; margin-top: 1rem; }
-
-    /* Ensure details summary marker hidden (accessibility friendly) */
-    summary::-webkit-details-marker { display:none; }
+    /* Marker des Browsers ausblenden */
+    summary::-webkit-details-marker{display:none}
   </style>
 </head>
 <body>
   <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
-  <!-- Header (same markup as index) -->
+  <!-- Header wie Startseite -->
   <header class="header container" role="banner" aria-label="Hauptnavigation">
     <div class="brand">
       <a href="/" class="brand-link" aria-label="Zur Startseite">
@@ -139,7 +107,6 @@
     <section class="price-section" aria-labelledby="price-overview">
       <div class="price-header">
         <h2 id="price-overview" class="section-title">Unsere Kategorien</h2>
-
         <div class="expand-controls" role="toolbar" aria-label="Akkordeon-Steuerung">
           <button id="expandAll" class="btn-small" type="button">Alle öffnen</button>
           <button id="collapseAll" class="btn-small" type="button">Alle schließen</button>
@@ -147,17 +114,16 @@
       </div>
 
       <div class="price-grid">
+
         <!-- Hemden & Abo-Karten -->
         <article class="price-card reveal">
           <details class="price-details" id="cat-hemd">
             <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
               <span class="summary-icon" aria-hidden="true">👔</span>
-
               <span class="summary-title">Hemden &amp; Abo-Karten</span>
               <span class="summary-note">Günstiger bei größeren Mengen</span>
               <span class="chev" aria-hidden="true">▾</span>
             </summary>
-
             <div class="price-content">
               <dl class="price-list">
                 <div class="price-row"><dt>Hemd (auf Bügel)</dt><dd>5,90&nbsp;€</dd></div>
@@ -171,17 +137,15 @@
           </details>
         </article>
 
-        <!-- Anzüge & Festmode (emoji in box) -->
+        <!-- Anzüge & Festmode -->
         <article class="price-card reveal">
           <details class="price-details" id="cat-anzug">
             <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
               <span class="summary-icon" aria-hidden="true">👗</span>
-
               <span class="summary-title">Anzüge &amp; Festmode</span>
               <span class="summary-note">Sorgfältige Reinigung &amp; Presse</span>
               <span class="chev" aria-hidden="true">▾</span>
             </summary>
-
             <div class="price-content">
               <dl class="price-list">
                 <div class="price-row"><dt>Anzug 2-tlg. / Kostüm</dt><dd>34,80&nbsp;€</dd></div>
@@ -191,6 +155,10 @@
                 <div class="price-row"><dt>Krawatte</dt><dd>8,90&nbsp;€</dd></div>
                 <div class="price-row"><dt>Dirndl (inkl. Schürze &amp; Bluse)</dt><dd>49,90&nbsp;€</dd></div>
                 <div class="price-row"><dt>Brautkleid</dt><dd>ab 195,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>Tauf-/Kommunionskleid</dt><dd>32,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Kleid (einfach)</dt><dd>ab 29,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Kleid (aufwändig)</dt><dd>39,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Seidentuch</dt><dd>19,90&nbsp;€</dd></div>
               </dl>
             </div>
           </details>
@@ -201,12 +169,10 @@
           <details class="price-details" id="cat-hosen">
             <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
               <span class="summary-icon" aria-hidden="true">👖</span>
-
               <span class="summary-title">Hosen &amp; Röcke</span>
               <span class="summary-note">Bügel- &amp; Faltenpflege</span>
               <span class="chev" aria-hidden="true">▾</span>
             </summary>
-
             <div class="price-content">
               <dl class="price-list">
                 <div class="price-row"><dt>Hose</dt><dd>14,90&nbsp;€</dd></div>
@@ -222,12 +188,10 @@
           <details class="price-details" id="cat-ober">
             <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
               <span class="summary-icon" aria-hidden="true">👕</span>
-
               <span class="summary-title">Ober- &amp; Freizeitbekleidung</span>
               <span class="summary-note">T-Shirts, Pullover, Hoodies</span>
               <span class="chev" aria-hidden="true">▾</span>
             </summary>
-
             <div class="price-content">
               <dl class="price-list">
                 <div class="price-row"><dt>T-Shirt</dt><dd>6,50&nbsp;€</dd></div>
@@ -235,6 +199,90 @@
                 <div class="price-row"><dt>Langarm-Shirt</dt><dd>9,50&nbsp;€</dd></div>
                 <div class="price-row"><dt>Pullover</dt><dd>12,50&nbsp;€</dd></div>
                 <div class="price-row"><dt>Hoodie</dt><dd>17,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Strickweste</dt><dd>16,90&nbsp;€</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
+
+        <!-- Jacken & Mäntel -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-jacken">
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">🧥</span>
+              <span class="summary-title">Jacken &amp; Mäntel</span>
+              <span class="summary-note">Wolle &amp; Daune sorgfältig</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>Jacke</dt><dd>26,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>Kurzmantel</dt><dd>29,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Mantel</dt><dd>32,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Daunenjacke</dt><dd>29,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Daunenmantel</dt><dd>34,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Daunenweste</dt><dd>29,90&nbsp;€</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
+
+        <!-- Outdoor / Ski & Imprägnierung -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-outdoor">
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">🎿</span>
+              <span class="summary-title">Outdoor / Ski &amp; Imprägnierung</span>
+              <span class="summary-note">Wetterfest gemacht</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>Ski-Hose inkl. Imprägnierung</dt><dd>27,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Ski-Jacke inkl. Imprägnierung</dt><dd>39,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Overall inkl. Imprägnierung</dt><dd>49,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Imprägnierung (allgemein)</dt><dd>7,00&nbsp;€</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
+
+        <!-- Nacht- & Unterwäsche -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-nacht">
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">🛌</span>
+              <span class="summary-title">Nacht- &amp; Unterwäsche</span>
+              <span class="summary-note">Sauber &amp; hygienisch</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>Nachthemd</dt><dd>9,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Schlafanzug</dt><dd>19,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>BH</dt><dd>4,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Unterhemd</dt><dd>4,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>Unterhose</dt><dd>5,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Boxershorts</dt><dd>5,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Strümpfe / Socken</dt><dd>3,50&nbsp;€</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
+
+        <!-- Arbeitsbekleidung / Spezial -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-arbeit">
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">🥼</span>
+              <span class="summary-title">Arbeitsbekleidung / Spezial</span>
+              <span class="summary-note">Fachgerecht gepflegt</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>Arztkittel / Arztmantel (hängend)</dt><dd>9,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Talar / Roben</dt><dd>34,90&nbsp;€</dd></div>
               </dl>
             </div>
           </details>
@@ -245,18 +293,84 @@
           <details class="price-details" id="cat-bett">
             <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
               <span class="summary-icon" aria-hidden="true">🛏️</span>
-
               <span class="summary-title">Bettdecken, Kissen &amp; Heimtextilien</span>
               <span class="summary-note">Schonende Behandlung</span>
               <span class="chev" aria-hidden="true">▾</span>
             </summary>
-
             <div class="price-content">
               <dl class="price-list">
-                <div class="price-row"><dt>Daunendecke (1,35×2,00 m)</dt><dd>44,90&nbsp;€</dd></div>
-                <div class="price-row"><dt>Steppdecke (1,35×2,00 m)</dt><dd>39,90&nbsp;€</dd></div>
-                <div class="price-row"><dt>Daunenkissen (0,80×0,80 m)</dt><dd>19,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Daunendecke (1,35 × 2,00 m)</dt><dd>44,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Steppdecke (1,35 × 2,00 m)</dt><dd>39,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Daunenkissen (0,80 × 0,80 m)</dt><dd>19,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Steppkissen (0,80 × 0,80 m)</dt><dd>16,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Matratzenauflage (1,00 × 2,00 m)</dt><dd>39,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Matratzenbezug (1,00 × 2,00 m)</dt><dd>49,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Wolldecke</dt><dd>29,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Topperbezüge</dt><dd>49,90&nbsp;€</dd></div>
                 <div class="price-row"><dt>Topper</dt><dd>65,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>Sofabezug (3-tlg.)</dt><dd>85,00&nbsp;€</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
+
+        <!-- Hauswäsche & Bad -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-hauswaesche">
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">🧺</span>
+              <span class="summary-title">Hauswäsche &amp; Bad</span>
+              <span class="summary-note">Praktisch &amp; sauber</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>Bettbezug</dt><dd>9,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>Bettbezug, doppelt</dt><dd>18,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>Laken</dt><dd>9,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>Laken, doppelt</dt><dd>18,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>Kopfkissenbezug</dt><dd>7,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>Badvorleger</dt><dd>13,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Badetuch</dt><dd>2,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Handtuch</dt><dd>2,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Küchentuch</dt><dd>1,50&nbsp;€</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
+
+        <!-- Tischwäsche -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-tisch">
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">🍽️</span>
+              <span class="summary-title">Tischwäsche</span>
+              <span class="summary-note">Für Events &amp; Alltag</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>Tischdecke</dt><dd>14,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Tischläufer (klein)</dt><dd>9,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Hussen</dt><dd>9,90&nbsp;€</dd></div>
+                <div class="price-row"><dt>Serviette</dt><dd>3,00&nbsp;€</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
+
+        <!-- Stores / Gardinen -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-gardinen">
+            <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
+              <span class="summary-icon" aria-hidden="true">🪟</span>
+              <span class="summary-title">Stores / Gardinen</span>
+              <span class="summary-note">Preis je Fläche</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>Stores / Gardinen</dt><dd>13,90&nbsp;€&nbsp;pro&nbsp;m²</dd></div>
               </dl>
             </div>
           </details>
@@ -267,18 +381,20 @@
           <details class="price-details" id="cat-extras">
             <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
               <span class="summary-icon" aria-hidden="true">🌟</span>
-
               <span class="summary-title">Extras &amp; Services</span>
-              <span class="summary-note">Folie, Premium Finish, Sonderbehandlung</span>
+              <span class="summary-note">Pflege &amp; Zusatzleistungen</span>
               <span class="chev" aria-hidden="true">▾</span>
             </summary>
-
             <div class="price-content">
               <dl class="price-list">
                 <div class="price-row"><dt>Premium Finish (Pflegepaket)</dt><dd>8,50&nbsp;€</dd></div>
                 <div class="price-row"><dt>Handgebügelt</dt><dd>5,00&nbsp;€</dd></div>
-                <div class="price-row"><dt>Folie (Schutz)</dt><dd>0,20&nbsp;€</dd></div>
-                <div class="price-row"><dt>Seide/Leinen Zuschlag</dt><dd>3,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>FashionGuard (Kleidersack)</dt><dd>3,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Tierhaar-Entfernung</dt><dd>4,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Fusselentfernung</dt><dd>4,50&nbsp;€</dd></div>
+                <div class="price-row"><dt>Spezielle Fleckenbehandlung</dt><dd>3,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>Seide / Leinen / extra Futter (Zuschlag)</dt><dd>3,00&nbsp;€</dd></div>
+                <div class="price-row"><dt>Folie (Schutzfolie)</dt><dd>0,20&nbsp;€</dd></div>
               </dl>
             </div>
           </details>
@@ -286,18 +402,17 @@
 
       </div> <!-- /price-grid -->
 
-      <p class="muted small-note">Alle Preise inkl. MwSt. und vorbehaltlich Materialzuschlägen. Bei Fragen: WhatsApp oder Anruf.</p>
+      <p class="muted small-note">Alle Preise inkl. MwSt. und vorbehaltlich besonderer Materialanforderungen. Bei Unsicherheiten ruf kurz an oder schick ein Foto per WhatsApp.</p>
     </section>
   </main>
 
-  <!-- Footer (gleich wie index) -->
+  <!-- Footer wie Startseite -->
   <footer role="contentinfo" class="site-footer">
     <div class="container footer-grid">
       <div class="footer-left">
         <img src="/img/logo.svg" alt="Logo Textilreinigung Ettlingen" style="height:34px">
         <p>Leopoldstr. 42, 76275 Ettlingen</p>
       </div>
-
       <div class="footer-center">
         <nav aria-label="Footer Navigation">
           <a href="/impressum.html">Impressum</a> ·
@@ -305,20 +420,19 @@
           <a href="/agb.html">AGB</a>
         </nav>
       </div>
-
       <div class="footer-right">
         <p>&copy; <span id="year"></span> Textilreinigung Ettlingen</p>
       </div>
     </div>
   </footer>
 
-  <!-- Page scripts (aria-sync, expand/collapse all, reveal) -->
+  <!-- Seite-spezifisches Script -->
   <script>
     (function(){
-      // Jahr fallback
+      // Jahr-Fallback
       const y = document.getElementById('year'); if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
 
-      // Sync aria-expanded & keyboard for all details
+      // A11y: details summary aria-expanded + Keyboard
       document.querySelectorAll('.price-details').forEach(details => {
         const summary = details.querySelector('summary');
         summary.setAttribute('role','button');
@@ -338,23 +452,18 @@
         });
       });
 
-      // Expand / Collapse All
+      // Alle öffnen/schließen
       const expandAll = document.getElementById('expandAll');
       const collapseAll = document.getElementById('collapseAll');
       const allDetails = Array.from(document.querySelectorAll('.price-details'));
       expandAll?.addEventListener('click', () => allDetails.forEach(d => d.open = true));
       collapseAll?.addEventListener('click', () => allDetails.forEach(d => d.open = false));
 
-      // Reveal
+      // Reveal on scroll
       if ('IntersectionObserver' in window) {
         const obs = new IntersectionObserver((entries, o) => {
-          entries.forEach(en => {
-            if (en.isIntersecting) {
-              en.target.classList.add('reveal--visible');
-              o.unobserve(en.target);
-            }
-          });
-        }, {threshold: 0.12});
+          entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('reveal--visible'); o.unobserve(en.target); }});
+        }, {threshold: .12});
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
       } else {
         document.querySelectorAll('.reveal').forEach(el => el.classList.add('reveal--visible'));
