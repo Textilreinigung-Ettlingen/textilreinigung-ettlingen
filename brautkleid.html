@@ -8,65 +8,63 @@
   <link rel="canonical" href="https://textilreinigung-ettlingen.de/brautkleid.html">
   <link rel="stylesheet" href="/styles.css">
 
-  <!-- Nur seiten-spezifische Styles für diese Seite -->
+  <!-- Seite-spezifische Styles: Mobile-Wasserzeichen + Mobile-Nav-Fix -->
   <style>
     .bk-section{ position:relative; overflow:hidden; padding:1.25rem 0 1.5rem; }
     .bk-watermark{
       position:absolute; inset:0;
       background:url('/img/tile-brautkleid.jpg') center/cover no-repeat;
-      opacity:0.10;               /* ↓ 10% Deckkraft */
-      pointer-events:none;        /* rein dekorativ */
-      filter:saturate(95%) contrast(1.05);
+      opacity:0.10; pointer-events:none; filter:saturate(95%) contrast(1.05);
     }
     .bk-content{ position:relative; z-index:1; }
     .bk-title{
-      margin:0 0 .85rem;
-      font-weight:900;
-      font-size:clamp(2rem,3.4vw,2.8rem); /* leicht größer */
+      margin:0 0 .85rem; font-weight:900;
+      font-size:clamp(2rem,3.4vw,2.8rem);
       background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
       -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-    .bk-lead{ color:#eaf4ff; margin:.25rem 0 1.1rem; font-size:1.125rem; } /* größer */
-    .bk-content p,
-    .bk-content li{
-      color:#fff;
-      font-size:1.075rem;        /* ↑ Fließtext/Liste etwas größer */
-      line-height:1.6;
-    }
-    .bk-content h3{
-      margin:1.1rem 0 .35rem;
-      font-weight:900; color:#fff;
-      font-size:1.28rem;         /* ↑ Zwischenüberschrift größer */
-    }
+    .bk-lead{ color:#eaf4ff; margin:.25rem 0 1.1rem; font-size:1.125rem; }
+    .bk-content p,.bk-content li{ color:#fff; font-size:1.075rem; line-height:1.6; }
+    .bk-content h3{ margin:1.1rem 0 .35rem; font-weight:900; color:#fff; font-size:1.28rem; }
     .bk-content ul{ margin:.2rem 0 1rem 1.2rem; }
     .bk-content li{ margin:.2rem 0; }
     .bk-note{ color:#cfe6ff; }
+
+    /* ✅ Mobile: Wasserzeichen nicht beschneiden */
+    @media (max-width: 700px){
+      .bk-watermark{
+        background-position: center top;
+        background-size: contain;     /* statt cover */
+      }
+      /* ✅ Mobile-Navigation fix (Logo kleiner, Wrap) */
+      .nav{ flex-wrap: wrap; justify-content: center; gap:.9rem; }
+      .nav a{ font-size:.98rem; padding:.35rem 0; }
+      .brand img{ height:86px; }
+    }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
-  <!-- Header wie auf der Startseite -->
-<header class="header container" role="banner" aria-label="Hauptnavigation">
-  <div class="brand">
-    <a href="/" class="brand-link" aria-label="Zur Startseite">
-      <img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" />
-    </a>
-  </div>
+  <header class="header container" role="banner" aria-label="Hauptnavigation">
+    <div class="brand">
+      <a href="/" class="brand-link" aria-label="Zur Startseite">
+        <img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" />
+      </a>
+    </div>
 
-  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
-    <a href="/index.html">Home</a>
-    <a href="/preise.html">Preise</a>
-    <a href="/brautkleid.html" aria-current="page">Brautkleid</a>
-    <a href="/schaden.html">Versicherungsschäden</a>
-    <a href="/contact.html">Kontakt</a>
-  </nav>
+    <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+      <a href="/index.html">Home</a>
+      <a href="/preise.html">Preise</a>
+      <a href="/brautkleid.html" aria-current="page">Brautkleid</a>
+      <a href="/schaden.html">Versicherungsschäden</a>
+      <a href="/contact.html">Kontakt</a>
+    </nav>
 
-  <div class="nav-actions">
-    <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Design wechseln">🌓</button>
-  </div>
-</header>
-
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Design wechseln">🌓</button>
+    </div>
+  </header>
 
   <main id="content" class="container" role="main">
     <section class="bk-section" aria-label="Brautkleid-Pflege">
@@ -120,7 +118,6 @@
     </section>
   </main>
 
-  <!-- Footer wie auf der Startseite -->
   <footer role="contentinfo" class="site-footer">
     <div class="container footer-grid">
       <div class="footer-left">
