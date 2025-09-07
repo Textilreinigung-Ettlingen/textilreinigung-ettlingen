@@ -7,6 +7,8 @@
   --max-width:1100px;
   --wa-green:#25D366;
   --card-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  --price-font-size: 1.08rem;
+  --price-font-size-large: 1.15rem;
 }
 
 /* Reset + base */
@@ -51,9 +53,6 @@ body{
 .btn-turquoise{background:linear-gradient(90deg,var(--brand-a),#19d6ff)}
 .btn-whatsapp{background:linear-gradient(180deg,var(--wa-green),#16b24a);box-shadow:0 10px 28px rgba(37,211,102,0.10)}
 
-/* hero watermark large but subtle */
-.hero-watermark{display:none} /* not needed on prices page; kept on index.html */
-
 /* USP / Tiles */
 .usp-grid, .tiles{display:grid;gap:1rem}
 @media(min-width:900px){ .usp-grid{grid-template-columns:repeat(3,1fr)} .tiles{grid-template-columns:repeat(3,1fr)} }
@@ -65,7 +64,7 @@ body{
 .map-wrap{border-radius:10px;overflow:hidden;margin:1.25rem 0}
 .map-wrap iframe{width:100%;height:320px;border:0}
 
-/* CONTACT & Info section (keeps parity with index) */
+/* CONTACT & Info section */
 .contact-strip{padding:1.25rem 0}
 .contact-strip-header{text-align:center;margin-bottom:0.6rem}
 .contact-strip-header h2{margin:0;font-size:1.35rem;font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
@@ -99,7 +98,7 @@ body{
 
 .price-card{background:transparent}
 
-/* details baseline */
+/* details baseline: card look */
 .price-details{
   background:var(--card-bg);
   border-radius:12px;
@@ -111,19 +110,22 @@ body{
 .price-details:hover{ transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.55); }
 .price-details[open]{box-shadow:0 30px 80px rgba(0,0,0,0.55)}
 
-/* summary row: icon + title + note + chevron */
+/* summary row: emoji + title + note + chevron */
 .price-summary{
   display:flex;align-items:center;gap:0.8rem;padding:1rem 1.05rem;cursor:pointer;user-select:none;background:transparent;border:0;
 }
 .price-summary:focus{outline:3px solid rgba(123,44,255,0.12);outline-offset:4px}
+
+/* emoji box */
 .summary-icon{
   flex:0 0 44px;width:44px;height:44px;border-radius:10px;
   background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
   display:inline-flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(123,44,255,0.10);
+  font-size:20px; line-height:1; /* emoji size */
 }
-.summary-icon svg{display:block}
+.summary-icon[aria-hidden="true"]{ /* decorative */ }
 
-/* gradient title (user wanted gradient on the headings) */
+/* gradient title text */
 .summary-title{
   font-weight:900;font-size:1rem;
   background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
@@ -133,16 +135,23 @@ body{
 .chev{margin-left:.6rem;color:var(--muted);font-weight:900;transition:transform .18s ease}
 .price-details[open] .chev{transform:rotate(180deg)}
 
-/* price content */
-.price-content{padding:0.65rem 1rem 1rem 1rem;background:transparent}
+/* price content -> larger & very readable */
+.price-content{padding:0.8rem 1rem 1rem 1rem;background:transparent}
 .price-list{margin:0;padding:0;display:block}
 .price-row{
-  display:flex;justify-content:space-between;align-items:flex-start;padding:.6rem 0;border-bottom:1px dashed rgba(255,255,255,0.04)
+  display:flex;justify-content:space-between;align-items:flex-start;padding:.75rem 0;border-bottom:1px dashed rgba(255,255,255,0.04)
 }
-.price-row dt{font-weight:700;color:#eaf8ff;margin:0}
-.price-row dd{margin:0;color:#fff;font-weight:900;min-width:5.5rem;text-align:right}
+.price-row dt{
+  font-weight:800;color:#eaf8ff;margin:0;font-size:var(--price-font-size);
+  /* left alignment */
+  text-align:left;
+}
+.price-row dd{
+  margin:0;color:#fff;font-weight:900;min-width:6.5rem;text-align:right;
+  font-size:var(--price-font-size-large);
+}
 
-/* mobile stacking */
+/* mobile stacking: keep price to right on wider screens, stack on small screens */
 @media(max-width:520px){
   .price-row{flex-direction:column;gap:.25rem;align-items:stretch}
   .price-row dd{text-align:left}
@@ -156,12 +165,10 @@ body{
 /* accessibility: remove native marker */
 summary::-webkit-details-marker{display:none}
 
-/* END price styles */
-
-/* floating whatsapp quick action (keeps parity with index) */
+/* floating whatsapp quick action */
 .whatsapp-fab{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:999px;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:22px;box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:999}
 
-/* Back to top (if present on page) */
+/* Back to top (if present) */
 .to-top-btn{position:fixed; right:18px; bottom:86px; width:46px; height:46px; border-radius:10px;
   background:rgba(255,255,255,0.04); color:var(--text); border:1px solid rgba(255,255,255,0.06);
   display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:18px; cursor:pointer; z-index:998;
