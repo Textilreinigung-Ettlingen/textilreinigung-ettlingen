@@ -47,7 +47,7 @@
           </div>
         </div>
 
-        <!-- sichtbares Wasserzeichen (größer/kräftiger) -->
+        <!-- Wasserzeichen -->
         <div class="hero-watermark" aria-hidden="true" title="Logo als Wasserzeichen"></div>
       </div>
     </section>
@@ -145,7 +145,6 @@
               <svg class="icon-phone" width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
                 <defs><linearGradient id="lg1" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#00d8ff"/><stop offset="1" stop-color="#7b2cff"/></linearGradient></defs>
                 <path fill="url(#lg1)" d="M6.6 10.8a15.05 15.05 0 0 0 7.6 7.6l2.1-2.1a1 1 0 0 1 1.1-.2c1.2.5 2.5.8 3.9.8a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C9.5 22 2 14.5 2 5a1 1 0 0 1 1-1h2.7a1 1 0 0 1 1 1c0 1.4.3 2.7.8 3.9a1 1 0 0 1-.2 1.1L6.6 10.8z"/></svg>
-
               <div>
                 <div class="muted">Telefon</div>
                 <a class="phone-link" href="tel:+4972439491888">+49 7243 9491888</a>
@@ -153,9 +152,9 @@
             </div>
 
             <div class="contact-ctas">
-              <a class="btn btn-whatsapp" href="https://wa.me/491604138492" aria-label="WhatsApp schreiben">WhatsApp schreiben</a>
-              <a class="btn btn-turquoise" href="tel:+4972439491888" aria-label="Anrufen">Anrufen</a>
-              <a class="btn btn-turquoise" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail schreiben">E-Mail schreiben</a>
+              <a class="btn btn-whatsapp" href="https://wa.me/491604138492">WhatsApp schreiben</a>
+              <a class="btn btn-turquoise" href="tel:+4972439491888">Anrufen</a>
+              <a class="btn btn-turquoise" href="mailto:info@textilreinigung-ettlingen.de">E-Mail schreiben</a>
             </div>
           </div>
 
@@ -174,14 +173,14 @@
               </div>
             </div>
 
+            <!-- Button mittig unter Öffnungszeiten und im gleichen Stil wie links -->
             <div class="directions-wrap">
-              <!-- Kasten/Verlauf entfernt: jetzt dezenter Outline-Button -->
-              <a class="directions-btn" href="https://www.google.com/maps/dir/?api=1&destination=Leopoldstr.+42+76275+Ettlingen" target="_blank" rel="noopener" aria-label="Wegbeschreibung">Wegbeschreibung</a>
+              <a class="btn btn-turquoise directions-btn" href="https://www.google.com/maps/dir/?api=1&destination=Leopoldstr.+42+76275+Ettlingen" target="_blank" rel="noopener">Wegbeschreibung</a>
             </div>
           </div>
         </div>
 
-        <!-- NEU: Adresse zentriert unter CTAs & Wegbeschreibung -->
+        <!-- Adresse zentriert unter CTAs & Wegbeschreibung -->
         <div class="address-centered" aria-label="Adresse">
           <div class="gradient-address">Leopoldstr. 42</div>
           <div class="gradient-address">76275 Ettlingen</div>
@@ -211,48 +210,30 @@
     </div>
   </footer>
 
-  <!-- floating quick actions -->
   <a class="whatsapp-fab" href="https://wa.me/491604138492" aria-label="WhatsApp Nachricht">💬</a>
-
-  <!-- Back to top button -->
   <button class="to-top-btn" id="toTopBtn" aria-label="Zurück nach oben" title="Nach oben" type="button">↑</button>
 
   <script>
     (function(){
-      // Jahr-Fallback
       const y = document.getElementById('year');
       if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
 
-      // Back-to-top logic
       const btn = document.getElementById('toTopBtn');
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const showAt = 240;
-      function scrollToTop() {
-        if (prefersReduced) window.scrollTo(0,0);
-        else window.scrollTo({top:0,behavior:'smooth'});
-      }
+      function scrollToTop(){ prefersReduced ? window.scrollTo(0,0) : window.scrollTo({top:0,behavior:'smooth'}); }
       btn.addEventListener('click', scrollToTop);
-      btn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); scrollToTop(); } });
-      function onScroll() { if (window.scrollY > showAt) btn.classList.add('visible'); else btn.classList.remove('visible'); }
-      onScroll();
-      window.addEventListener('scroll', onScroll, {passive:true});
+      btn.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); scrollToTop(); } });
+      function onScroll(){ window.scrollY > showAt ? btn.classList.add('visible') : btn.classList.remove('visible'); }
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
 
-      // reveal animations
-      if ('IntersectionObserver' in window) {
-        const obs = new IntersectionObserver((entries, o) => {
-          entries.forEach(en => {
-            if (en.isIntersecting) {
-              en.target.classList.add('reveal--visible');
-              o.unobserve(en.target);
-            }
-          });
-        }, {root:null,threshold:0.12});
-        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+      if ('IntersectionObserver' in window){
+        const obs = new IntersectionObserver((entries,o)=>{ entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('reveal--visible'); o.unobserve(en.target); } }); }, {threshold:.12});
+        document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
       } else {
-        document.querySelectorAll('.reveal').forEach(el => el.classList.add('reveal--visible'));
+        document.querySelectorAll('.reveal').forEach(el=>el.classList.add('reveal--visible'));
       }
     })();
   </script>
-
 </body>
 </html>
