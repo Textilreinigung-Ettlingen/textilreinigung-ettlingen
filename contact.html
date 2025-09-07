@@ -14,14 +14,12 @@
     .ct-watermark{
       position:absolute; inset:0;
       background:url('/img/usp-kontakt.jpg') center/cover no-repeat;
-      opacity:0.10;                /* 10% Deckkraft */
-      pointer-events:none; filter:saturate(95%) contrast(1.05);
+      opacity:0.10; pointer-events:none; filter:saturate(95%) contrast(1.05);
     }
     .ct-content{ position:relative; z-index:1; }
 
     .ct-title{
-      margin:0 0 .85rem;
-      font-weight:900;
+      margin:0 0 .85rem; font-weight:900;
       font-size:clamp(2rem,3.4vw,2.8rem);
       background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
       -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -41,19 +39,6 @@
     @media (max-width:600px){ .ct-ctas{ width:100%; } }
     .ct-ctas .btn{ width:100%; min-width:0; }
 
-    /* Nur auf dieser Seite: Kästen für Anrufen & E-Mail entfernen */
-    .ct-ctas .btn.is-ghost{
-      background:transparent!important;
-      border:0!important;
-      box-shadow:none!important;
-      padding:0!important;
-      border-radius:0!important;
-      color:#fff!important;
-      width:auto!important;
-      justify-content:flex-start!important;
-    }
-    .ct-ctas .btn.is-ghost:hover{ transform:none!important; text-decoration:underline; }
-
     /* rechte Spalte */
     .ct-right{ width:320px; min-width:240px; display:flex; flex-direction:column; }
     @media (max-width:900px){ .ct-right{ width:100%; } }
@@ -69,13 +54,7 @@
     .ct-note{ color:var(--muted); margin-top:.25rem; }
 
     /* Adresse rechts unter Öffnungszeiten (fett) */
-    .ct-address{
-      margin-top:.65rem;
-      font-style:normal;
-      font-weight:900;
-      color:#fff;
-      line-height:1.5;
-    }
+    .ct-address{ margin-top:.65rem; font-style:normal; font-weight:900; color:#fff; line-height:1.5; }
 
     /* Karte: eigener Abschnitt UNTER dem Wasserzeichen-Bereich */
     .ct-map{ border-radius:10px; overflow:hidden; margin:1.25rem 0 1.75rem; }
@@ -88,7 +67,7 @@
 <body>
   <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
-  <!-- Header wie auf den anderen Seiten -->
+  <!-- Header -->
   <header class="header container" role="banner" aria-label="Hauptnavigation">
     <div class="brand">
       <a href="/" class="brand-link" aria-label="Zur Startseite">
@@ -100,7 +79,7 @@
       <a href="/index.html">Home</a>
       <a href="/preise.html">Preise</a>
       <a href="/brautkleid.html">Brautkleid</a>
-      <a href="/schaden.html">Versicherungsschäden</a><!-- ← Text geändert -->
+      <a href="/schaden.html">Versicherungsschäden</a>
       <a href="/contact.html" aria-current="page">Kontakt</a>
     </nav>
 
@@ -133,8 +112,8 @@
 
             <div class="ct-ctas">
               <a class="btn btn-whatsapp" href="https://wa.me/491604138492">WhatsApp schreiben</a>
-              <a class="btn is-ghost" href="tel:+4972439491888">Anrufen</a><!-- ← Kasten entfernt -->
-              <a class="btn is-ghost" href="mailto:info@textilreinigung-ettlingen.de">E-Mail schreiben</a><!-- ← Kasten entfernt -->
+              <a class="btn btn-turquoise" href="tel:+4972439491888">Anrufen</a>
+              <a class="btn btn-turquoise" href="mailto:info@textilreinigung-ettlingen.de">E-Mail schreiben</a>
             </div>
           </div>
 
