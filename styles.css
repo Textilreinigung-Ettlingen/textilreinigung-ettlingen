@@ -188,3 +188,38 @@ body{
   .directions-wrap{justify-content:flex-start}
   .time{font-size:1.06rem}
 }
+
+/* -- Price card background + spacing (deutlich lesbarer) -- */
+.price-details{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px;
+  padding:0;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.04);
+  transition:box-shadow .18s ease, transform .12s ease;
+}
+.price-details:hover{ transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.55); }
+
+/* Summary: größere, klickbare Fläche */
+.price-summary{
+  display:flex; align-items:center; gap:0.9rem;
+  padding:1rem 1.05rem; cursor:pointer; user-select:none; background:transparent;
+}
+.summary-icon{
+  flex:0 0 38px; width:38px; height:38px; border-radius:8px;
+  background: linear-gradient(90deg,var(--brand-a),var(--brand-b));
+  display:inline-flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 22px rgba(123,44,255,0.10);
+}
+.summary-title{
+  font-weight:900; font-size:1.05rem; color:#fff; margin-right:0.6rem;
+  /* remove gradient-text here for readability; keep brand accent via icon/border */
+}
+.summary-note{margin-left:auto;color:var(--muted);font-size:.95rem}
+
+/* Chevron (rotate on open) */
+.chev{ margin-left: .6rem; color: var(--muted); font-weight:900; transition: transform .18s ease; }
+.price-details[open] .chev{ transform: rotate(180deg); }
+
+/* When open -> content padding */
+.price-content{ padding: .75rem 1rem 1rem; background: transparent; }
