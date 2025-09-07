@@ -39,7 +39,20 @@
 
     .ct-ctas{ display:flex; flex-direction:column; gap:.5rem; margin-top:.6rem; width:260px; }
     @media (max-width:600px){ .ct-ctas{ width:100%; } }
-    .ct-ctas .btn{ width:100%; }
+    .ct-ctas .btn{ width:100%; min-width:0; }
+
+    /* Nur auf dieser Seite: Kästen für Anrufen & E-Mail entfernen */
+    .ct-ctas .btn.is-ghost{
+      background:transparent!important;
+      border:0!important;
+      box-shadow:none!important;
+      padding:0!important;
+      border-radius:0!important;
+      color:#fff!important;
+      width:auto!important;
+      justify-content:flex-start!important;
+    }
+    .ct-ctas .btn.is-ghost:hover{ transform:none!important; text-decoration:underline; }
 
     /* rechte Spalte */
     .ct-right{ width:320px; min-width:240px; display:flex; flex-direction:column; }
@@ -59,7 +72,7 @@
     .ct-address{
       margin-top:.65rem;
       font-style:normal;
-      font-weight:900;      /* fett */
+      font-weight:900;
       color:#fff;
       line-height:1.5;
     }
@@ -87,7 +100,7 @@
       <a href="/index.html">Home</a>
       <a href="/preise.html">Preise</a>
       <a href="/brautkleid.html">Brautkleid</a>
-      <a href="/schaden.html">Schäden</a>
+      <a href="/schaden.html">Versicherungsschäden</a><!-- ← Text geändert -->
       <a href="/contact.html" aria-current="page">Kontakt</a>
     </nav>
 
@@ -120,8 +133,8 @@
 
             <div class="ct-ctas">
               <a class="btn btn-whatsapp" href="https://wa.me/491604138492">WhatsApp schreiben</a>
-              <a class="btn btn-turquoise" href="tel:+4972439491888">Anrufen</a>
-              <a class="btn btn-turquoise" href="mailto:info@textilreinigung-ettlingen.de">E-Mail schreiben</a>
+              <a class="btn is-ghost" href="tel:+4972439491888">Anrufen</a><!-- ← Kasten entfernt -->
+              <a class="btn is-ghost" href="mailto:info@textilreinigung-ettlingen.de">E-Mail schreiben</a><!-- ← Kasten entfernt -->
             </div>
           </div>
 
@@ -134,7 +147,7 @@
               <div class="ct-note">Feiertage: nach Vereinbarung</div>
             </div>
 
-            <!-- Adresse jetzt HIER rechts unter Öffnungszeiten (fett) -->
+            <!-- Adresse rechts unter Öffnungszeiten (fett) -->
             <address class="ct-address">
               Leopoldstr. 42<br>
               76275 Ettlingen
