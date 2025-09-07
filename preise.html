@@ -1,227 +1,271 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <title>Preise – Textilreinigung Ettlingen</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Übersicht unserer Preise für Textilreinigung, Wäscherei, Brautkleid- und Teppichpflege. Transparente Leistungen in Ettlingen.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Preise — Textilreinigung Ettlingen</title>
+  <meta name="description" content="Preisliste Textilreinigung Ettlingen — Hemden, Anzüge, Brautkleider, Heimtextilien & Extras. Klare Preise, Abo-Optionen und transparente Zusatzleistungen.">
   <link rel="canonical" href="https://textilreinigung-ettlingen.de/preise.html">
-  <meta name="theme-color" content="#0b0b0f">
   <link rel="stylesheet" href="/styles.css">
-  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
 </head>
 <body>
-  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
-  <header class="section" role="banner">
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:1rem;">
-      <a href="/" aria-label="Startseite"><img src="/img/logo.svg" alt="Textilreinigung Ettlingen Logo" style="height:48px; width:auto;"></a>
-      <nav class="nav" aria-label="Hauptnavigation">
-        <a href="/preise.html" aria-current="page">Preise</a>
-        <a href="/brautkleid.html">Brautkleid</a>
-        <a href="/schaden.html">Versicherungsschäden</a>
-        <a href="/contact.html">Kontakt</a>
-        <a href="/ueber-uns.html">Über uns</a>
-      </nav>
+  <!-- Header (gleich wie auf Start) -->
+  <header class="header container" role="banner" aria-label="Hauptnavigation">
+    <div class="brand">
+      <a href="/" class="brand-link" aria-label="Zur Startseite">
+        <img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" />
+      </a>
+    </div>
+
+    <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+      <a href="/index.html">Home</a>
+      <a href="/preise.html" aria-current="page">Preise</a>
+      <a href="/brautkleid.html">Brautkleid</a>
+      <a href="/schaden.html">Schäden</a>
+      <a href="/contact.html">Kontakt</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Design wechseln">🌓</button>
     </div>
   </header>
 
-  <main id="main" class="section">
-    <div class="container">
-      <h1 class="gradient-text">Preise</h1>
-      <p class="footer-small">Alle Preise in EUR inkl. MwSt. Besondere Materialien &amp; aufwändige Fleckenbehandlung können Aufpreise verursachen.</p>
+  <main id="content" class="container" role="main">
+    <section class="page-hero" aria-label="Preise">
+      <h1 class="hero-title">Preisliste</h1>
+      <p class="lead">Klare & transparente Preise — Abo-Optionen und Extras findest du hier. Bei Fragen: WhatsApp oder Anruf.</p>
+    </section>
 
-      <!-- Abo-Karten -->
-      <section class="sep" aria-labelledby="abo">
-        <h2 id="abo" class="gradient-text">Abo-Karten (Hemden-Abo)</h2>
-        <ul>
-          <li>Hemd auf Bügel — 5,90&nbsp;€</li>
-          <li>20er auf Bügel — 98,00&nbsp;€ (4,90&nbsp;€/Stk.)</li>
-          <li>40er auf Bügel — 170,00&nbsp;€ (4,25&nbsp;€/Stk.)</li>
-          <li>Hemd gelegt — 6,90&nbsp;€</li>
-          <li>20er gelegt — 118,00&nbsp;€ (5,90&nbsp;€/Stk.)</li>
-          <li>40er gelegt — 210,00&nbsp;€ (5,25&nbsp;€/Stk.)</li>
-        </ul>
-      </section>
+    <section class="price-section" aria-labelledby="price-overview">
+      <h2 id="price-overview" class="section-title">Unsere Kategorien</h2>
 
-      <!-- Anzüge & Festmode -->
-      <section class="sep" aria-labelledby="anzuege">
-        <h2 id="anzuege" class="gradient-text">Anzüge &amp; Festmode</h2>
-        <ul>
-          <li>Anzug 2-tlg. / Kostüm — 34,80&nbsp;€</li>
-          <li>Anzug 3-tlg. — 46,70&nbsp;€</li>
-          <li>Sakko — 19,90&nbsp;€</li>
-          <li>Anzugweste — 11,90&nbsp;€</li>
-          <li>Krawatte — 8,90&nbsp;€</li>
-          <li>Dirndl (inkl. Schürze &amp; Bluse) — 49,90&nbsp;€</li>
-          <li>Brautkleid — ab 195,00&nbsp;€</li>
-          <li>Tauf-/Kommunionskleid — 32,90&nbsp;€</li>
-          <li>Kleid (einfach) — ab 29,90&nbsp;€</li>
-          <li>Kleid (aufwändig) — 39,90&nbsp;€</li>
-          <li>Seidentuch — 19,90&nbsp;€</li>
-        </ul>
-      </section>
+      <div class="price-grid">
+        <!-- Category: Hemden & Abo-Karten (name updated) -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-hemd" >
+            <summary class="price-summary">
+              <!-- Icon: box with shirt -->
+              <svg class="summary-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#fff" d="M4 3h5l1 2h4l1-2h5v18H4z"></path>
+              </svg>
 
-      <!-- Hosen & Röcke -->
-      <section class="sep" aria-labelledby="hosen">
-        <h2 id="hosen" class="gradient-text">Hosen &amp; Röcke</h2>
-        <ul>
-          <li>Hose — 14,90&nbsp;€</li>
-          <li>Rock, lang — 16,90&nbsp;€</li>
-          <li>Rock mit Falten — 19,90&nbsp;€</li>
-        </ul>
-      </section>
+              <span class="summary-title">Hemden &amp; Abo-Karten</span>
+              <span class="summary-note">Günstiger bei größeren Mengen</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
 
-      <!-- Ober- & Freizeitbekleidung -->
-      <section class="sep" aria-labelledby="oberteile">
-        <h2 id="oberteile" class="gradient-text">Ober- &amp; Freizeitbekleidung</h2>
-        <ul>
-          <li>T-Shirt — 6,50&nbsp;€</li>
-          <li>Polo — 6,90&nbsp;€</li>
-          <li>Langarm-Shirt — 9,50&nbsp;€</li>
-          <li>Pullover — 12,50&nbsp;€</li>
-          <li>Hoodie — 17,90&nbsp;€</li>
-          <li>Strickweste — 16,90&nbsp;€</li>
-        </ul>
-      </section>
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>Hemd (auf Bügel)</dt><dd>5,90 €</dd></div>
+                <div class="price-row"><dt>20er auf Bügel</dt><dd>98,00 € (4,90 €/Stk.)</dd></div>
+                <div class="price-row"><dt>40er auf Bügel</dt><dd>170,00 € (4,25 €/Stk.)</dd></div>
+                <div class="price-row"><dt>Hemd (gelegt)</dt><dd>6,90 €</dd></div>
+                <div class="price-row"><dt>20er gelegt</dt><dd>118,00 € (5,90 €/Stk.)</dd></div>
+                <div class="price-row"><dt>40er gelegt</dt><dd>210,00 € (5,25 €/Stk.)</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
 
-      <!-- Jacken & Mäntel -->
-      <section class="sep" aria-labelledby="jacken">
-        <h2 id="jacken" class="gradient-text">Jacken &amp; Mäntel</h2>
-        <ul>
-          <li>Jacke — 26,00&nbsp;€</li>
-          <li>Kurzmantel — 29,90&nbsp;€</li>
-          <li>Mantel — 32,90&nbsp;€</li>
-          <li>Daunenjacke — 29,90&nbsp;€</li>
-          <li>Daunenmantel — 34,90&nbsp;€</li>
-          <li>Daunenweste — 29,90&nbsp;€</li>
-        </ul>
-      </section>
+        <!-- Anzüge & Festmode -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-anzug">
+            <summary class="price-summary">
+              <svg class="summary-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#fff" d="M4 4h16v2H4zM6 8h12v12H6z"></path>
+              </svg>
 
-      <!-- Outdoor / Ski & Imprägnierung -->
-      <section class="sep" aria-labelledby="ski">
-        <h2 id="ski" class="gradient-text">Outdoor / Ski &amp; Imprägnierung</h2>
-        <ul>
-          <li>Ski-Hose inkl. Imprägnierung — 27,90&nbsp;€</li>
-          <li>Ski-Jacke inkl. Imprägnierung — 39,90&nbsp;€</li>
-          <li>Overall inkl. Imprägnierung — 49,90&nbsp;€</li>
-          <li>Imprägnierung (allgemein) — 7,00&nbsp;€</li>
-        </ul>
-      </section>
+              <span class="summary-title">Anzüge &amp; Festmode</span>
+              <span class="summary-note">Sorgfältige Reinigung & Presse</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
 
-      <!-- Nacht- & Unterwäsche -->
-      <section class="sep" aria-labelledby="nacht">
-        <h2 id="nacht" class="gradient-text">Nacht- &amp; Unterwäsche</h2>
-        <ul>
-          <li>Nachthemd — 9,90&nbsp;€</li>
-          <li>Schlafanzug — 19,90&nbsp;€</li>
-          <li>BH — 4,50&nbsp;€</li>
-          <li>Unterhemd — 4,00&nbsp;€</li>
-          <li>Unterhose — 5,50&nbsp;€</li>
-          <li>Boxershorts — 5,50&nbsp;€</li>
-          <li>Strümpfe / Socken — 3,50&nbsp;€</li>
-        </ul>
-      </section>
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>Anzug 2-tlg. / Kostüm</dt><dd>34,80 €</dd></div>
+                <div class="price-row"><dt>Anzug 3-tlg.</dt><dd>46,70 €</dd></div>
+                <div class="price-row"><dt>Sakko</dt><dd>19,90 €</dd></div>
+                <div class="price-row"><dt>Anzugweste</dt><dd>11,90 €</dd></div>
+                <div class="price-row"><dt>Krawatte</dt><dd>8,90 €</dd></div>
+                <div class="price-row"><dt>Dirndl (inkl. Schürze &amp; Bluse)</dt><dd>49,90 €</dd></div>
+                <div class="price-row"><dt>Brautkleid</dt><dd>ab 195,00 €</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
 
-      <!-- Arbeitsbekleidung / Spezial -->
-      <section class="sep" aria-labelledby="arbeit">
-        <h2 id="arbeit" class="gradient-text">Arbeitsbekleidung / Spezial</h2>
-        <ul>
-          <li>Arztkittel / Arztmantel (hängend) — 9,50&nbsp;€</li>
-          <li>Talar / Roben — 34,90&nbsp;€</li>
-        </ul>
-      </section>
+        <!-- Hosen & Röcke -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-hosen">
+            <summary class="price-summary">
+              <svg class="summary-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#fff" d="M4 3h16v4H4zM4 9h6v12H4zM14 9h6v12h-6z"></path>
+              </svg>
 
-      <!-- Bettdecken, Kissen & Heimtextilien -->
-      <section class="sep" aria-labelledby="bett">
-        <h2 id="bett" class="gradient-text">Bettdecken, Kissen &amp; Heimtextilien</h2>
-        <ul>
-          <li>Daunendecke (1,35 &times; 2,00&nbsp;m) — 44,90&nbsp;€</li>
-          <li>Steppdecke (1,35 &times; 2,00&nbsp;m) — 39,90&nbsp;€</li>
-          <li>Daunenkissen (0,80 &times; 0,80&nbsp;m) — 19,90&nbsp;€</li>
-          <li>Steppkissen (0,80 &times; 0,80&nbsp;m) — 16,90&nbsp;€</li>
-          <li>Matratzenauflage (1,00 &times; 2,00&nbsp;m) — 39,90&nbsp;€</li>
-          <li>Matratzenbezug (1,00 &times; 2,00&nbsp;m) — 49,90&nbsp;€</li>
-          <li>Wolldecke — 29,90&nbsp;€</li>
-          <li>Topperbezüge — 49,90&nbsp;€</li>
-          <li>Topper — 65,00&nbsp;€</li>
-          <li>Sofabezug (3-tlg.) — 85,00&nbsp;€</li>
-        </ul>
-      </section>
+              <span class="summary-title">Hosen &amp; Röcke</span>
+              <span class="summary-note">Sorgfältige Bügel- &amp; Faltenpflege</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
 
-      <!-- Hauswäsche & Bad -->
-      <section class="sep" aria-labelledby="haus">
-        <h2 id="haus" class="gradient-text">Hauswäsche &amp; Bad</h2>
-        <ul>
-          <li>Bettbezug — 9,00&nbsp;€</li>
-          <li>Bettbezug, doppelt — 18,00&nbsp;€</li>
-          <li>Laken — 9,00&nbsp;€</li>
-          <li>Laken, doppelt — 18,00&nbsp;€</li>
-          <li>Kopfkissenbezug — 7,00&nbsp;€</li>
-          <li>Badvorleger — 13,90&nbsp;€</li>
-          <li>Badetuch — 2,90&nbsp;€</li>
-          <li>Handtuch — 2,50&nbsp;€</li>
-          <li>Küchentuch — 1,50&nbsp;€</li>
-        </ul>
-      </section>
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>Hose</dt><dd>14,90 €</dd></div>
+                <div class="price-row"><dt>Rock, lang</dt><dd>16,90 €</dd></div>
+                <div class="price-row"><dt>Rock mit Falten</dt><dd>19,90 €</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
 
-      <!-- Tischwäsche -->
-      <section class="sep" aria-labelledby="tisch">
-        <h2 id="tisch" class="gradient-text">Tischwäsche</h2>
-        <ul>
-          <li>Tischdecke — 14,50&nbsp;€</li>
-          <li>Tischläufer (klein) — 9,90&nbsp;€</li>
-          <li>Hussen — 9,90&nbsp;€</li>
-          <li>Serviette — 3,00&nbsp;€</li>
-        </ul>
-      </section>
+        <!-- Ober- & Freizeitbekleidung -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-ober">
+            <summary class="price-summary">
+              <svg class="summary-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#fff" d="M3 3h18v4H3zM3 9h18v12H3z"></path>
+              </svg>
 
-      <!-- Stores / Gardinen -->
-      <section class="sep" aria-labelledby="gardinen">
-        <h2 id="gardinen" class="gradient-text">Stores / Gardinen</h2>
-        <p>Stores / Gardinen — 13,90&nbsp;€ pro m&sup2;</p>
-      </section>
+              <span class="summary-title">Ober- &amp; Freizeitbekleidung</span>
+              <span class="summary-note">T-Shirts, Pullover, Hoodies</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
 
-      <!-- Extras & Services -->
-      <section class="sep" aria-labelledby="extras">
-        <h2 id="extras" class="gradient-text">Extras &amp; Services</h2>
-        <ul>
-          <li>Premium Finish (Pflegepaket) — 8,50&nbsp;€</li>
-          <li>Handgebügelt — 5,00&nbsp;€</li>
-          <li>FashionGuard (Kleidersack) — 3,50&nbsp;€</li>
-          <li>Tierhaar-Entfernung — 4,50&nbsp;€</li>
-          <li>Fusselentfernung — 4,50&nbsp;€</li>
-          <li>Spezielle Fleckenbehandlung — 3,00&nbsp;€</li>
-          <li>Seide / Leinen / extra Futter (Materialzuschlag) — 3,00&nbsp;€</li>
-          <li>Folie (Schutzfolie) — 0,20&nbsp;€</li>
-        </ul>
-      </section>
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>T-Shirt</dt><dd>6,50 €</dd></div>
+                <div class="price-row"><dt>Polo</dt><dd>6,90 €</dd></div>
+                <div class="price-row"><dt>Langarm-Shirt</dt><dd>9,50 €</dd></div>
+                <div class="price-row"><dt>Pullover</dt><dd>12,50 €</dd></div>
+                <div class="price-row"><dt>Hoodie</dt><dd>17,90 €</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
 
-      <p class="sep">
-        <a class="btn" href="/contact.html">Fragen zu Preisen? Kontakt</a>
-      </p>
-    </div>
+        <!-- Heimtextilien -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-bett">
+            <summary class="price-summary">
+              <svg class="summary-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#fff" d="M3 6h18v12H3z"></path>
+              </svg>
+
+              <span class="summary-title">Bettdecken, Kissen &amp; Heimtextilien</span>
+              <span class="summary-note">Schonende Behandlung, Größenangaben beachten</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>Daunendecke (1,35 × 2,00 m)</dt><dd>44,90 €</dd></div>
+                <div class="price-row"><dt>Steppdecke (1,35 × 2,00 m)</dt><dd>39,90 €</dd></div>
+                <div class="price-row"><dt>Daunenkissen (0,80 × 0,80 m)</dt><dd>19,90 €</dd></div>
+                <div class="price-row"><dt>Topper</dt><dd>65,00 €</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
+
+        <!-- Extras & Services -->
+        <article class="price-card reveal">
+          <details class="price-details" id="cat-extras">
+            <summary class="price-summary">
+              <svg class="summary-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#fff" d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"></path>
+              </svg>
+
+              <span class="summary-title">Extras &amp; Services</span>
+              <span class="summary-note">Folie, Handbügeln, Premium Finish</span>
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+
+            <div class="price-content">
+              <dl class="price-list">
+                <div class="price-row"><dt>Premium Finish (Pflegepaket)</dt><dd>8,50 €</dd></div>
+                <div class="price-row"><dt>Handgebügelt</dt><dd>5,00 €</dd></div>
+                <div class="price-row"><dt>Folie (Schutz)</dt><dd>0,20 €</dd></div>
+                <div class="price-row"><dt>Seide/Leinen Zuschlag</dt><dd>3,00 €</dd></div>
+              </dl>
+            </div>
+          </details>
+        </article>
+
+      </div> <!-- /price-grid -->
+
+      <p class="muted small-note">Alle Preise inkl. MwSt. und vorbehaltlich besonderer Materialanforderungen. Bei unsicherer Preiskalkulation ruf kurz an oder schick ein Foto per WhatsApp.</p>
+    </section>
+
   </main>
 
-  <footer role="contentinfo">
+  <!-- Footer (wie auf Start) -->
+  <footer role="contentinfo" class="site-footer">
     <div class="container footer-grid">
-      <div>
-        <a href="/" aria-label="Startseite"><img src="/img/logo.svg" alt="Textilreinigung Ettlingen" style="height:36px; width:auto;"></a>
-        <p class="footer-small" style="margin-top:.5rem;">
-          Leopoldstr. 42, 76275 Ettlingen · Tel. <a href="tel:+4972439491888">07243 9491888</a> ·
-          <a href="https://wa.me/491604138492" target="_blank" rel="noopener">WhatsApp</a>
-        </p>
+      <div class="footer-left">
+        <img src="/img/logo.svg" alt="Logo Textilreinigung Ettlingen" style="height:34px">
+        <p>Leopoldstr. 42, 76275 Ettlingen</p>
       </div>
-      <nav aria-label="Footer Links" class="footer-links">
-        <a href="/ueber-uns.html">Über uns</a>
-        <a href="/agb.html">AGB</a>
-        <a href="/contact.html">Kontakt</a>
-        <a href="/impressum.html">Impressum</a>
-        <a href="/datenschutz.html">Datenschutz</a>
-      </nav>
-      <p class="footer-small">© <span id="y"></span> Textilreinigung Ettlingen · Alle Rechte vorbehalten.</p>
+
+      <div class="footer-center">
+        <nav aria-label="Footer Navigation">
+          <a href="/impressum.html">Impressum</a> ·
+          <a href="/datenschutz.html">Datenschutz</a> ·
+          <a href="/agb.html">AGB</a>
+        </nav>
+      </div>
+
+      <div class="footer-right">
+        <p>&copy; <span id="year"></span> Textilreinigung Ettlingen</p>
+      </div>
     </div>
-    <script>(function(){ var y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear(); })();</script>
   </footer>
+
+  <!-- kleines Script: aria-expanded sync + details keyboard UX + reveal (optional) -->
+  <script>
+    (function(){
+      // Jahr fallback
+      const y = document.getElementById('year'); if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
+
+      // Sync aria-expanded on summaries
+      document.querySelectorAll('.price-details').forEach(details => {
+        const summary = details.querySelector('summary');
+        // set initial aria-expanded
+        summary.setAttribute('role','button');
+        summary.setAttribute('aria-expanded', details.hasAttribute('open') ? 'true' : 'false');
+
+        // toggle handler
+        details.addEventListener('toggle', () => {
+          summary.setAttribute('aria-expanded', details.open ? 'true' : 'false');
+        });
+
+        // keyboard: Space/Enter already toggles <details>, this keeps aria in sync
+        summary.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            details.open = !details.open;
+            summary.setAttribute('aria-expanded', details.open ? 'true' : 'false');
+          }
+        });
+      });
+
+      // Optional: reveal animations (progressive enhancement)
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries, o) => {
+          entries.forEach(en => {
+            if (en.isIntersecting) {
+              en.target.classList.add('reveal--visible');
+              o.unobserve(en.target);
+            }
+          });
+        }, {root:null,threshold:0.12});
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+      } else {
+        // no observer -> show all
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('reveal--visible'));
+      }
+    })();
+  </script>
+
 </body>
 </html>
