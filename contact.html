@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://textilreinigung-ettlingen.de/contact.html">
   <link rel="stylesheet" href="/styles.css">
 
-  <!-- Seite-spezifische Styles (nur hier wirksam) -->
+  <!-- Seite-spezifische Styles: Mobile-Wasserzeichen + Mobile-Nav-Fix -->
   <style>
     .ct-section{ position:relative; overflow:hidden; padding:1.25rem 0 1.5rem; }
     .ct-watermark{
@@ -29,7 +29,6 @@
     .ct-grid{ display:flex; gap:2rem; align-items:flex-start; max-width:1100px; }
     @media (max-width:900px){ .ct-grid{ flex-direction:column; } }
 
-    /* linke Spalte */
     .ct-left{ flex:1; min-width:260px; max-width:640px; }
     .ct-row{ display:flex; gap:.9rem; align-items:center; }
     .ct-row .label{ color:var(--muted); }
@@ -37,9 +36,8 @@
 
     .ct-ctas{ display:flex; flex-direction:column; gap:.5rem; margin-top:.6rem; width:260px; }
     @media (max-width:600px){ .ct-ctas{ width:100%; } }
-    .ct-ctas .btn{ width:100%; min-width:0; }
+    .ct-ctas .btn{ width:100%; }
 
-    /* rechte Spalte */
     .ct-right{ width:320px; min-width:240px; display:flex; flex-direction:column; }
     @media (max-width:900px){ .ct-right{ width:100%; } }
 
@@ -53,41 +51,48 @@
     .ct-time{ font-weight:900; font-size:1.12rem; background:linear-gradient(90deg,var(--brand-a),var(--brand-b)); -webkit-background-clip:text; color:transparent; }
     .ct-note{ color:var(--muted); margin-top:.25rem; }
 
-    /* Adresse rechts unter Öffnungszeiten (fett) */
     .ct-address{ margin-top:.65rem; font-style:normal; font-weight:900; color:#fff; line-height:1.5; }
 
-    /* Karte: eigener Abschnitt UNTER dem Wasserzeichen-Bereich */
     .ct-map{ border-radius:10px; overflow:hidden; margin:1.25rem 0 1.75rem; }
     .ct-map iframe{ width:100%; height:340px; border:0; }
 
-    /* generelle Textgrößen wie bei Brautkleid/Schäden */
-    .ct-content p, .ct-content li{ color:#fff; font-size:1.075rem; line-height:1.6; }
+    .ct-content p,.ct-content li{ color:#fff; font-size:1.075rem; line-height:1.6; }
+
+    /* ✅ Mobile: Wasserzeichen nicht beschneiden */
+    @media (max-width: 700px){
+      .ct-watermark{
+        background-position: center top;
+        background-size: contain;   /* statt cover */
+      }
+      /* ✅ Mobile-Navigation fix */
+      .nav{ flex-wrap: wrap; justify-content: center; gap:.9rem; }
+      .nav a{ font-size:.98rem; padding:.35rem 0; }
+      .brand img{ height:86px; }
+    }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
-  <!-- Header -->
-<header class="header container" role="banner" aria-label="Hauptnavigation">
-  <div class="brand">
-    <a href="/" class="brand-link" aria-label="Zur Startseite">
-      <img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" />
-    </a>
-  </div>
+  <header class="header container" role="banner" aria-label="Hauptnavigation">
+    <div class="brand">
+      <a href="/" class="brand-link" aria-label="Zur Startseite">
+        <img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" />
+      </a>
+    </div>
 
-  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
-    <a href="/index.html">Home</a>
-    <a href="/preise.html">Preise</a>
-    <a href="/brautkleid.html">Brautkleid</a>
-    <a href="/schaden.html">Versicherungsschäden</a>
-    <a href="/contact.html" aria-current="page">Kontakt</a>
-  </nav>
+    <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+      <a href="/index.html">Home</a>
+      <a href="/preise.html">Preise</a>
+      <a href="/brautkleid.html">Brautkleid</a>
+      <a href="/schaden.html">Versicherungsschäden</a>
+      <a href="/contact.html" aria-current="page">Kontakt</a>
+    </nav>
 
-  <div class="nav-actions">
-    <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Design wechseln">🌓</button>
-  </div>
-</header>
-
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Design wechseln">🌓</button>
+    </div>
+  </header>
 
   <main id="content" class="container" role="main">
     <!-- Abschnitt MIT Wasserzeichen (Text + Spalten) -->
@@ -147,7 +152,6 @@
     </section>
   </main>
 
-  <!-- Footer wie auf den anderen Seiten -->
   <footer role="contentinfo" class="site-footer">
     <div class="container footer-grid">
       <div class="footer-left">
