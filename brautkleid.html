@@ -1,55 +1,147 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <title>Brautkleid-Reinigung per Hand – Textilreinigung Ettlingen</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ihr Brautkleid wird bei uns vollständig in Handarbeit gereinigt: Fleckenbehandlung, Handwäsche, Formtrocknung und Premium-Finish.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Brautkleid – reine Handarbeit | Textilreinigung Ettlingen</title>
+  <meta name="description" content="Brautkleid-Pflege in Ettlingen: reine Handarbeit ohne Maschinenwaschgang. Sichtung, Vorbehandlung, Fleckenentfernung, Handreinigung & Premium-Finish.">
   <link rel="canonical" href="https://textilreinigung-ettlingen.de/brautkleid.html">
-  <meta name="theme-color" content="#0b0b0f">
   <link rel="stylesheet" href="/styles.css">
-  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+
+  <!-- Nur seiten-spezifische Styles für diese Seite -->
+  <style>
+    .bk-section{ position:relative; overflow:hidden; padding:1.25rem 0 1.5rem; }
+    .bk-watermark{
+      position:absolute; inset:0;
+      background:url('/img/tile-brautkleid.jpg') center/cover no-repeat;
+      opacity:0.15;               /* 15% Sichtbarkeit gewünscht */
+      pointer-events:none;        /* rein dekorativ */
+      filter:saturate(95%) contrast(1.05);
+    }
+    .bk-content{ position:relative; z-index:1; }
+    .bk-title{
+      margin:0 0 .75rem;
+      font-weight:900;
+      font-size:clamp(1.8rem,3.2vw,2.6rem);
+      background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .bk-content p,
+    .bk-content li{ color:#fff; }
+    .bk-lead{ color:#eaf4ff; margin:.25rem 0 1.1rem; }
+    .bk-content h3{
+      margin:1.1rem 0 .25rem;
+      font-weight:900; color:#fff; font-size:1.15rem;
+    }
+    .bk-content ul{ margin:.2rem 0 .9rem 1.2rem; }
+    .bk-content li{ margin:.15rem 0; }
+    .bk-note{ color:#cfe6ff; }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Zum Inhalt springen</a>
-  <header class="section" role="banner">
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:1rem;">
-      <a href="/" aria-label="Startseite"><img src="/img/logo.svg" alt="Textilreinigung Ettlingen Logo" style="height:48px; width:auto;"></a>
-      <nav class="nav" aria-label="Hauptnavigation">
-        <a href="/preise.html">Preise</a><a href="/brautkleid.html" aria-current="page">Brautkleid</a><a href="/schaden.html">Versicherungsschäden</a><a href="/contact.html">Kontakt</a><a href="/ueber-uns.html">Über uns</a>
-      </nav>
+  <a class="skip-link" href="#content">Zum Inhalt springen</a>
+
+  <!-- Header wie auf der Startseite -->
+  <header class="header container" role="banner" aria-label="Hauptnavigation">
+    <div class="brand">
+      <a href="/" class="brand-link" aria-label="Zur Startseite">
+        <img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" />
+      </a>
+    </div>
+
+    <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+      <a href="/index.html">Home</a>
+      <a href="/preise.html">Preise</a>
+      <a href="/brautkleid.html" aria-current="page">Brautkleid</a>
+      <a href="/schaden.html">Schäden</a>
+      <a href="/contact.html">Kontakt</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Design wechseln">🌓</button>
     </div>
   </header>
 
-  <main id="main" class="section">
-    <div class="container">
-      <h1 class="gradient-text">Brautkleid – Reinigung per Hand</h1>
-      <p>Vom Test bis zum Premium-Finish: Wir reinigen Ihr Kleid vollständig in Handarbeit – schonend für Stoff, Spitze &amp; Applikationen.</p>
-      <details class="sep"><summary>Ablauf im Überblick</summary>
-        <ol>
-          <li>Material- &amp; Farbtests, Abnahmeprotokoll</li>
-          <li>Gezielte Fleckenbehandlung</li>
-          <li>Sanfte Handwäsche &amp; Spülgänge</li>
-          <li>Formtrocknung</li>
-          <li>Schonendes Finish &amp; Lager-Empfehlung</li>
-        </ol>
-      </details>
-      <p class="sep"><a class="btn" href="/contact.html">Anfragen &amp; Termin</a></p>
-    </div>
+  <main id="content" class="container" role="main">
+    <section class="bk-section" aria-label="Brautkleid-Pflege">
+      <div class="bk-watermark" aria-hidden="true"></div>
+
+      <div class="bk-content">
+        <h1 class="bk-title">Brautkleid-Pflege – reine Handarbeit</h1>
+        <p class="bk-lead">Ein Brautkleid ist besonders. Deshalb reinigen und veredeln wir es ausschließlich per Hand – ohne Standardprogramme, ohne Maschinenwaschgang.</p>
+
+        <h3>1) Sichtung &amp; Beratung</h3>
+        <ul>
+          <li>Wir prüfen Stoffe, Lagen und Applikationen (z. B. Perlen, Strass, Pailletten, Tüll).</li>
+          <li>Wir schauen uns den Verschmutzungsgrad genau an (Saum, Schleppe, Flecken).</li>
+          <li>Aufwand, mögliche Risiken (z. B. gelöste Klebestellen) und eine Kostenschätzung besprechen wir vorab.</li>
+        </ul>
+
+        <h3>2) Vorbehandlung (Saum/Schleppe)</h3>
+        <ul>
+          <li>Groben Schmutz entfernen wir zuerst behutsam (ausbürsten, abtupfen).</li>
+          <li>Danach bekommt das Kleid ein schonendes Hand-Bad mit materialgerechten Pflegelösungen.</li>
+        </ul>
+
+        <h3>3) Fleckenentfernung – Punkt für Punkt</h3>
+        <ul>
+          <li>Jeder Fleck wird einzeln von Hand behandelt (Make-up, Erde, Gras, Getränk, Soße usw.).</li>
+          <li>Wir arbeiten mit Spatel, weichen Bürsten und Tüchern – immer passend zu Stoff und Fleck.</li>
+          <li>Wenn nötig, wiederholen wir die Behandlung, bis das Ergebnis stimmt.</li>
+        </ul>
+
+        <h3>4) Handreinigung &amp; Schutz der Details</h3>
+        <ul>
+          <li>Empfindliche Bereiche decken wir ab und sichern Applikationen.</li>
+          <li>Das Kleid wird sanft von Hand gereinigt – gründlich, aber materialschonend.</li>
+        </ul>
+
+        <h3>5) Premium-Finish (Handgebügelt)</h3>
+        <ul>
+          <li>Schicht für Schicht in Form bringen, dämpfen und von Hand bügeln.</li>
+          <li>Mehrere Fachkräfte arbeiten gleichzeitig – für perfekte Linien, Fall und Volumen.</li>
+          <li>Ziel: strahlend sauber und in perfekter Form, wie am Hochzeitstag.</li>
+        </ul>
+
+        <h3>Kosten &amp; Dauer</h3>
+        <p>Beides ist individuell: abhängig von Stoff, Lagen, Applikationen und Verschmutzung.</p>
+        <p>Sie erhalten vorab eine transparente Einschätzung. Pauschalpreise sind hier nicht sinnvoll.</p>
+
+        <h3>Gut zu wissen</h3>
+        <p>Bei geklebten Applikationen kann sich Kleber lösen – wir arbeiten vorsichtig und klären Risiken vorher.</p>
+        <p class="bk-note">Unser Anspruch: bestmögliches Ergebnis. Wenn es sein muss, arbeiten wir einzelne Schritte erneut nach.</p>
+      </div>
+    </section>
   </main>
 
-  <footer role="contentinfo">
+  <!-- Footer wie auf der Startseite -->
+  <footer role="contentinfo" class="site-footer">
     <div class="container footer-grid">
-      <div>
-        <a href="/" aria-label="Startseite"><img src="/img/logo.svg" alt="Textilreinigung Ettlingen" style="height:36px; width:auto;"></a>
-        <p class="footer-small" style="margin-top:.5rem;">Leopoldstr. 42, 76275 Ettlingen · Tel. <a href="tel:+4972439491888">07243 9491888</a> · <a href="https://wa.me/491604138492" target="_blank" rel="noopener">WhatsApp</a></p>
+      <div class="footer-left">
+        <img src="/img/logo.svg" alt="Logo Textilreinigung Ettlingen" style="height:34px">
+        <p>Leopoldstr. 42, 76275 Ettlingen</p>
       </div>
-      <nav aria-label="Footer Links" class="footer-links">
-        <a href="/ueber-uns.html">Über uns</a><a href="/agb.html">AGB</a><a href="/contact.html">Kontakt</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a>
-      </nav>
-      <p class="footer-small">© <span id="y"></span> Textilreinigung Ettlingen · Alle Rechte vorbehalten.</p>
+
+      <div class="footer-center">
+        <nav aria-label="Footer Navigation">
+          <a href="/impressum.html">Impressum</a> ·
+          <a href="/datenschutz.html">Datenschutz</a> ·
+          <a href="/agb.html">AGB</a>
+        </nav>
+      </div>
+
+      <div class="footer-right">
+        <p>&copy; <span id="year"></span> Textilreinigung Ettlingen</p>
+      </div>
     </div>
-    <script>(function(){ var y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear(); })();</script>
   </footer>
+
+  <script>
+    // Jahr-Fallback (wie auf den anderen Seiten)
+    (function(){
+      const y = document.getElementById('year');
+      if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
