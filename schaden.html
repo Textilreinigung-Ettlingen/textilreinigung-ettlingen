@@ -3,87 +3,81 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Versicherungsfälle / Schadenservice | Textilreinigung Ettlingen</title>
+  <title>Versicherungsschäden / Schadenservice | Textilreinigung Ettlingen</title>
   <meta name="description" content="Schadenservice für Wasser-, Brand-, Schimmel- oder Transportschäden: Dokumentation, Kostenvoranschlag, fachgerechte Reinigung/Sanierung und Unterstützung bei der Abrechnung mit der Versicherung.">
   <link rel="canonical" href="https://textilreinigung-ettlingen.de/schaden.html">
   <link rel="stylesheet" href="/styles.css">
 
-  <!-- Seiten-spezifische Styles (nur hier wirksam) -->
+  <!-- Seite-spezifische Styles: Mobile-Wasserzeichen + Mobile-Nav-Fix -->
   <style>
     .vs-section{ position:relative; overflow:hidden; padding:1.25rem 0 1.5rem; }
     .vs-watermark{
       position:absolute; inset:0;
       background:url('/img/tile-schaden.jpg') center/cover no-repeat;
-      opacity:0.10;               /* 10% wie gewünscht */
-      pointer-events:none;
-      filter:saturate(95%) contrast(1.05);
+      opacity:0.10; pointer-events:none; filter:saturate(95%) contrast(1.05);
     }
     .vs-content{ position:relative; z-index:1; }
     .vs-title{
-      margin:0 0 .85rem;
-      font-weight:900;
-      font-size:clamp(2rem,3.4vw,2.8rem); /* wie Brautkleid */
+      margin:0 0 .85rem; font-weight:900;
+      font-size:clamp(2rem,3.4vw,2.8rem);
       background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
       -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-    .vs-lead{ color:#eaf4ff; margin:.25rem 0 1.1rem; font-size:1.125rem; } /* wie Brautkleid */
-
-    /* Textgrößen wie Brautkleid */
-    .vs-content p,
-    .vs-content li{
-      color:#fff;
-      font-size:1.075rem;
-      line-height:1.6;
-    }
-    .vs-content h3{
-      margin:1.1rem 0 .35rem;
-      font-weight:900; color:#fff;
-      font-size:1.28rem;
-    }
+    .vs-lead{ color:#eaf4ff; margin:.25rem 0 1.1rem; font-size:1.125rem; }
+    .vs-content p,.vs-content li{ color:#fff; font-size:1.075rem; line-height:1.6; }
+    .vs-content h3{ margin:1.1rem 0 .35rem; font-weight:900; color:#fff; font-size:1.28rem; }
     .vs-content ul{ margin:.2rem 0 1rem 1.2rem; }
     .vs-content li{ margin:.2rem 0; }
     .vs-note{ color:#cfe6ff; }
+
+    /* ✅ Mobile: Wasserzeichen nicht beschneiden */
+    @media (max-width: 700px){
+      .vs-watermark{
+        background-position: center top;
+        background-size: contain;     /* statt cover */
+      }
+      /* ✅ Mobile-Navigation fix */
+      .nav{ flex-wrap: wrap; justify-content: center; gap:.9rem; }
+      .nav a{ font-size:.98rem; padding:.35rem 0; }
+      .brand img{ height:86px; }
+    }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
-  <!-- Header (wie auf den anderen Seiten) -->
-<header class="header container" role="banner" aria-label="Hauptnavigation">
-  <div class="brand">
-    <a href="/" class="brand-link" aria-label="Zur Startseite">
-      <img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" />
-    </a>
-  </div>
+  <header class="header container" role="banner" aria-label="Hauptnavigation">
+    <div class="brand">
+      <a href="/" class="brand-link" aria-label="Zur Startseite">
+        <img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" />
+      </a>
+    </div>
 
-  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
-    <a href="/index.html">Home</a>
-    <a href="/preise.html">Preise</a>
-    <a href="/brautkleid.html">Brautkleid</a>
-    <a href="/schaden.html" aria-current="page">Versicherungsschäden</a>
-    <a href="/contact.html">Kontakt</a>
-  </nav>
+    <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+      <a href="/index.html">Home</a>
+      <a href="/preise.html">Preise</a>
+      <a href="/brautkleid.html">Brautkleid</a>
+      <a href="/schaden.html" aria-current="page">Versicherungsschäden</a>
+      <a href="/contact.html">Kontakt</a>
+    </nav>
 
-  <div class="nav-actions">
-    <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Design wechseln">🌓</button>
-  </div>
-</header>
-
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Design wechseln">🌓</button>
+    </div>
+  </header>
 
   <main id="content" class="container" role="main">
-    <section class="vs-section" aria-label="Versicherungsfälle / Schadenservice">
+    <section class="vs-section" aria-label="Versicherungsschäden / Schadenservice">
       <div class="vs-watermark" aria-hidden="true"></div>
 
       <div class="vs-content">
-        <h1 class="vs-title">Versicherungsfälle / Schadenservice</h1>
+        <h1 class="vs-title">Versicherungsschäden / Schadenservice</h1>
 
-        <!-- Kurztext (Teaser) -->
         <p class="vs-lead">
           Wasser-, Brand-, Schimmel- oder Transportschaden? Wir dokumentieren den Zustand, erstellen einen Kostenvoranschlag,
           reinigen/sanieren fachgerecht und unterstützen bei der Abrechnung mit der Versicherung – schnell, transparent, zuverlässig.
         </p>
 
-        <!-- Haupttext -->
         <h3>Versicherungsfälle – wir regeln das für Sie</h3>
         <p>
           Ob Wasser, Rauch/Brand, Schimmel, Einlagerungs- oder Transportschäden:
@@ -115,7 +109,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer role="contentinfo" class="site-footer">
     <div class="container footer-grid">
       <div class="footer-left">
