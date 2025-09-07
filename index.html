@@ -47,12 +47,12 @@
           </div>
         </div>
 
-        <!-- sichtbares Wasserzeichen (größer/kräftiger wie gewünscht) -->
+        <!-- sichtbares Wasserzeichen (größer/kräftiger) -->
         <div class="hero-watermark" aria-hidden="true" title="Logo als Wasserzeichen"></div>
       </div>
     </section>
 
-    <!-- USP row (3 per row on desktop) -->
+    <!-- USP row -->
     <section class="container usp-grid" aria-label="Unsere Vorteile">
       <article class="usp tile reveal">
         <img src="/img/usp-professionell.jpg" alt="Professionell — Handreinigung" loading="lazy" width="1400" height="900">
@@ -76,7 +76,7 @@
       </article>
     </section>
 
-    <!-- Services grid: 3 per row on desktop -->
+    <!-- Services grid -->
     <section class="container tiles" aria-label="Leistungen">
       <article class="tile reveal">
         <img src="/img/tile-textilreinigung.jpg" alt="Textilreinigung" loading="lazy" width="1400" height="900">
@@ -130,8 +130,8 @@
       </div>
     </section>
 
-    <!-- CONTACT (zentriert, klare Layout: links CTAs+Adresse, rechts Öffnungszeiten & Weg) -->
-    <section class="container contact-strip" aria-label="Kontakt und Öffnungszeiten">
+    <!-- CONTACT -->
+    <section id="kontakt" class="container contact-strip" aria-label="Kontakt und Öffnungszeiten">
       <div class="contact-inner">
         <header class="contact-strip-header">
           <h2>Kontakt & Öffnungszeiten</h2>
@@ -139,7 +139,7 @@
         </header>
 
         <div class="contact-grid" role="region" aria-label="Kontaktinformationen">
-          <!-- LEFT: Telefon, CTAs, Adresse -->
+          <!-- LEFT: Telefon, CTAs -->
           <div class="left-col">
             <div class="contact-big">
               <svg class="icon-phone" width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
@@ -154,17 +154,12 @@
 
             <div class="contact-ctas">
               <a class="btn btn-whatsapp" href="https://wa.me/491604138492" aria-label="WhatsApp schreiben">WhatsApp schreiben</a>
-              <a class="btn btn-gradient" href="tel:+4972439491888" aria-label="Anrufen">Anrufen</a>
-              <a class="btn btn-gradient" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail schreiben">E-Mail schreiben</a>
-            </div>
-
-            <div class="address-left" aria-label="Adresse">
-              <div class="address-line gradient-address">Leopoldstr. 42</div>
-              <div class="address-line gradient-address">76275 Ettlingen</div>
+              <a class="btn btn-turquoise" href="tel:+4972439491888" aria-label="Anrufen">Anrufen</a>
+              <a class="btn btn-turquoise" href="mailto:info@textilreinigung-ettlingen.de" aria-label="E-Mail schreiben">E-Mail schreiben</a>
             </div>
           </div>
 
-          <!-- RIGHT: Öffnungszeiten + Wegbeschreibung (zentriert innerhalb rechten Bereichs) -->
+          <!-- RIGHT: Öffnungszeiten + Wegbeschreibung -->
           <div class="right-col" aria-label="Öffnungszeiten und Weg">
             <div class="hours">
               <div class="hours-head">
@@ -180,13 +175,19 @@
             </div>
 
             <div class="directions-wrap">
+              <!-- Kasten/Verlauf entfernt: jetzt dezenter Outline-Button -->
               <a class="directions-btn" href="https://www.google.com/maps/dir/?api=1&destination=Leopoldstr.+42+76275+Ettlingen" target="_blank" rel="noopener" aria-label="Wegbeschreibung">Wegbeschreibung</a>
             </div>
           </div>
         </div>
+
+        <!-- NEU: Adresse zentriert unter CTAs & Wegbeschreibung -->
+        <div class="address-centered" aria-label="Adresse">
+          <div class="gradient-address">Leopoldstr. 42</div>
+          <div class="gradient-address">76275 Ettlingen</div>
+        </div>
       </div>
     </section>
-
   </main>
 
   <footer role="contentinfo" class="site-footer">
@@ -222,7 +223,7 @@
       const y = document.getElementById('year');
       if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
 
-      // Back-to-top logic (respects reduced-motion)
+      // Back-to-top logic
       const btn = document.getElementById('toTopBtn');
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const showAt = 240;
@@ -236,7 +237,7 @@
       onScroll();
       window.addEventListener('scroll', onScroll, {passive:true});
 
-      // reveal animations for tiles / usps
+      // reveal animations
       if ('IntersectionObserver' in window) {
         const obs = new IntersectionObserver((entries, o) => {
           entries.forEach(en => {
