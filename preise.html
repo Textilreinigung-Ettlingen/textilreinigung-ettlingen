@@ -7,11 +7,104 @@
   <meta name="description" content="Preisliste Textilreinigung Ettlingen — Hemden, Anzüge, Brautkleider, Heimtextilien & Extras. Klare Preise, Abo-Optionen und transparente Zusatzleistungen.">
   <link rel="canonical" href="https://textilreinigung-ettlingen.de/preise.html">
   <link rel="stylesheet" href="/styles.css">
+
+  <!-- Page-spezifische Overrides: nur für /preise.html -->
+  <style>
+    /* Scoped to price section to avoid changing other pages */
+    .price-section { --card-radius: 12px; }
+
+    /* Force single-column layout (categories stacked) */
+    .price-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 0.6rem; }
+
+    /* Card visual */
+    .price-details {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: var(--card-radius);
+      border: 1px solid rgba(255,255,255,0.04);
+      overflow: hidden;
+      transition: transform .14s ease, box-shadow .16s ease;
+    }
+    .price-details:hover { transform: translateY(-4px); box-shadow: 0 22px 48px rgba(0,0,0,0.55); }
+    .price-details[open] { box-shadow: 0 28px 72px rgba(0,0,0,0.55); }
+
+    /* Summary: left emoji-box, title (gradient), note, chevron */
+    .price-summary {
+      display:flex; align-items:center; gap:0.9rem;
+      padding:1rem 1.05rem; cursor:pointer; user-select:none; background:transparent; border:0;
+    }
+    .price-summary:focus { outline: 3px solid rgba(123,44,255,0.12); outline-offset:4px; }
+
+    /* Emoji box (gradient background) - visible and consistent */
+    .summary-icon {
+      width:46px; height:46px; border-radius:10px;
+      display:inline-flex; align-items:center; justify-content:center;
+      background: linear-gradient(90deg, var(--brand-a), var(--brand-b));
+      box-shadow: 0 10px 26px rgba(123,44,255,0.12);
+      font-size:22px; line-height:1;
+      flex: 0 0 46px;
+    }
+    .summary-icon[aria-hidden="true"] { /* decorative */ }
+
+    /* Title uses your gradient as visual accent — still readable because it's large/bold */
+    .summary-title {
+      font-weight:900; font-size:1.05rem;
+      background: linear-gradient(90deg, var(--brand-a), var(--brand-b));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+
+    .summary-note { margin-left:auto; color: var(--muted); font-size:0.95rem; }
+
+    .chev { margin-left:.6rem; color:var(--muted); font-weight:900; transition: transform .18s ease; }
+    .price-details[open] .chev { transform: rotate(180deg); }
+
+    /* Price content - larger, two-column visual with dt left / dd right */
+    .price-content { padding:0.85rem 1rem 1rem 1rem; background: transparent; }
+    .price-list { margin:0; padding:0; display:block; }
+    .price-row {
+      display:flex; justify-content:space-between; align-items:flex-start;
+      padding: .75rem 0; border-bottom: 1px dashed rgba(255,255,255,0.04);
+    }
+
+    /* Article (left) */
+    .price-row dt {
+      font-weight:800; color:#eaf8ff; margin:0; font-size:1.02rem; text-align:left;
+      flex: 1 1 auto; min-width: 0;
+    }
+
+    /* Price (right) */
+    .price-row dd {
+      margin:0; color:#fff; font-weight:900; text-align:right;
+      font-size:1.12rem; min-width:6.5rem; margin-left:1rem;
+      white-space:nowrap;
+      flex: 0 0 auto;
+    }
+
+    /* Responsive: stack on small screens */
+    @media (max-width:520px) {
+      .price-row { flex-direction: column; align-items: stretch; gap: .25rem; }
+      .price-row dd { text-align:left; }
+      .summary-note { display:block; margin-left:0; margin-top:.35rem; }
+      .summary-title { font-size:1rem; }
+      .summary-icon { width:40px; height:40px; font-size:20px; }
+    }
+
+    /* Buttons */
+    .price-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .btn-small { padding:.45rem .7rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06);
+                 background: transparent; color: #fff; font-weight:800; cursor:pointer; }
+    .btn-small:focus { outline:3px solid rgba(123,44,255,0.12); outline-offset:3px; }
+
+    /* Small note spacing */
+    .small-note { color: var(--muted); font-size: .97rem; margin-top: 1rem; }
+
+    /* Ensure details summary marker hidden (accessibility friendly) */
+    summary::-webkit-details-marker { display:none; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
-  <!-- Header -->
+  <!-- Header (same markup as index) -->
   <header class="header container" role="banner" aria-label="Hauptnavigation">
     <div class="brand">
       <a href="/" class="brand-link" aria-label="Zur Startseite">
@@ -78,7 +171,7 @@
           </details>
         </article>
 
-        <!-- Anzüge & Festmode (Emoji geändert auf 👗) -->
+        <!-- Anzüge & Festmode (emoji in box) -->
         <article class="price-card reveal">
           <details class="price-details" id="cat-anzug">
             <summary class="price-summary" tabindex="0" role="button" aria-expanded="false">
@@ -197,7 +290,7 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (gleich wie index) -->
   <footer role="contentinfo" class="site-footer">
     <div class="container footer-grid">
       <div class="footer-left">
@@ -219,13 +312,13 @@
     </div>
   </footer>
 
-  <!-- Small helper script: year, aria sync, keyboard, expand/collapse all, reveal -->
+  <!-- Page scripts (aria-sync, expand/collapse all, reveal) -->
   <script>
     (function(){
-      // Jahr-Fallback
+      // Jahr fallback
       const y = document.getElementById('year'); if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
 
-      // details aria sync + keyboard
+      // Sync aria-expanded & keyboard for all details
       document.querySelectorAll('.price-details').forEach(details => {
         const summary = details.querySelector('summary');
         summary.setAttribute('role','button');
@@ -245,14 +338,14 @@
         });
       });
 
-      // expand / collapse all
+      // Expand / Collapse All
       const expandAll = document.getElementById('expandAll');
       const collapseAll = document.getElementById('collapseAll');
       const allDetails = Array.from(document.querySelectorAll('.price-details'));
       expandAll?.addEventListener('click', () => allDetails.forEach(d => d.open = true));
       collapseAll?.addEventListener('click', () => allDetails.forEach(d => d.open = false));
 
-      // reveal on scroll
+      // Reveal
       if ('IntersectionObserver' in window) {
         const obs = new IntersectionObserver((entries, o) => {
           entries.forEach(en => {
