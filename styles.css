@@ -55,7 +55,6 @@ body{
 
 /* USP / Tiles */
 .usp-grid, .tiles{display:grid;gap:1rem}
-@media(min-width:900px){ .usp-grid{grid-template-columns:repeat(3,1fr)} .tiles{grid-template-columns:repeat(3,1fr)} }
 .tile img{width:100%;height:auto;border-radius:8px;display:block;object-fit:cover}
 .tile h3{margin:.5rem 0 0;font-size:1rem;font-weight:900;background:linear-gradient(90deg,var(--brand-a),var(--brand-b));-webkit-background-clip:text;color:transparent}
 .tile p{margin:0;color:var(--muted);font-size:0.95rem}
@@ -93,9 +92,9 @@ body{
 .price-section{margin-top:1.2rem;padding-bottom:2rem}
 .price-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.6rem}
 .section-title{margin:0 0 .25rem;font-size:1.15rem;font-weight:900;color:#fff}
-.price-grid{display:grid;grid-template-columns:1fr;gap:1rem}
-@media(min-width:900px){ .price-grid{grid-template-columns:repeat(3,1fr)} }
 
+/* <<< IMPORTANT: single column so categories list vertically >>> */
+.price-grid{display:grid;grid-template-columns:1fr;gap:1rem}
 .price-card{background:transparent}
 
 /* details baseline: card look */
@@ -110,20 +109,18 @@ body{
 .price-details:hover{ transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.55); }
 .price-details[open]{box-shadow:0 30px 80px rgba(0,0,0,0.55)}
 
-/* summary row: emoji + title + note + chevron */
+/* summary row: emoji (no box) + title + note + chevron */
+/* NOTE: emoji sits free (no colored box / gradient behind it) as requested */
 .price-summary{
-  display:flex;align-items:center;gap:0.8rem;padding:1rem 1.05rem;cursor:pointer;user-select:none;background:transparent;border:0;
+  display:flex;align-items:center;gap:0.9rem;padding:1rem 1.05rem;cursor:pointer;user-select:none;background:transparent;border:0;
 }
 .price-summary:focus{outline:3px solid rgba(123,44,255,0.12);outline-offset:4px}
 
-/* emoji box */
+/* emoji - free (no background box), larger for visibility */
 .summary-icon{
-  flex:0 0 44px;width:44px;height:44px;border-radius:10px;
-  background:linear-gradient(90deg,var(--brand-a),var(--brand-b));
-  display:inline-flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(123,44,255,0.10);
-  font-size:20px; line-height:1; /* emoji size */
+  flex:0 0 auto;font-size:28px;line-height:1;padding:0;margin:0;
+  background:transparent;border-radius:0;box-shadow:none;
 }
-.summary-icon[aria-hidden="true"]{ /* decorative */ }
 
 /* gradient title text */
 .summary-title{
