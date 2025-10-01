@@ -1,0 +1,26 @@
+{
+  "name": "textilreinigung-ettlingen-app",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist-electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build:ts && NODE_ENV=development electron .",
+    "build": "npm run build:ts && npm run build:electron",
+    "build:ts": "tsc",
+    "build:electron": "tsc -p electron/tsconfig.json",
+    "test": "npm run build:ts && node --test tests/**/*.test.js"
+  },
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "firebase": "^10.7.1",
+    "html5-qrcode": "^2.3.8",
+    "qrcode.react": "^3.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.48.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
