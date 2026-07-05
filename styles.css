@@ -155,3 +155,60 @@ body{
   .btn{width:100%;justify-content:center}
   .time{font-size:1.06rem}
 }
+
+/* ==========================================
+   GEÄNDERTE ÖFFNUNGSZEITEN
+========================================== */
+
+.opening-notice {
+  padding: 18px 0;
+}
+
+.opening-notice-box {
+  background: linear-gradient(135deg, #CB2C00, #e24a21);
+  color: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(203, 44, 0, 0.25);
+}
+
+.opening-notice-box h2 {
+  margin: 0 0 12px;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.opening-notice-box p {
+  margin: 0;
+}
+
+.opening-times-special {
+  margin: 18px 0;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.notice-thankyou {
+  opacity: 0.95;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .opening-times-special {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .opening-notice-box {
+    padding: 20px;
+  }
+
+  .opening-notice-box h2 {
+    font-size: 1.3rem;
+  }
+}
