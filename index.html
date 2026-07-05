@@ -8,29 +8,54 @@
   <link rel="canonical" href="https://textilreinigung-ettlingen.de/">
   <link rel="stylesheet" href="/styles.css">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-<header class="header container" role="banner" aria-label="Hauptnavigation">
-  <div class="brand">
-    <a href="/" class="brand-link" aria-label="Zur Startseite">
-      <img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" />
-    </a>
-  </div>
+  <header class="header container" role="banner" aria-label="Hauptnavigation">
+    <div class="brand">
+      <a href="/" class="brand-link" aria-label="Zur Startseite">
+        <img src="/img/logo.svg" alt="Textilreinigung Ettlingen" id="logo" />
+      </a>
+    </div>
 
-  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
-    <a href="/index.html" aria-current="page">Home</a>
-    <a href="/preise.html">Preise</a>
-    <a href="/brautkleid.html">Brautkleid</a>
-    <a href="/schaden.html">Versicherungsschäden</a>
-    <a href="/contact.html">Kontakt</a>
-  </nav>
+    <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+      <a href="/index.html" aria-current="page">Home</a>
+      <a href="/preise.html">Preise</a>
+      <a href="/brautkleid.html">Brautkleid</a>
+      <a href="/schaden.html">Versicherungsschäden</a>
+      <a href="/contact.html">Kontakt</a>
+    </nav>
 
-  <div class="nav-actions">
-    <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Design wechseln">🌓</button>
-  </div>
-</header>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Design wechseln">🌓</button>
+    </div>
+  </header>
 
+  <!-- WICHTIGER HINWEIS: GEÄNDERTE ÖFFNUNGSZEITEN -->
+  <section class="opening-notice" aria-label="Geänderte Öffnungszeiten">
+    <div class="container">
+      <div class="opening-notice-box">
+        <h2>⚠️ Geänderte Öffnungszeiten</h2>
+
+        <p>
+          In der Woche vom
+          <strong>06.07.2026 bis einschließlich 11.07.2026</strong>
+          gelten folgende Öffnungszeiten:
+        </p>
+
+        <div class="opening-times-special">
+          <div>🕘 09:00 – 13:00 Uhr</div>
+          <div>☕ Mittagspause 13:00 – 15:00 Uhr</div>
+          <div>🕒 15:00 – 18:00 Uhr</div>
+        </div>
+
+        <p class="notice-thankyou">
+          Vielen Dank für Ihr Verständnis.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <main id="main">
     <!-- HERO -->
@@ -48,7 +73,6 @@
           </div>
         </div>
 
-        <!-- Wasserzeichen -->
         <div class="hero-watermark" aria-hidden="true" title="Logo als Wasserzeichen"></div>
       </div>
     </section>
@@ -140,15 +164,20 @@
         </header>
 
         <div class="contact-grid" role="region" aria-label="Kontaktinformationen">
-          <!-- LEFT: Telefon, CTAs -->
           <div class="left-col">
             <div class="contact-big">
               <svg class="icon-phone" width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
-                <defs><linearGradient id="lg1" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#00d8ff"/><stop offset="1" stop-color="#7b2cff"/></linearGradient></defs>
-                <path fill="url(#lg1)" d="M6.6 10.8a15.05 15.05 0 0 0 7.6 7.6l2.1-2.1a1 1 0 0 1 1.1-.2c1.2.5 2.5.8 3.9.8a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C9.5 22 2 14.5 2 5a1 1 0 0 1 1-1h2.7a1 1 0 0 1 1 1c0 1.4.3 2.7.8 3.9a1 1 0 0 1-.2 1.1L6.6 10.8z"/></svg>
+                <defs>
+                  <linearGradient id="lg1" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0" stop-color="#00d8ff"/>
+                    <stop offset="1" stop-color="#7b2cff"/>
+                  </linearGradient>
+                </defs>
+                <path fill="url(#lg1)" d="M6.6 10.8a15.05 15.05 0 0 0 7.6 7.6l2.1-2.1a1 1 0 0 1 1.1-.2c1.2.5 2.5.8 3.9.8a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C9.5 22 2 14.5 2 5a1 1 0 0 1 1-1h2.7a1 1 0 0 1 1 1c0 1.4.3 2.7.8 3.9a1 1 0 0 1-.2 1.1L6.6 10.8z"/>
+              </svg>
               <div>
                 <div class="muted">Telefon</div>
-                <a class="phone-link" href="tel:+497243 3644717">+49 7243 3644717</a>
+                <a class="phone-link" href="tel:+4972433644717">+49 7243 3644717</a>
               </div>
             </div>
 
@@ -159,7 +188,6 @@
             </div>
           </div>
 
-          <!-- RIGHT: Öffnungszeiten + Wegbeschreibung -->
           <div class="right-col" aria-label="Öffnungszeiten und Weg">
             <div class="hours">
               <div class="hours-head">
@@ -168,20 +196,23 @@
               </div>
 
               <div class="hours-list">
-                <div class="hours-row"><span class="day">Mo–Fr</span><time class="time" datetime="09:00">09:00 – 18:00</time></div>
-                <div class="hours-row"><span class="day">Sa</span><time class="time" datetime="10:00">10:00 – 14:00</time></div>
-                <div class="hours-note">Feiertage: nach Vereinbarung</div>
+                <div class="hours-row">
+                  <span class="day">06.07. – 11.07.</span>
+                  <time class="time">09:00 – 13:00 / 15:00 – 18:00</time>
+                </div>
+
+                <div class="hours-note">
+                  Mittagspause täglich von 13:00 bis 15:00 Uhr
+                </div>
               </div>
             </div>
 
-            <!-- Button mittig unter Öffnungszeiten und im gleichen Stil wie links -->
             <div class="directions-wrap">
               <a class="btn btn-turquoise directions-btn" href="https://www.google.com/maps/dir/?api=1&destination=Durlacherstr.+23+76275+Ettlingen" target="_blank" rel="noopener">Wegbeschreibung</a>
             </div>
           </div>
         </div>
 
-        <!-- Adresse zentriert unter CTAs & Wegbeschreibung -->
         <div class="address-centered" aria-label="Adresse">
           <div class="gradient-address">Durlacher Str. 23</div>
           <div class="gradient-address">76275 Ettlingen</div>
@@ -222,14 +253,40 @@
       const btn = document.getElementById('toTopBtn');
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const showAt = 240;
-      function scrollToTop(){ prefersReduced ? window.scrollTo(0,0) : window.scrollTo({top:0,behavior:'smooth'}); }
+
+      function scrollToTop(){
+        prefersReduced
+          ? window.scrollTo(0,0)
+          : window.scrollTo({top:0,behavior:'smooth'});
+      }
+
       btn.addEventListener('click', scrollToTop);
-      btn.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); scrollToTop(); } });
-      function onScroll(){ window.scrollY > showAt ? btn.classList.add('visible') : btn.classList.remove('visible'); }
-      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+      btn.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          scrollToTop();
+        }
+      });
+
+      function onScroll(){
+        window.scrollY > showAt
+          ? btn.classList.add('visible')
+          : btn.classList.remove('visible');
+      }
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, {passive:true});
 
       if ('IntersectionObserver' in window){
-        const obs = new IntersectionObserver((entries,o)=>{ entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('reveal--visible'); o.unobserve(en.target); } }); }, {threshold:.12});
+        const obs = new IntersectionObserver((entries,o)=>{
+          entries.forEach(en=>{
+            if(en.isIntersecting){
+              en.target.classList.add('reveal--visible');
+              o.unobserve(en.target);
+            }
+          });
+        }, {threshold:.12});
+
         document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
       } else {
         document.querySelectorAll('.reveal').forEach(el=>el.classList.add('reveal--visible'));
