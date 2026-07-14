@@ -146,7 +146,6 @@ export const pricingCategories = [
     items: [
       { name: 'Premium Finish (Pflegepaket)', price: 'ab 8,50 €' },
       { name: 'Handgebügelt', price: 'ab 5,00 €' },
-      { name: 'FashionGuard (Kleidersack)', price: 'ab 3,50 €' },
       { name: 'Tierhaar-Entfernung', price: 'ab 4,50 €' },
       { name: 'Fusselentfernung', price: 'ab 4,50 €' },
       { name: 'Spezielle Fleckenbehandlung', price: 'ab 3,00 €' },

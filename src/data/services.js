@@ -44,7 +44,7 @@ export const services = [
     id: 'service-extras',
     title: 'Service & Extras',
     description:
-      'Premium Finish, FashionGuard, Fleckenbehandlung, Imprägnierung und Handbügelservice — die Details, die Qualität ausmachen.',
+      'Premium Finish, Fleckenbehandlung, Imprägnierung und Handbügelservice — die Details, die Qualität ausmachen.',
     from: 'ab 3,00 €',
     icon: 'sparkle',
   },
@@ -80,13 +80,6 @@ export const premiumServices = [
     price: '8,50 €',
     image: '/images/premium-finish.webp',
     alt: 'Fließende Seidenstoff-Textur mit sanftem Glanz',
-  },
-  {
-    title: 'FashionGuard',
-    description: 'Schützender Kleidersack für Transport und Aufbewahrung hochwertiger Garderobe.',
-    price: '3,50 €',
-    image: '/images/fashionguard.webp',
-    alt: 'Hemden und Anzüge geschützt im Kleiderschrank',
   },
   {
     title: 'Handgebügelt',
