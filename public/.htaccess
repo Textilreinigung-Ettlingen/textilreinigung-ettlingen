@@ -1,6 +1,7 @@
 <IfModule mod_rewrite.c>
   Options -MultiViews
   RewriteEngine On
+  RewriteBase /
 
   # In EINEM Schritt auf https + non-www kanonisieren
   RewriteCond %{HTTPS} !=on [OR]
@@ -8,7 +9,8 @@
   RewriteRule ^(.*)$ https://textilreinigung-ettlingen.de/$1 [R=301,L]
 
   # SPA-Fallback: alle Routen ohne existierende Datei auf index.html umleiten
+  RewriteCond %{REQUEST_URI} !^/index\.html$
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ index.html [L]
+  RewriteRule ^ /index.html [L]
 </IfModule>
