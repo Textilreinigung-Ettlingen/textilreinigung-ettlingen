@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import Logo from '../ui/Logo'
 import { navLinks } from '../../data/nav'
-import { business, telHref, mailHref } from '../../data/business'
+import { business, telHref, mailHref, temporaryClosure, isTemporaryClosureActive } from '../../data/business'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -64,6 +64,11 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+          {isTemporaryClosureActive() && (
+            <p className="mt-4 rounded-lg border border-gold-light/30 bg-gold-light/10 px-3 py-2.5 text-xs leading-relaxed text-gold-light">
+              {temporaryClosure.noteText}
+            </p>
+          )}
         </div>
       </div>
 

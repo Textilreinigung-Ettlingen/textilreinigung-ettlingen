@@ -1,14 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link, NavLink } from 'react-router-dom'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, X, Phone, Clock } from 'lucide-react'
 import Logo from '../ui/Logo'
 import { navLinks } from '../../data/nav'
-import { business, telHref } from '../../data/business'
+import { business, telHref, temporaryClosure, isTemporaryClosureActive } from '../../data/business'
+
+const NOTICE_DISMISS_KEY = 'te-mittagspause-notice-dismissed'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [noticeDismissed, setNoticeDismissed] = useState(true)
+  const [headerHeight, setHeaderHeight] = useState(0)
+  const headerRef = useRef(null)
 
   useEffect(() => {
     function onScroll() {
@@ -23,12 +28,58 @@ export default function Header() {
     document.documentElement.style.overflow = menuOpen ? 'hidden' : ''
   }, [menuOpen])
 
+  useEffect(() => {
+    if (!isTemporaryClosureActive()) return
+    try {
+      setNoticeDismissed(sessionStorage.getItem(NOTICE_DISMISS_KEY) === '1')
+    } catch {
+      setNoticeDismissed(false)
+    }
+  }, [])
+
+  function dismissNotice() {
+    setNoticeDismissed(true)
+    try {
+      sessionStorage.setItem(NOTICE_DISMISS_KEY, '1')
+    } catch {
+      // sessionStorage kann in privaten Tabs blockiert sein — dann bleibt die Anzeige bis zum nächsten Laden sichtbar
+    }
+  }
+
+  const showNotice = isTemporaryClosureActive() && !noticeDismissed
+
+  useEffect(() => {
+    function measure() {
+      if (headerRef.current) setHeaderHeight(headerRef.current.offsetHeight)
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [showNotice])
+
   return (
     <header
+      ref={headerRef}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-premium ${
         scrolled ? 'bg-ink/90 shadow-soft backdrop-blur-md' : 'bg-transparent'
       }`}
     >
+      {showNotice && (
+        <div className="relative bg-gold-gradient text-ink">
+          <div className="container-premium flex items-center justify-center gap-3 py-2.5 pr-10 text-center text-xs font-medium leading-snug sm:text-sm">
+            <Clock className="hidden h-4 w-4 shrink-0 sm:block" strokeWidth={2} />
+            <span>{temporaryClosure.bannerText}</span>
+            <button
+              type="button"
+              onClick={dismissNotice}
+              aria-label="Hinweis schließen"
+              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-1 text-ink/70 transition-colors hover:bg-ink/10 hover:text-ink"
+            >
+              <X className="h-4 w-4" strokeWidth={2} />
+            </button>
+          </div>
+        </div>
+      )}
       <div className="container-premium flex h-20 items-center justify-between md:h-24">
         <Link
           to="/"
@@ -83,7 +134,8 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 top-20 z-40 bg-ink lg:hidden"
+            style={{ top: headerHeight || undefined }}
+            className="fixed inset-x-0 bottom-0 top-20 z-40 bg-ink lg:hidden"
           >
             <div className="container-premium flex h-full flex-col justify-between py-10">
               <nav className="flex flex-col gap-2">

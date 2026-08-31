@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Clock, Send, ArrowUpRight } from 'lucide-react'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
 import CTAGroup from '../ui/CTAGroup'
-import { business, mailHref } from '../../data/business'
+import { business, mailHref, temporaryClosure, isTemporaryClosureActive } from '../../data/business'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', message: '' })
@@ -51,6 +51,11 @@ export default function Contact() {
                     <span className="text-cream">{h.days}:</span> {h.time}
                   </p>
                 ))}
+                {isTemporaryClosureActive() && (
+                  <p className="mt-2 rounded-lg border border-gold-light/30 bg-gold-light/10 px-3 py-2.5 text-xs leading-relaxed text-gold-light">
+                    {temporaryClosure.noteText}
+                  </p>
+                )}
               </div>
             </div>
           </Reveal>

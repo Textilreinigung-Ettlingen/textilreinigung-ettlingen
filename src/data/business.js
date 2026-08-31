@@ -22,3 +22,22 @@ export const business = {
 export const telHref = `tel:${business.phone.replace(/\s+/g, '')}`
 export const whatsappHref = `https://wa.me/${business.whatsapp.replace(/[^\d]/g, '')}`
 export const mailHref = `mailto:${business.email}`
+
+// Befristete Mittagspause (Montag–Freitag), z. B. wegen Personalengpass o. Ä.
+// Nach `endDate` verschwindet der Hinweis automatisch, keine manuelle Rücknahme nötig.
+export const temporaryClosure = {
+  startDate: '2026-09-01',
+  endDate: '2026-10-15',
+  weekdayHours: '09:00 – 13:00 Uhr und 15:00 – 18:00 Uhr',
+  breakHours: '13:00 – 15:00 Uhr',
+  bannerText:
+    'Vom 01.09. bis 15.10.2026 machen wir mittags 2 Stunden zu: Montag – Freitag 09:00 – 13:00 Uhr und 15:00 – 18:00 Uhr geöffnet.',
+  noteText:
+    'Vom 01.09. bis 15.10.2026 sind wir Montag – Freitag von 13:00 – 15:00 Uhr mittags geschlossen.',
+}
+
+export function isTemporaryClosureActive(now = new Date()) {
+  const start = new Date(`${temporaryClosure.startDate}T00:00:00`)
+  const end = new Date(`${temporaryClosure.endDate}T23:59:59`)
+  return now >= start && now <= end
+}
