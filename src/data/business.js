@@ -28,10 +28,11 @@ export const mailHref = `mailto:${business.email}`
 export const temporaryClosure = {
   startDate: '2026-09-01',
   endDate: '2026-10-15',
+  rangeLabel: '01.09. – 15.10.2026',
   weekdayHours: '09:00 – 13:00 Uhr und 15:00 – 18:00 Uhr',
+  weekdayHoursShort: '09:00 – 13:00 & 15:00 – 18:00 Uhr',
   breakHours: '13:00 – 15:00 Uhr',
-  bannerText:
-    'Vom 01.09. bis 15.10.2026 machen wir mittags 2 Stunden zu: Montag – Freitag 09:00 – 13:00 Uhr und 15:00 – 18:00 Uhr geöffnet.',
+  bannerHeadline: 'Befristete Mittagspause',
   noteText:
     'Vom 01.09. bis 15.10.2026 sind wir Montag – Freitag von 13:00 – 15:00 Uhr mittags geschlossen.',
 }

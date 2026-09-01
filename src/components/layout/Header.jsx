@@ -64,22 +64,49 @@ export default function Header() {
         scrolled ? 'bg-ink/90 shadow-soft backdrop-blur-md' : 'bg-transparent'
       }`}
     >
-      {showNotice && (
-        <div className="relative bg-gold-gradient text-ink">
-          <div className="container-premium flex items-center justify-center gap-3 py-2.5 pr-10 text-center text-xs font-medium leading-snug sm:text-sm">
-            <Clock className="hidden h-4 w-4 shrink-0 sm:block" strokeWidth={2} />
-            <span>{temporaryClosure.bannerText}</span>
-            <button
-              type="button"
-              onClick={dismissNotice}
-              aria-label="Hinweis schließen"
-              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-1 text-ink/70 transition-colors hover:bg-ink/10 hover:text-ink"
-            >
-              <X className="h-4 w-4" strokeWidth={2} />
-            </button>
-          </div>
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {showNotice && (
+          <motion.div
+            initial={{ opacity: 0, y: -18 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -18 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="relative overflow-hidden border-b border-ink/10 bg-gold-gradient text-ink shadow-[0_2px_16px_rgba(0,0,0,0.18)]"
+          >
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_-20%,rgba(255,255,255,0.35),transparent_55%)]" />
+            <div className="container-premium relative flex flex-col items-center gap-x-3 gap-y-1.5 py-3 pr-9 text-center sm:flex-row sm:justify-center sm:py-2.5">
+              <span className="inline-flex items-center gap-2 whitespace-nowrap font-display text-[13px] font-semibold tracking-wide sm:text-sm">
+                <span className="relative flex h-2 w-2 shrink-0">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink/40" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
+                </span>
+                <Clock className="h-4 w-4 shrink-0" strokeWidth={2} />
+                {temporaryClosure.bannerHeadline}
+              </span>
+
+              <span className="hidden h-3.5 w-px shrink-0 bg-ink/25 sm:block" />
+
+              <span className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+                <span className="rounded-full bg-ink/10 px-2.5 py-0.5 text-[11px] font-semibold tracking-wide sm:text-xs">
+                  {temporaryClosure.rangeLabel}
+                </span>
+                <span className="text-[11px] font-medium text-ink/90 sm:text-xs">
+                  Mo – Fr {temporaryClosure.weekdayHoursShort}
+                </span>
+              </span>
+
+              <button
+                type="button"
+                onClick={dismissNotice}
+                aria-label="Hinweis schließen"
+                className="absolute right-3 top-3 rounded-full p-1 text-ink/60 transition-colors hover:bg-ink/10 hover:text-ink sm:right-4 sm:top-1/2 sm:-translate-y-1/2"
+              >
+                <X className="h-4 w-4" strokeWidth={2} />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="container-premium flex h-20 items-center justify-between md:h-24">
         <Link
           to="/"
