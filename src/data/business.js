@@ -13,7 +13,7 @@ export const business = {
   email: 'info@textilreinigung-ettlingen.de',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Durlacher+Str.+23+76275+Ettlingen',
   hours: [
-    { days: 'Montag – Freitag', time: '09:00 – 18:00 Uhr' },
+    { days: 'Montag – Freitag', time: '09:00 – 13:00 & 15:00 – 18:00 Uhr' },
     { days: 'Samstag', time: '10:00 – 14:00 Uhr' },
     { days: 'Sonn- & Feiertage', time: 'nach Vereinbarung' },
   ],
