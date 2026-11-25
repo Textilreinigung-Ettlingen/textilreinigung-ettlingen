@@ -21,8 +21,8 @@
   mask-size: 220% 100%;
   mask-position: 100% 0;
   mask-repeat: no-repeat;
-  animation: ettlingen-greeting-in 150ms ease-out both,
-    ettlingen-greeting-dissolve 570ms 1090ms linear forwards;
+  animation: ettlingen-greeting-in 200ms ease-out both,
+    ettlingen-greeting-dissolve var(--dissolve-duration) var(--dissolve-start) linear forwards;
 }
 
 .christmas-greeting__star {
@@ -67,9 +67,10 @@
   width: var(--flake-size);
   height: var(--flake-size);
   opacity: 0;
-  color: #fff5df;
-  font: normal var(--flake-size)/1 Georgia, serif;
-  animation: ettlingen-greeting-flake 330ms var(--release) ease-in both;
+  color: #fffaf0;
+  text-shadow: 0 1px 3px #17201ecc;
+  font: normal var(--flake-size)/1 'Segoe UI Symbol', sans-serif;
+  animation: ettlingen-greeting-flake 795ms var(--release) cubic-bezier(.36,.03,.7,.76) both;
 }
 
 .christmas-greeting__flakes i:empty {
@@ -83,14 +84,47 @@
 }
 
 @keyframes ettlingen-greeting-dissolve {
-  from { mask-position: 100% 0; }
+  from { mask-position: 100% 0; opacity: 1; }
+  75% { opacity: 1; }
   to { mask-position: 0% 0; opacity: 0; }
 }
 
 @keyframes ettlingen-greeting-flake {
-  0% { opacity: 0; transform: translateY(0) scale(.65); }
-  16% { opacity: .9; }
-  100% { opacity: 0; transform: translate(var(--drift), var(--drop)) scale(.72); }
+  0% { opacity: 0; transform: translateY(0) scale(.9); }
+  12%, 64% { opacity: .97; }
+  100% { opacity: 0; transform: translate(var(--drift), var(--drop)) scale(1); }
+}
+
+@media (min-width: 768px) {
+  .christmas-greeting {
+    width: clamp(540px, 48vw, 740px);
+  }
+
+  .christmas-greeting__card {
+    padding: 23px 24px 32px;
+    border-color: #dac293b3;
+    border-radius: 18px;
+  }
+
+  .christmas-greeting__star {
+    gap: 12px;
+    font-size: 19px;
+  }
+
+  .christmas-greeting__star::before,
+  .christmas-greeting__star::after {
+    width: 52px;
+  }
+
+  .christmas-greeting__title {
+    margin: 10px 0;
+    font-size: clamp(47px, 4.5vw, 66px);
+  }
+
+  .christmas-greeting__signature {
+    color: #f2e7d5;
+    font-size: clamp(17px, 1.5vw, 21px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
