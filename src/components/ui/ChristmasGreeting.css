@@ -1,0 +1,103 @@
+.christmas-greeting {
+  position: fixed;
+  z-index: 60;
+  top: 44%;
+  left: 50%;
+  width: min(390px, calc(100% - 32px));
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  user-select: none;
+  text-align: center;
+}
+
+.christmas-greeting__card {
+  padding: 14px 12px 23px;
+  border: 1px solid #cbb58a90;
+  border-radius: 14px;
+  background: linear-gradient(125deg, #25312dfc, #17201efc 58%, #222523fc);
+  color: #fff6e3;
+  box-shadow: inset 0 0 0 3px #ffffff05;
+  mask-image: linear-gradient(90deg, transparent 45%, black 55%);
+  mask-size: 220% 100%;
+  mask-position: 100% 0;
+  mask-repeat: no-repeat;
+  animation: ettlingen-greeting-in 150ms ease-out both,
+    ettlingen-greeting-dissolve 570ms 1090ms linear forwards;
+}
+
+.christmas-greeting__star {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: #dfc28b;
+  font: 14px/1 Georgia, serif;
+}
+
+.christmas-greeting__star::before,
+.christmas-greeting__star::after {
+  content: '';
+  width: 31px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #bba175);
+}
+
+.christmas-greeting__star::after { transform: rotate(180deg); }
+
+.christmas-greeting__title {
+  margin: 6px 0;
+  color: #fff5df;
+  font: italic 400 clamp(27px, 6.7vw, 37px)/1.12 Georgia, 'Times New Roman', serif;
+}
+
+.christmas-greeting__signature {
+  margin: 0;
+  color: #e6daca;
+  font: 400 clamp(12px, 3.2vw, 14px)/1.4 system-ui, sans-serif;
+}
+
+.christmas-greeting__flakes {
+  position: absolute;
+  inset: 0;
+}
+
+.christmas-greeting__flakes i {
+  position: absolute;
+  display: block;
+  width: var(--flake-size);
+  height: var(--flake-size);
+  opacity: 0;
+  color: #fff5df;
+  font: normal var(--flake-size)/1 Georgia, serif;
+  animation: ettlingen-greeting-flake 330ms var(--release) ease-in both;
+}
+
+.christmas-greeting__flakes i:empty {
+  border-radius: 50%;
+  background: #fff7e7;
+}
+
+@keyframes ettlingen-greeting-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ettlingen-greeting-dissolve {
+  from { mask-position: 100% 0; }
+  to { mask-position: 0% 0; opacity: 0; }
+}
+
+@keyframes ettlingen-greeting-flake {
+  0% { opacity: 0; transform: translateY(0) scale(.65); }
+  16% { opacity: .9; }
+  100% { opacity: 0; transform: translate(var(--drift), var(--drop)) scale(.72); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .christmas-greeting__card { animation: none; }
+  .christmas-greeting__flakes { display: none; }
+}
+
+@media print {
+  .christmas-greeting { display: none; }
+}

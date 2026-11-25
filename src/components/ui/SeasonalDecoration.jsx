@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import ChristmasGreeting from './ChristmasGreeting'
 import christmasTree from '../../assets/seasonal/christmas-tree.svg'
 import newYear from '../../assets/seasonal/new-year.svg'
 import './SeasonalDecoration.css'
@@ -52,9 +53,12 @@ export default function SeasonalDecoration() {
   return (
     <div className="seasonal-hero" data-season={season} aria-hidden="true">
       {season === 'christmas' && (
-        <div className="seasonal-hero__snow">
-          {flakes.map((style, index) => <i key={index} style={style} />)}
-        </div>
+        <>
+          <ChristmasGreeting />
+          <div className="seasonal-hero__snow">
+            {flakes.map((style, index) => <i key={index} style={style} />)}
+          </div>
+        </>
       )}
       <img
         className="seasonal-hero__art"
