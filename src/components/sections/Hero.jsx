@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
+import SeasonalDecoration from '../ui/SeasonalDecoration'
 import NoiseOverlay from '../ui/NoiseOverlay'
 import CTAGroup from '../ui/CTAGroup'
 import logoFull from '../../assets/logo-full-web.png'
@@ -24,6 +25,8 @@ export default function Hero() {
       </Suspense>
       <NoiseOverlay opacity={0.05} />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-ink/40" />
+
+      <SeasonalDecoration />
 
       <div className="container-premium relative z-10 pb-24 pt-32 md:pb-32 md:pt-40">
         <motion.div

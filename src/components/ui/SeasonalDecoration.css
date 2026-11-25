@@ -1,0 +1,66 @@
+.seasonal-hero {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.seasonal-hero__art {
+  position: absolute;
+  right: clamp(20px, 4vw, 82px);
+  bottom: clamp(24px, 5%, 68px);
+  width: clamp(128px, 16vw, 230px);
+  height: auto;
+}
+
+.seasonal-hero__snow,
+.seasonal-hero__snow i {
+  position: absolute;
+  inset: 0;
+}
+
+.seasonal-hero__snow i {
+  right: auto;
+  width: var(--size);
+  opacity: var(--alpha);
+  animation: ettlingen-snow var(--duration) linear var(--delay) infinite;
+}
+
+.seasonal-hero__snow i::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: var(--size);
+  border-radius: 50%;
+  background: #fffaf0;
+  box-shadow: 0 0 4px #f4eddd60;
+}
+
+@keyframes ettlingen-snow {
+  from { transform: translate3d(0, -2%, 0); }
+  to { transform: translate3d(var(--drift), 102%, 0); }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .seasonal-hero__art { bottom: 62px; }
+}
+
+@media (max-width: 767px) {
+  .seasonal-hero__art {
+    top: 84px;
+    right: 3px;
+    bottom: auto;
+    width: clamp(76px, 21vw, 122px);
+  }
+
+  .seasonal-hero__snow i:nth-child(even) { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seasonal-hero__snow { display: none; }
+}
+
+@media print {
+  .seasonal-hero { display: none; }
+}
