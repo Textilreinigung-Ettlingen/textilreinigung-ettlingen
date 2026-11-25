@@ -9,7 +9,7 @@
 .seasonal-hero__art {
   position: absolute;
   right: clamp(20px, 4vw, 82px);
-  bottom: clamp(24px, 5%, 68px);
+  top: clamp(260px, 37svh, 390px);
   width: clamp(128px, 16vw, 230px);
   height: auto;
 }
@@ -42,15 +42,17 @@
   to { transform: translate3d(var(--drift), 102%, 0); }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .seasonal-hero__art { bottom: 62px; }
+@media (min-width: 768px) and (max-width: 1199px) {
+  .seasonal-hero__art {
+    right: 12px;
+    width: clamp(104px, 11vw, 132px);
+  }
 }
 
 @media (max-width: 767px) {
   .seasonal-hero__art {
     top: 84px;
     right: 3px;
-    bottom: auto;
     width: clamp(76px, 21vw, 122px);
   }
 
